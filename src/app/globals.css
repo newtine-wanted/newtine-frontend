@@ -1,5 +1,12 @@
 @import "tailwindcss";
+@import "../design-system/tokens.css";
 
 @theme {
   --container-app: 480px;
+}
+
+@layer base {
+  html:has(dialog[data-newtine-modal][open]) {
+    overflow: hidden;
+  }
 }

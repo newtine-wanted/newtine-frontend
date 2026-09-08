@@ -16,6 +16,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@fontsource-variable/noto-sans-kr": "5.3.0",
     "axios": "^1.20.0",
     "next": "16.3.4",
     "react": "19.2.8",
