@@ -25,6 +25,26 @@ npm run dev
 첫 화면은 `src/app/page.tsx`, 공통 레이아웃은 `src/app/layout.tsx`에서 수정합니다.
 `@/*` 경로 별칭은 `src/*`를 가리킵니다.
 
+## 코드 구조
+
+Pen의 화면 그룹은 온보딩, 피드, 이슈 상세 시트, 마이페이지, 진단보고서의 다섯 사용자 흐름으로 봅니다. 화면 이름을 그대로 라우트로 만들기보다 다음 책임으로 나눕니다.
+
+```text
+src/
+├── app/              # URL 진입점, 레이아웃, 기능 조합
+├── components/ui/    # 제품 의미를 모르는 공용 UI
+├── domain/           # 여러 기능이 공유하는 제품 개념과 도메인 UI
+├── features/         # onboarding, feed, issue-detail, my-page, report
+├── design-system/    # 색상·타이포그래피·radius 등 시각 토큰
+└── lib/              # 도메인과 무관한 유틸리티와 기반 코드
+```
+
+- `app`의 `page.tsx`는 라우팅과 기능 조합만 담당합니다.
+- 여러 화면에서 공유하는 제품 개념은 `domain`, 한 흐름에만 필요한 상태·API·컴포넌트는 `features`에 둡니다.
+- `components/ui`에는 도메인 데이터나 제품 문구를 넣지 않습니다.
+- `features` 아래의 폴더와 `api`, `store`, `types` 파일은 실제 구현이 생길 때만 추가합니다.
+- 상세 화면은 별도 페이지가 아니라 피드와 관심 뉴스 목록에서 공유하는 이슈 상세 시트 기능으로 다룹니다.
+
 ## 명령어
 
 ```bash
