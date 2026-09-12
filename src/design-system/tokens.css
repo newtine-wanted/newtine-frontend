@@ -2,13 +2,10 @@
   --radius-control-sm: 12px; /* 작은·중간 버튼, 내비게이션 버튼, 모달 닫기 버튼 */
   --radius-control-lg: 14px; /* 큰 버튼 */
   --radius-control-xl: 16px; /* 가장 큰 액션 버튼 */
-  --radius-card: 20px; /* 이슈 카드와 다이얼로그 */
+  --radius-card: 20px; /* 다이얼로그 */
   --radius-sheet: 24px; /* 바텀시트 상단 모서리 */
-  --radius-overlay: 10px; /* 스와이프 상태 레이블 */
   --text-display: 28px; /* 컴포넌트 프리뷰의 최상위 제목 */
   --text-display--line-height: 1.4; /* display 텍스트 행간 */
-  --text-card-title: 26px; /* 이슈 카드 제목 */
-  --text-card-title--line-height: 1.4; /* 카드 제목 행간 */
   --text-title: 24px; /* Pen의 Today's Feed 같은 페이지·섹션 제목 */
   --text-title--line-height: 1.4; /* 페이지·섹션 제목 행간 */
   --text-heading: 20px; /* 모달 제목과 프리뷰 섹션 제목 */
@@ -25,27 +22,6 @@
   --text-label--line-height: 1.45; /* label 텍스트 행간 */
   --text-hint: 11px; /* 도움말, 스와이프 안내, 가장 작은 보조 문구 */
   --text-hint--line-height: 1.45; /* hint 텍스트 행간 */
-  --animate-summary-in: summary-in 250ms ease-out both; /* 3줄 요약 순차 노출 */
-  --animate-skeleton: skeleton 1.2s ease-in-out infinite; /* 카드 로딩 상태 점멸 */
-
-  @keyframes summary-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes skeleton {
-    0%,
-    100% {
-      opacity: 0.45;
-    }
-    50% {
-      opacity: 1;
-    }
-  }
 }
 
 @theme inline {
@@ -68,7 +44,7 @@
   --color-background: #ffffff; /* 앱, 카드, 모달, 바텀시트 기본 배경 */
   --color-canvas: #f8f8f8; /* 모바일 앱 바깥의 데스크톱 배경 */
   --color-surface: #f8f8f8; /* 리포트 빈 상태와 마이페이지 타일 */
-  --color-surface-muted: #eeeeee; /* 썸네일 자리 표시자와 스켈레톤 배경 */
+  --color-surface-muted: #eeeeee; /* 보조 버튼과 숫자 배지 배경 */
 
   /* 테두리 */
   --color-border: #000000; /* 카드와 외곽선 버튼의 강조 테두리 */

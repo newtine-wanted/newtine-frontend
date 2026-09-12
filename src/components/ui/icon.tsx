@@ -3,14 +3,9 @@ import { cx } from "@/lib/cx";
 const glyphs = {
   check: "✓",
   next: "→",
-  like: "♥",
   skip: "✕",
   back: "‹",
   caret: "›",
-  housing: "▤",
-  labor: "▦",
-  finance: "▥",
-  topic: "▣",
 } as const;
 
 export interface IconProps {
