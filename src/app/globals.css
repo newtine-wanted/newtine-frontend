@@ -2,6 +2,7 @@
 
 @theme {
   --text-display: 28px; /* 28px: 화면에서 가장 크게 표시하는 대표 제목 */
+  --text-brand: 26px; /* 26px: 상단 앱 바 왼쪽의 NEWTINE 워드마크 */
   --text-title: 24px; /* 24px: Today's Feed 같은 페이지 제목과 큰 섹션 제목 */
   --text-heading: 20px; /* 20px: 카드·팝업 안의 주요 제목 */
   --text-nav: 18px; /* 18px: 상단 앱 바의 화면 제목과 큰 아이콘 */
