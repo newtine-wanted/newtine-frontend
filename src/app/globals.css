@@ -1,12 +1,49 @@
 @import "tailwindcss";
-@import "../design-system/tokens.css";
 
 @theme {
-  --container-app: 480px;
+  --text-display: 28px; /* 28px: 화면에서 가장 크게 표시하는 대표 제목 */
+  --text-brand: 26px; /* 26px: 상단 앱 바 왼쪽의 NEWTINE 워드마크 */
+  --text-title: 24px; /* 24px: Today's Feed 같은 페이지 제목과 큰 섹션 제목 */
+  --text-heading: 20px; /* 20px: 카드·팝업 안의 주요 제목 */
+  --text-nav: 18px; /* 18px: 상단 앱 바의 화면 제목과 큰 아이콘 */
+  --text-button: 16px; /* 16px: 공용 버튼 안의 글자와 아이콘 */
+  --text-body: 15px; /* 15px: 주요 버튼 문구, 목록 제목, 뉴스 요약 본문 */
+  --text-body-sm: 14px; /* 14px: 작은 버튼 문구, 목록의 우측 값, 팝업 본문 */
+  --text-caption: 13px; /* 13px: 기사 날짜·출처와 중요도가 낮은 목록 문구 */
+  --text-label: 12px; /* 12px: 카테고리 태그와 기사 개수 표시 */
+  --text-hint: 11px; /* 11px: 도움말과 스와이프 안내처럼 가장 작은 문구 */
 }
 
-@layer base {
-  html:has(dialog[data-newtine-modal][open]) {
-    overflow: hidden;
-  }
+@theme inline {
+  --color-*: initial;
+
+  /* 브랜드 */
+  --color-primary: #000000; /* 검정: NEWTINE 로고와 가장 중요한 채움형 버튼의 배경 */
+  --color-primary-foreground: #ffffff; /* 흰색: 검정 버튼 안에 표시하는 글자와 아이콘 */
+  --color-accent: #15a91f; /* 초록: 관심 주제 선택 표시와 사용자가 눌러야 하는 강조 링크 */
+
+  /* 타이포그래피 */
+  --color-foreground: #000000; /* 검정: 페이지 제목, 기사 제목, 버튼 등 가장 먼저 읽어야 하는 글자 */
+  --color-foreground-body: #222222; /* 매우 짙은 회색: 뉴스 요약과 기사 본문처럼 길게 읽는 글자 */
+  --color-foreground-secondary: #444444; /* 짙은 회색: 목록 우측 값과 제목 바로 아래의 보조 설명 */
+  --color-muted: #666666; /* 중간 회색: 기사 날짜·출처, 입력 도움말, 부가 설명 */
+  --color-muted-light: #888888; /* 밝은 회색: 기사 목록의 개수와 우선순위가 낮은 숫자·정보 */
+  --color-subtle: #999999; /* 더 밝은 회색: 스와이프 안내와 장식용 섹션 번호 */
+
+  /* 표면 */
+  --color-background: #ffffff; /* 흰색: 브라우저 전체와 페이지 콘텐츠의 기본 배경 */
+  --color-surface: #f8f8f8; /* 아주 연한 회색: 진단보고서 빈 화면과 마이페이지 정보 타일의 배경 */
+  --color-surface-muted: #eeeeee; /* 연한 회색: 보조 버튼과 원형 숫자 배지의 배경 */
+
+  /* 테두리 */
+  --color-border: #000000; /* 검정: 외곽선 버튼과 강조 카드의 테두리 */
+  --color-divider: #dddddd; /* 연한 회색: 목록 행 사이와 카드·시트 내부를 나누는 1px 선 */
+
+  /* 상태 */
+  --color-positive: #15a91f; /* 초록: 관심 주제가 선택된 상태와 작업 성공 표시 */
+  --color-danger: #f36464; /* 연한 빨강: 삭제처럼 되돌리기 어려운 동작과 경고 표시 */
+  --color-disabled: #cccccc; /* 회색: 누를 수 없는 버튼과 아직 완료되지 않은 진행 표시 */
+
+  /* 오버레이 */
+  --color-scrim: #00000066; /* 40% 투명 검정: 팝업이나 바텀시트가 열렸을 때 뒤 화면을 어둡게 덮는 배경 */
 }
