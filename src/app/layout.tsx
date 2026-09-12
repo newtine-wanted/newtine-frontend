@@ -1,4 +1,9 @@
 import type { Metadata, Viewport } from "next";
+import "@fontsource/barlow-semi-condensed/latin-600.css";
+import "@fontsource/barlow-semi-condensed/latin-700.css";
+import "@fontsource/barlow-semi-condensed/latin-800.css";
+import "@fontsource/barlow-semi-condensed/latin-900.css";
+import "@fontsource/gothic-a1/korean-800.css";
 import "@fontsource-variable/noto-sans-kr";
 import "./globals.css";
 
