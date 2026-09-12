@@ -35,7 +35,6 @@ src/
 ├── components/ui/    # 제품 의미를 모르는 공용 UI
 ├── domain/           # 여러 기능이 공유하는 제품 개념과 도메인 UI
 ├── features/         # onboarding, feed, issue-detail, my-page, report
-├── design-system/    # 색상·타이포그래피·radius 등 시각 토큰
 └── lib/              # 도메인과 무관한 유틸리티와 기반 코드
 ```
 
@@ -60,15 +59,15 @@ npm start            # 빌드된 프로덕션 서버 실행
 ```
 
 스타일은 Tailwind CSS의 `className` 유틸리티로 작성합니다.
-`src/app/globals.css`에는 Tailwind import와 공통 레이아웃 토큰을 관리합니다. 샘플 폰트·이미지는 제거했습니다.
+`src/app/globals.css`에는 Tailwind import, 공통 전역 스타일, 테마 확장을 관리합니다. 샘플 폰트·이미지는 제거했습니다.
 Zustand와 Axios는 설치되어 있으며, 스토어와 API 설정은 기능 구현 시 추가합니다.
 
 ## 모바일 레이아웃
 
-- 모바일에서는 전체 너비, 큰 화면에서는 최대 480px 너비로 중앙 정렬합니다.
+- 페이지 배경은 화면 전체에 동일하게 적용하고, 실제 콘텐츠만 큰 화면에서 최대 480px 너비로 중앙 정렬합니다.
 - 최대 너비는 `src/app/globals.css`의 `--container-app`에서 변경합니다.
 - `min-h-dvh`로 화면 높이를 채우고, 긴 콘텐츠는 문서 전체에서 세로 스크롤합니다.
-- 공통 컨테이너가 노치·홈 인디케이터 안전 영역을 처리합니다.
+- 공통 레이아웃이 노치·홈 인디케이터 안전 영역을 처리합니다.
 - 루트 레이아웃에서 `<main>`을 제공하므로 각 페이지에는 콘텐츠만 작성합니다.
 - 프로젝트 개발 규칙은 `AGENTS.md`에서 관리하며, `CLAUDE.md`도 같은 파일을 참조합니다.
 

@@ -21,9 +21,12 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ko">
-      <body className="bg-canvas font-app text-foreground antialiased">
-        <div className="relative isolate mx-auto flex min-h-dvh w-full max-w-app flex-col bg-background pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)]">
-          <main id="main-content" className="min-w-0 flex-1">
+      <body className="bg-background font-app text-foreground antialiased">
+        <div className="relative isolate flex min-h-dvh w-full flex-col bg-background pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)]">
+          <main
+            id="main-content"
+            className="mx-auto w-full max-w-app min-w-0 flex-1"
+          >
             {children}
           </main>
         </div>
