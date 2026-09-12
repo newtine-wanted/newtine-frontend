@@ -59,13 +59,13 @@ npm start            # 빌드된 프로덕션 서버 실행
 ```
 
 스타일은 Tailwind CSS의 `className` 유틸리티로 작성합니다.
-`src/app/globals.css`에는 Tailwind import, 공통 전역 스타일, 테마 확장을 관리합니다. 샘플 폰트·이미지는 제거했습니다.
+`src/app/globals.css`에는 Tailwind import, 공용 색상, 폰트 크기를 관리합니다. 샘플 폰트·이미지는 제거했습니다.
 Zustand와 Axios는 설치되어 있으며, 스토어와 API 설정은 기능 구현 시 추가합니다.
 
 ## 모바일 레이아웃
 
 - 페이지 배경은 화면 전체에 동일하게 적용하고, 실제 콘텐츠만 큰 화면에서 최대 480px 너비로 중앙 정렬합니다.
-- 최대 너비는 `src/app/globals.css`의 `--container-app`에서 변경합니다.
+- 콘텐츠 최대 너비는 `src/app/layout.tsx`에서 변경합니다.
 - `min-h-dvh`로 화면 높이를 채우고, 긴 콘텐츠는 문서 전체에서 세로 스크롤합니다.
 - 공통 레이아웃이 노치·홈 인디케이터 안전 영역을 처리합니다.
 - 루트 레이아웃에서 `<main>`을 제공하므로 각 페이지에는 콘텐츠만 작성합니다.

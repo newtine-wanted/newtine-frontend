@@ -21,11 +21,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ko">
-      <body className="bg-background font-app text-foreground antialiased">
+      <body className="bg-background font-['Noto_Sans_KR_Variable','Noto_Sans_KR',system-ui,sans-serif] text-foreground antialiased">
         <div className="relative isolate flex min-h-dvh w-full flex-col bg-background pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)]">
           <main
             id="main-content"
-            className="mx-auto w-full max-w-app min-w-0 flex-1"
+            className="mx-auto w-full max-w-[480px] min-w-0 flex-1"
           >
             {children}
           </main>
