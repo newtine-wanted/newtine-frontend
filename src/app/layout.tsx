@@ -1,11 +1,39 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource/barlow-semi-condensed/latin-600.css";
-import "@fontsource/barlow-semi-condensed/latin-700.css";
-import "@fontsource/barlow-semi-condensed/latin-800.css";
-import "@fontsource/barlow-semi-condensed/latin-900.css";
-import "@fontsource/gothic-a1/korean-800.css";
-import "@fontsource-variable/noto-sans-kr";
+import localFont from "next/font/local";
 import "./globals.css";
+
+const neoHyundai = localFont({
+  src: [
+    {
+      path: "../assets/fonts/NeoHyundai L.ttf",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/NeoHyundai R.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/NeoHyundai B.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/NeoHyundai EB.ttf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/NeoHyundai EBK.ttf",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  display: "swap",
+  preload: false,
+  fallback: ["system-ui", "sans-serif"],
+});
 
 export const metadata: Metadata = {
   title: "Newtine",
@@ -21,7 +49,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ko">
-      <body className="bg-background font-['Noto_Sans_KR_Variable','Noto_Sans_KR',system-ui,sans-serif] text-foreground antialiased">
+      <body
+        className={`${neoHyundai.className} bg-background text-foreground antialiased`}
+      >
         <div className="relative isolate flex min-h-dvh w-full flex-col bg-background pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)]">
           <main
             id="main-content"
