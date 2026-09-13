@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import type { ReactNode } from "react";
 
@@ -40,18 +41,22 @@ export function AppBar({ showBack = false, title, action }: AppBarProps) {
         )}
 
         {title ? (
-          <h1 className="min-w-0 truncate font-['Gothic_A1','Noto_Sans_KR_Variable','Noto_Sans_KR',sans-serif] text-heading leading-[1.35] font-extrabold text-foreground">
+          <h1 className="min-w-0 truncate text-heading leading-none font-extrabold text-foreground">
             {title}
           </h1>
         ) : (
-          <span className="font-['Barlow_Semi_Condensed','Arial_Narrow',sans-serif] text-brand leading-none font-black text-foreground">
-            NEWTINE
-          </span>
+          <Image
+            src="/images/logo/newtine-logo-container.svg"
+            width={84}
+            height={25}
+            alt="NEWTINE"
+            loading="eager"
+          />
         )}
       </div>
 
       {action && (
-        <div className="flex min-h-11 min-w-11 shrink-0 items-center justify-end text-body-sm font-medium text-foreground-secondary">
+        <div className="flex min-h-11 min-w-11 shrink-0 items-center justify-end text-body-sm font-normal text-foreground-secondary">
           {action}
         </div>
       )}
