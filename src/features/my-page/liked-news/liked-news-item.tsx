@@ -44,26 +44,16 @@ export function LikedNewsItem({
   }
 
   return (
-    <li className="relative overflow-hidden">
-      <div className="absolute inset-y-0 right-0 flex">
-        <button
-          type="button"
-          onClick={() => onUnlike(item.id)}
-          onFocus={() => setOffset(-REVEAL_WIDTH)}
-          onBlur={() => setOffset(0)}
-          className="w-24 bg-surface-muted text-label text-foreground focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
-        >
-          관심 해제
-        </button>
-      </div>
-
+    <li className="relative isolate overflow-hidden">
+      {/* 버튼을 내용 뒤에 둬 읽기 순서를 "내용 → 동작"으로 한다. 칠 순서가
+          뒤집히므로 내용에 z-10을, 그 z-10이 앱 바와 겨루지 않게 li에 isolate를 준다. */}
       <div
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onPointerCancel={handlePointerCancel}
         style={{ transform: `translateX(${offset}px)` }}
-        className="relative flex touch-pan-y gap-3 bg-background px-5 py-3.5"
+        className="relative z-10 flex touch-pan-y gap-3 bg-background px-5 py-3.5"
       >
         <div className="flex min-w-0 flex-1 flex-col gap-1.5">
           <div className="flex items-center gap-2">
@@ -82,6 +72,19 @@ export function LikedNewsItem({
             className="size-16 shrink-0 bg-surface-muted"
           />
         )}
+      </div>
+
+      <div className="absolute inset-y-0 right-0 flex">
+        <button
+          type="button"
+          aria-label={`${item.title}, 관심 해제`}
+          onClick={() => onUnlike(item.id)}
+          onFocus={() => setOffset(-REVEAL_WIDTH)}
+          onBlur={() => setOffset(0)}
+          className="w-24 bg-surface-muted text-label text-foreground focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
+        >
+          관심 해제
+        </button>
       </div>
     </li>
   );
