@@ -26,13 +26,20 @@ export function LikedNewsItem({
     setOffset(Math.min(0, Math.max(-REVEAL_WIDTH, dx)));
   }
 
-  function handlePointerEnd() {
+  function handlePointerUp() {
     if (startX === null) return;
     setStartX(null);
     if (offset <= -UNLIKE_THRESHOLD) {
       onUnlike(item.id);
       return;
     }
+    setOffset(0);
+  }
+
+  // 브라우저가 가져간 제스처이므로 임계값을 판정하지 않고 되돌린다.
+  function handlePointerCancel() {
+    if (startX === null) return;
+    setStartX(null);
     setOffset(0);
   }
 
@@ -53,8 +60,8 @@ export function LikedNewsItem({
       <div
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerEnd}
-        onPointerCancel={handlePointerEnd}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerCancel}
         style={{ transform: `translateX(${offset}px)` }}
         className="relative flex touch-pan-y gap-3 bg-background px-5 py-3.5"
       >
