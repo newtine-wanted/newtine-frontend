@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type PointerEvent } from "react";
+import { useRef, useState, type PointerEvent } from "react";
 import type { LikedNewsItem as LikedNewsItemData } from "./types";
 
 const REVEAL_WIDTH = 96;
@@ -15,9 +15,13 @@ export function LikedNewsItem({
 }) {
   const [offset, setOffset] = useState(0);
   const [startX, setStartX] = useState<number | null>(null);
+  const unlikeButtonRef = useRef<HTMLButtonElement>(null);
 
   function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
     setStartX(event.clientX);
+    // offset만 0으로 쓰면 버튼이 포커스를 쥔 채 가려지므로 포커스를 풀어 닫는다.
+    unlikeButtonRef.current?.blur();
+    setOffset(0);
   }
 
   function handlePointerMove(event: PointerEvent<HTMLDivElement>) {
@@ -26,10 +30,12 @@ export function LikedNewsItem({
     setOffset(Math.min(0, Math.max(-REVEAL_WIDTH, dx)));
   }
 
-  function handlePointerUp() {
+  function handlePointerUp(event: PointerEvent<HTMLDivElement>) {
     if (startX === null) return;
+    // offset은 포커스 노출도 표현하므로 판정은 실제 이동거리로 한다.
+    const dx = event.clientX - startX;
     setStartX(null);
-    if (offset <= -UNLIKE_THRESHOLD) {
+    if (dx <= -UNLIKE_THRESHOLD) {
       onUnlike(item.id);
       return;
     }
@@ -76,7 +82,10 @@ export function LikedNewsItem({
 
       <div className="absolute inset-y-0 right-0 flex">
         <button
+          ref={unlikeButtonRef}
           type="button"
+          // 목록이 포커스 인계 대상을 찾는 표식
+          data-unlike
           aria-label={`${item.title}, 관심 해제`}
           onClick={() => onUnlike(item.id)}
           onFocus={() => setOffset(-REVEAL_WIDTH)}
