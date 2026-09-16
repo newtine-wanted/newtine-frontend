@@ -7,9 +7,9 @@ import { useLikedNews } from "./liked-news-provider";
 import { TopicFilter } from "./topic-filter";
 
 export function LikedNewsList() {
-  const { visibleItems, selected, selectTopic, unlike } = useLikedNews();
+  const { items, visibleItems, selected, selectTopic, unlike } = useLikedNews();
   const listRef = useRef<HTMLUListElement>(null);
-  const emptyRef = useRef<HTMLParagraphElement>(null);
+  const emptyRef = useRef<HTMLHeadingElement>(null);
   const pendingFocusIndexRef = useRef<number | null>(null);
 
   function handleUnlike(id: string) {
@@ -45,7 +45,10 @@ export function LikedNewsList() {
       <TopicFilter selected={selected} onSelect={selectTopic} />
 
       {visibleItems.length === 0 ? (
-        <LikedNewsEmptyState ref={emptyRef} />
+        <LikedNewsEmptyState
+          ref={emptyRef}
+          topic={items.length > 0 && selected !== "전체" ? selected : undefined}
+        />
       ) : (
         <>
           <ul
