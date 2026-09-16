@@ -16,8 +16,14 @@ export function LikedNewsItem({
   const [offset, setOffset] = useState(0);
   const [startX, setStartX] = useState<number | null>(null);
   const unlikeButtonRef = useRef<HTMLButtonElement>(null);
+  const activePointerIdRef = useRef<number | null>(null);
 
   function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
+    // 다른 포인터가 소유 중이면 무시해 두 번째 손가락이 기준점을 덮어쓰지 못하게 한다.
+    const active = activePointerIdRef.current;
+    if (active !== null && active !== event.pointerId) return;
+
+    activePointerIdRef.current = event.pointerId;
     setStartX(event.clientX);
     // offset만 0으로 쓰면 버튼이 포커스를 쥔 채 가려지므로 포커스를 풀어 닫는다.
     unlikeButtonRef.current?.blur();
@@ -25,13 +31,16 @@ export function LikedNewsItem({
   }
 
   function handlePointerMove(event: PointerEvent<HTMLDivElement>) {
-    if (startX === null) return;
+    if (startX === null || event.pointerId !== activePointerIdRef.current)
+      return;
     const dx = event.clientX - startX;
     setOffset(Math.min(0, Math.max(-REVEAL_WIDTH, dx)));
   }
 
   function handlePointerUp(event: PointerEvent<HTMLDivElement>) {
-    if (startX === null) return;
+    if (startX === null || event.pointerId !== activePointerIdRef.current)
+      return;
+    activePointerIdRef.current = null;
     // offset은 포커스 노출도 표현하므로 판정은 실제 이동거리로 한다.
     const dx = event.clientX - startX;
     setStartX(null);
@@ -43,8 +52,10 @@ export function LikedNewsItem({
   }
 
   // 브라우저가 가져간 제스처이므로 임계값을 판정하지 않고 되돌린다.
-  function handlePointerCancel() {
-    if (startX === null) return;
+  function handlePointerCancel(event: PointerEvent<HTMLDivElement>) {
+    if (startX === null || event.pointerId !== activePointerIdRef.current)
+      return;
+    activePointerIdRef.current = null;
     setStartX(null);
     setOffset(0);
   }
