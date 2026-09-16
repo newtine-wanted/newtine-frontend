@@ -13,12 +13,19 @@ export function WithdrawDialog({
   swipeCount: number;
 }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const cancelRef = useRef<HTMLButtonElement>(null);
+
+  function openDialog() {
+    dialogRef.current?.showModal();
+    // 초기 포커스를 버튼 순서와 무관하게 취소에 둔다.
+    cancelRef.current?.focus();
+  }
 
   return (
     <>
       <button
         type="button"
-        onClick={() => dialogRef.current?.showModal()}
+        onClick={openDialog}
         className={`mt-3.5 flex min-h-11 min-w-11 items-center justify-center self-center px-4 text-label text-muted underline underline-offset-2 ${focusClasses}`}
       >
         회원탈퇴
@@ -28,12 +35,12 @@ export function WithdrawDialog({
         ref={dialogRef}
         aria-labelledby="withdraw-dialog-title"
         onClick={(event) => {
-          // 스크림(다이얼로그 자신의 영역) 클릭으로 닫는다. 내용 클릭은 걸러진다.
+          // 패딩을 안쪽 div에 둬 상자 안에서 누르고 뗀 클릭이 스크림 클릭으로 잡히지 않게 한다.
           if (event.target === dialogRef.current) dialogRef.current?.close();
         }}
-        className="m-auto w-[318px] bg-background p-6 text-left backdrop:bg-scrim"
+        className="m-auto w-[318px] bg-background text-left backdrop:bg-scrim"
       >
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 p-6">
           <h2
             id="withdraw-dialog-title"
             className="text-nav font-bold text-foreground"
@@ -46,8 +53,8 @@ export function WithdrawDialog({
           </p>
           <div className="flex gap-2.5">
             <button
+              ref={cancelRef}
               type="button"
-              autoFocus
               onClick={() => dialogRef.current?.close()}
               className={`h-12 flex-1 bg-surface-muted text-body text-foreground ${focusClasses}`}
             >
