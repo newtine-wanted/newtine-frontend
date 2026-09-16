@@ -21,6 +21,8 @@ export interface MyPageData {
   account: MyPageAccount;
   interest: MyPageInterest;
   likedNewsCount: number;
+  /** 전체 스와이프 기록 수. 회원탈퇴 모달의 삭제 대상 건수로 쓴다. */
+  swipeCount: number;
   appVersion: string;
 }
 

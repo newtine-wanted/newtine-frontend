@@ -33,5 +33,6 @@ export const MY_PAGE_MOCK: MyPageData = {
     likeCounts: state.likeCounts,
   },
   likedNewsCount: state.likedNewsCount,
+  swipeCount: 340,
   appVersion: "1.0.0",
 };

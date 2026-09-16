@@ -6,7 +6,8 @@ import { MY_PAGE_MOCK } from "./mock-data";
 import { ShortcutTiles } from "./shortcut-tiles";
 
 export function MyPage() {
-  const { account, interest, likedNewsCount, appVersion } = MY_PAGE_MOCK;
+  const { account, interest, likedNewsCount, swipeCount, appVersion } =
+    MY_PAGE_MOCK;
   const summary = getInterestSummary(
     interest.likeCounts,
     interest.sampleThreshold,
@@ -17,7 +18,11 @@ export function MyPage() {
       <AccountHeader account={account} />
       <ShortcutTiles likedNewsCount={likedNewsCount} />
       <InterestSection periodDays={interest.periodDays} summary={summary} />
-      <AccountSection appVersion={appVersion} />
+      <AccountSection
+        appVersion={appVersion}
+        likedCount={likedNewsCount}
+        swipeCount={swipeCount}
+      />
     </div>
   );
 }

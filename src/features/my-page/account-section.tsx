@@ -1,10 +1,19 @@
 import Link from "next/link";
+import { WithdrawDialog } from "./withdraw-dialog";
 
 const focusClasses =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 const navRowClasses = `flex h-11 w-full items-center justify-between text-body text-foreground-body ${focusClasses}`;
 
-export function AccountSection({ appVersion }: { appVersion: string }) {
+export function AccountSection({
+  appVersion,
+  likedCount,
+  swipeCount,
+}: {
+  appVersion: string;
+  likedCount: number;
+  swipeCount: number;
+}) {
   return (
     <section
       aria-labelledby="account-heading"
@@ -49,12 +58,7 @@ export function AccountSection({ appVersion }: { appVersion: string }) {
         </li>
       </ul>
 
-      <button
-        type="button"
-        className={`mt-3.5 flex min-h-11 min-w-11 items-center justify-center self-center px-4 text-label text-muted underline underline-offset-2 ${focusClasses}`}
-      >
-        회원탈퇴
-      </button>
+      <WithdrawDialog likedCount={likedCount} swipeCount={swipeCount} />
     </section>
   );
 }

@@ -1,0 +1,81 @@
+"use client";
+
+import { useState, type PointerEvent } from "react";
+import type { LikedNewsItem as LikedNewsItemData } from "./types";
+
+const REVEAL_WIDTH = 96;
+const UNLIKE_THRESHOLD = 72;
+
+export function LikedNewsItem({
+  item,
+  onUnlike,
+}: {
+  item: LikedNewsItemData;
+  onUnlike: (id: string) => void;
+}) {
+  const [offset, setOffset] = useState(0);
+  const [startX, setStartX] = useState<number | null>(null);
+
+  function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
+    setStartX(event.clientX);
+  }
+
+  function handlePointerMove(event: PointerEvent<HTMLDivElement>) {
+    if (startX === null) return;
+    const dx = event.clientX - startX;
+    setOffset(Math.min(0, Math.max(-REVEAL_WIDTH, dx)));
+  }
+
+  function handlePointerEnd() {
+    if (startX === null) return;
+    setStartX(null);
+    if (offset <= -UNLIKE_THRESHOLD) {
+      onUnlike(item.id);
+      return;
+    }
+    setOffset(0);
+  }
+
+  return (
+    <li className="relative overflow-hidden">
+      <div className="absolute inset-y-0 right-0 flex">
+        <button
+          type="button"
+          onClick={() => onUnlike(item.id)}
+          onFocus={() => setOffset(-REVEAL_WIDTH)}
+          onBlur={() => setOffset(0)}
+          className="w-24 bg-surface-muted text-label text-foreground focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
+        >
+          관심 해제
+        </button>
+      </div>
+
+      <div
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerEnd}
+        onPointerCancel={handlePointerEnd}
+        style={{ transform: `translateX(${offset}px)` }}
+        className="relative flex touch-pan-y gap-3 bg-background px-5 py-3.5"
+      >
+        <div className="flex min-w-0 flex-1 flex-col gap-1.5">
+          <div className="flex items-center gap-2">
+            <span className="bg-surface px-2.5 py-1 text-label text-foreground">
+              {item.area}
+            </span>
+            <span className="text-hint text-muted">
+              관심 표시 {item.likedAt}
+            </span>
+          </div>
+          <p className="line-clamp-2 text-body text-foreground">{item.title}</p>
+        </div>
+        {item.hasThumbnail && (
+          <div
+            aria-hidden="true"
+            className="size-16 shrink-0 bg-surface-muted"
+          />
+        )}
+      </div>
+    </li>
+  );
+}
