@@ -19,10 +19,14 @@ export function LikedNewsItem({
   const activePointerIdRef = useRef<number | null>(null);
 
   function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
+    // 보조 버튼(오른쪽 클릭·펜 옆면 버튼)으로는 스와이프를 시작하지 않는다.
+    if (event.button !== 0) return;
     // 다른 포인터가 소유 중이면 무시해 두 번째 손가락이 기준점을 덮어쓰지 못하게 한다.
     const active = activePointerIdRef.current;
     if (active !== null && active !== event.pointerId) return;
 
+    // 행 밖으로 끌어도 up/cancel을 이 행이 받게 해 소유가 남지 않게 한다.
+    event.currentTarget.setPointerCapture(event.pointerId);
     activePointerIdRef.current = event.pointerId;
     setStartX(event.clientX);
     // offset만 0으로 쓰면 버튼이 포커스를 쥔 채 가려지므로 포커스를 풀어 닫는다.
@@ -51,7 +55,7 @@ export function LikedNewsItem({
     setOffset(0);
   }
 
-  // 브라우저가 가져간 제스처이므로 임계값을 판정하지 않고 되돌린다.
+  // 판정 없이 끝난 제스처(취소·캡처 상실)는 되돌린다. 정상 up 뒤의 캡처 상실은 소유 검사에서 걸러진다.
   function handlePointerCancel(event: PointerEvent<HTMLDivElement>) {
     if (startX === null || event.pointerId !== activePointerIdRef.current)
       return;
@@ -69,6 +73,7 @@ export function LikedNewsItem({
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onPointerCancel={handlePointerCancel}
+        onLostPointerCapture={handlePointerCancel}
         style={{ transform: `translateX(${offset}px)` }}
         className="relative z-10 flex touch-pan-y gap-3 bg-background px-5 py-3.5"
       >
