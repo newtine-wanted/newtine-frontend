@@ -75,7 +75,7 @@ export function LikedNewsItem({
         onPointerCancel={handlePointerCancel}
         onLostPointerCapture={handlePointerCancel}
         style={{ transform: `translateX(${offset}px)` }}
-        className="relative z-10 flex touch-pan-y gap-3 bg-background px-5 py-3.5"
+        className="relative z-10 flex touch-pan-y touch-pinch-zoom gap-3 bg-background px-5 py-3.5"
       >
         <div className="flex min-w-0 flex-1 flex-col gap-1.5">
           <div className="flex items-center gap-2">
