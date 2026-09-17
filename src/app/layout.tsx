@@ -48,7 +48,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ko">
+    // 54px = sticky 앱 바 52px + 괘선 2px. 포커스 이동 스크롤이 바에 가리지 않게 한다.
+    <html
+      lang="ko"
+      className="scroll-pt-[calc(env(safe-area-inset-top)_+_54px)]"
+    >
       <body
         className={`${neoHyundai.className} bg-background text-foreground antialiased`}
       >
