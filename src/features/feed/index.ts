@@ -1,4 +1,5 @@
 export { feedApi } from "./api";
+export { FeedScreen } from "./feed-screen";
 export { useFeed, type FeedStatus } from "./use-feed";
 export type {
   FeedApi,
