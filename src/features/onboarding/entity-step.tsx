@@ -86,7 +86,7 @@ export function EntityStep({
   const visibleEntities = ONBOARDING_ENTITIES_MOCK.filter(
     (entity) =>
       (typeFilter === "전체" || entity.type === typeFilter) &&
-      entity.name.startsWith(keyword),
+      entity.name.includes(keyword),
   );
 
   return (
