@@ -11,8 +11,10 @@ import type {
 } from "./types";
 
 const PRELOAD_THRESHOLD = 2;
+const MAX_HISTORY_COUNT = 5;
 
-export type FeedStatus = "loading" | "ready" | "empty" | "error" | "finished";
+export type FeedStatus =
+  "loading" | "ready" | "empty" | "error" | "limited" | "finished";
 
 interface PendingInteraction {
   issueId: string;
@@ -26,20 +28,32 @@ function getErrorMessage(error: unknown, fallback: string) {
 export function useFeed(api: FeedApi = feedApi) {
   const [items, setItems] = useState<FeedCardResponse[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [furthestIndex, setFurthestIndex] = useState(0);
   const [nextCursor, setNextCursor] = useState<string | null>(null);
   const [continuation, setContinuation] =
     useState<FeedContinuation>("CONTINUE");
   const [isInitialLoading, setIsInitialLoading] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const [isSubmittingInteraction, setIsSubmittingInteraction] = useState(false);
+  const [pendingInteractionCount, setPendingInteractionCount] = useState(0);
+  const [failedInteractionCount, setFailedInteractionCount] = useState(0);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [interactionError, setInteractionError] = useState<string | null>(null);
+  const [actionsByIssueId, setActionsByIssueId] = useState<
+    Record<string, IssueInteractionAction>
+  >({});
 
   const sessionIdRef = useRef<string | null>(null);
-  const pendingInteractionRef = useRef<PendingInteraction | null>(null);
+  const failedInteractionsRef = useRef(new Map<string, PendingInteraction>());
 
   const currentCard = items[currentIndex] ?? null;
+  const nextCard = items[currentIndex + 1] ?? null;
   const remainingCount = Math.max(items.length - currentIndex, 0);
+  const earliestHistoryIndex = Math.max(0, furthestIndex - MAX_HISTORY_COUNT);
+  const canGoBack = currentIndex > earliestHistoryIndex;
+  const previousCard = canGoBack ? (items[currentIndex - 1] ?? null) : null;
+  const likedCount = Object.values(actionsByIssueId).filter(
+    (action) => action === "LIKE",
+  ).length;
 
   const loadInitialFeed = useCallback(async () => {
     setIsInitialLoading(true);
@@ -49,6 +63,7 @@ export function useFeed(api: FeedApi = feedApi) {
       const response = await api.getFeed();
       setItems(response.items);
       setCurrentIndex(0);
+      setFurthestIndex(0);
       setNextCursor(response.nextCursor);
       setContinuation(response.continuation);
     } catch (error) {
@@ -107,25 +122,25 @@ export function useFeed(api: FeedApi = feedApi) {
   }, [api]);
 
   const submitInteraction = useCallback(
-    async ({ issueId, request }: PendingInteraction) => {
-      setIsSubmittingInteraction(true);
-      setInteractionError(null);
+    async (pendingInteraction: PendingInteraction) => {
+      const { eventId } = pendingInteraction.request;
+      setPendingInteractionCount((count) => count + 1);
 
       try {
-        await api.recordInteraction(issueId, request);
-        pendingInteractionRef.current = null;
-        const nextIndex = currentIndex + 1;
-        setCurrentIndex(nextIndex);
-
-        if (
-          items.length - nextIndex <= PRELOAD_THRESHOLD &&
-          nextCursor &&
-          !isLoadingMore &&
-          !loadError
-        ) {
-          void loadMore();
+        await api.recordInteraction(
+          pendingInteraction.issueId,
+          pendingInteraction.request,
+        );
+        failedInteractionsRef.current.delete(eventId);
+        setFailedInteractionCount(failedInteractionsRef.current.size);
+        if (failedInteractionsRef.current.size === 0) {
+          setInteractionError(null);
+        } else {
+          setInteractionError("일부 카드 반응을 아직 기록하지 못했습니다.");
         }
       } catch (error) {
+        failedInteractionsRef.current.set(eventId, pendingInteraction);
+        setFailedInteractionCount(failedInteractionsRef.current.size);
         setInteractionError(
           getErrorMessage(
             error,
@@ -133,23 +148,15 @@ export function useFeed(api: FeedApi = feedApi) {
           ),
         );
       } finally {
-        setIsSubmittingInteraction(false);
+        setPendingInteractionCount((count) => Math.max(0, count - 1));
       }
     },
-    [
-      api,
-      currentIndex,
-      isLoadingMore,
-      items.length,
-      loadError,
-      loadMore,
-      nextCursor,
-    ],
+    [api],
   );
 
   const reactToCurrentCard = useCallback(
-    async (action: IssueInteractionAction) => {
-      if (!currentCard || isSubmittingInteraction) return;
+    (action: IssueInteractionAction) => {
+      if (!currentCard) return;
 
       sessionIdRef.current ??= crypto.randomUUID();
 
@@ -162,25 +169,60 @@ export function useFeed(api: FeedApi = feedApi) {
         },
       };
 
-      pendingInteractionRef.current = pendingInteraction;
-      await submitInteraction(pendingInteraction);
+      setActionsByIssueId((current) => ({
+        ...current,
+        [currentCard.issueId]: action,
+      }));
+      const nextIndex = currentIndex + 1;
+      setCurrentIndex(nextIndex);
+      setFurthestIndex((furthest) => Math.max(furthest, nextIndex));
+
+      if (
+        items.length - nextIndex <= PRELOAD_THRESHOLD &&
+        nextCursor &&
+        !isLoadingMore &&
+        !loadError
+      ) {
+        void loadMore();
+      }
+
+      void submitInteraction(pendingInteraction);
     },
-    [currentCard, isSubmittingInteraction, submitInteraction],
+    [
+      currentCard,
+      currentIndex,
+      isLoadingMore,
+      items.length,
+      loadError,
+      loadMore,
+      nextCursor,
+      submitInteraction,
+    ],
   );
 
-  const retryInteraction = useCallback(async () => {
-    if (!pendingInteractionRef.current || isSubmittingInteraction) return;
-    await submitInteraction(pendingInteractionRef.current);
-  }, [isSubmittingInteraction, submitInteraction]);
+  const goToPreviousCard = useCallback(() => {
+    if (!canGoBack) return;
+    setCurrentIndex((index) => index - 1);
+  }, [canGoBack]);
+
+  const retryInteraction = useCallback(() => {
+    const pendingInteraction = failedInteractionsRef.current
+      .values()
+      .next().value;
+    if (!pendingInteraction) return;
+
+    setInteractionError(null);
+    void submitInteraction(pendingInteraction);
+  }, [submitInteraction]);
 
   const retryLoad = useCallback(async () => {
-    if (items.length === 0) {
+    if (items.length === 0 || !nextCursor) {
       await loadInitialFeed();
       return;
     }
 
     await loadMore();
-  }, [items.length, loadInitialFeed, loadMore]);
+  }, [items.length, loadInitialFeed, loadMore, nextCursor]);
 
   let status: FeedStatus = "ready";
 
@@ -188,6 +230,8 @@ export function useFeed(api: FeedApi = feedApi) {
     status = "loading";
   } else if (!currentCard && loadError) {
     status = "error";
+  } else if (!currentCard && continuation !== "EXHAUSTED") {
+    status = "limited";
   } else if (!currentCard && items.length === 0) {
     status = "empty";
   } else if (!currentCard) {
@@ -196,17 +240,23 @@ export function useFeed(api: FeedApi = feedApi) {
 
   return {
     currentCard,
+    previousCard,
+    nextCard,
     currentIndex,
     remainingCount,
     continuation,
     status,
+    canGoBack,
+    likedCount,
     isLoadingMore,
-    isSubmittingInteraction,
+    isSubmittingInteraction: pendingInteractionCount > 0,
+    failedInteractionCount,
     loadError,
     interactionError,
     likeCurrentCard: () => reactToCurrentCard("LIKE"),
     passCurrentCard: () => reactToCurrentCard("PASS"),
     skipCurrentCard: () => reactToCurrentCard("SKIP"),
+    goToPreviousCard,
     retryLoad,
     retryInteraction,
   };
