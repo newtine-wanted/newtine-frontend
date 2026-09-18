@@ -1,6 +1,6 @@
 "use client";
 
-import type { Ref } from "react";
+import { useState, type Ref } from "react";
 import { ChoiceChip } from "./choice-chip";
 import { FOCUS_CLASSES } from "./focus-classes";
 import { REGIONS, type Region } from "./regions";
@@ -26,6 +26,18 @@ export function RegionStep({
   onSkip: () => void;
   onComplete: () => void;
 }) {
+  // 첫 렌더에는 비워 둬야 마운트 직후 안내가 엉뚱하게 낭독되지 않는다.
+  const [modeNotice, setModeNotice] = useState("");
+
+  function toggleNationwide() {
+    onToggleNationwideOnly();
+    setModeNotice(
+      nationwideOnly
+        ? "지역을 직접 고를 수 있어요"
+        : "전국 이슈만 보여드려요. 선택한 지역은 해제됐어요",
+    );
+  }
+
   return (
     <SurveyLayout
       ref={ref}
@@ -39,11 +51,15 @@ export function RegionStep({
     >
       <ChoiceChip
         selected={nationwideOnly}
-        onClick={onToggleNationwideOnly}
+        onClick={toggleNationwide}
         className="self-start px-4"
       >
         전국 이슈만 볼래요
       </ChoiceChip>
+
+      <p role="status" className="sr-only">
+        {modeNotice}
+      </p>
 
       <div
         role="group"
