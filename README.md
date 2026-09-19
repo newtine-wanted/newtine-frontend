@@ -46,6 +46,111 @@ src/
 - `features` 아래의 폴더와 `api`, `store`, `types` 파일은 실제 구현이 생길 때만 추가합니다.
 - 상세 화면은 별도 페이지가 아니라 피드와 관심 뉴스 목록에서 공유하는 이슈 상세 시트 기능으로 다룹니다.
 
+## 로그인과 토큰 관리
+
+### 인증 API
+
+API 경로는 `API_BASE_URL`을 제외한 상대 경로만 코드와 문서에 작성합니다. 모든 요청은 Next.js의 `/api/*` 프록시를 거쳐 전달됩니다.
+
+| 용도             | 메서드와 경로            | 요청값              | 성공 응답               |
+| ---------------- | ------------------------ | ------------------- | ----------------------- |
+| 이메일 로그인    | `POST /api/auth/login`   | `email`, `password` | `AuthSessionResponse`   |
+| 세션 갱신        | `POST /api/auth/refresh` | 없음                | `AuthSessionResponse`   |
+| 로그아웃         | `POST /api/auth/logout`  | 없음                | `204 No Content`        |
+| 온보딩 상태 조회 | `GET /api/me/onboarding` | 없음                | `OnboardingStateResult` |
+
+API 타입은 전달받은 OpenAPI JSON의 `components.schemas`를 `src/domain/auth/types.ts`에 수동 반영합니다. 로그인과 세션 갱신은 다음 형태의 동일한 응답을 사용합니다.
+
+```ts
+interface AuthSessionResponse {
+  accessToken: string;
+  tokenType: "Bearer";
+  expiresIn: number;
+  user: {
+    id: string;
+    email: string;
+    role: "ADMIN" | "USER";
+  };
+}
+```
+
+### 로그인 흐름
+
+1. 로그인 폼에서 이메일과 비밀번호를 검증합니다.
+2. `POST /api/auth/login`을 호출합니다.
+3. 성공 응답의 액세스 토큰과 사용자 정보를 메모리 전용 Zustand 스토어에 저장합니다.
+4. 저장된 액세스 토큰으로 `GET /api/me/onboarding`을 호출합니다.
+5. 온보딩 상태가 `PENDING`이면 `/onboarding`, `COMPLETED` 또는 `SKIPPED`이면 `/`로 이동합니다.
+
+로그인 성공과 온보딩 조회는 별개의 단계입니다. 로그인이 성공한 뒤 온보딩 조회가 실패하면 인증 실패 메시지로 바꾸지 않고, 사용자 상태를 불러오지 못했다는 별도의 오류를 표시합니다.
+
+### 앱 시작 시 세션 복구
+
+루트 레이아웃의 `AuthSessionProvider`가 클라이언트에서 한 번 `POST /api/auth/refresh`를 호출합니다.
+
+- 유효한 리프레시 쿠키가 있으면 새로운 `AuthSessionResponse`를 메모리에 저장하고 인증 상태를 `authenticated`로 변경합니다.
+- 쿠키가 없거나 만료됐으면 인증 정보를 비우고 상태를 `guest`로 변경합니다.
+- 초기 복구 도중 로그인 또는 로그아웃 상태가 바뀌면 이전 복구 응답이 새로운 세션을 덮어쓰지 않도록 세션 revision을 비교합니다.
+
+### 토큰 저장 위치와 사용 방법
+
+| 값              | 저장 위치                     | 프런트엔드 접근           | 용도                            |
+| --------------- | ----------------------------- | ------------------------- | ------------------------------- |
+| 액세스 토큰     | 메모리 전용 Zustand 스토어    | 가능                      | 보호 API의 `Authorization` 헤더 |
+| 리프레시 토큰   | 백엔드가 설정한 브라우저 쿠키 | 직접 읽거나 저장하지 않음 | 액세스 토큰 재발급              |
+| 이메일·비밀번호 | 저장하지 않음                 | 로그인 요청 중에만 사용   | 사용자 인증                     |
+
+액세스 토큰은 `localStorage`, `sessionStorage` 또는 프런트엔드에서 생성한 쿠키에 저장하지 않습니다. 새로고침하면 메모리의 액세스 토큰은 사라지며, 리프레시 쿠키를 이용해 세션을 다시 복구합니다.
+
+Axios 공용 클라이언트에는 `withCredentials: true`가 설정되어 있어 브라우저 쿠키가 필요한 요청에 포함됩니다. 인증 인터셉터는 세션에 액세스 토큰이 있고 호출부에서 `Authorization`을 직접 지정하지 않은 경우 다음 헤더를 자동으로 추가합니다.
+
+```http
+Authorization: Bearer <accessToken>
+```
+
+새로운 보호 API를 연결할 때는 컴포넌트가 아니라 해당 도메인 또는 기능의 `api.ts`에서 공용 `apiClient`를 사용합니다. 토큰 헤더는 직접 조립하지 않습니다.
+
+```ts
+import { apiClient } from "@/lib/api-client";
+
+export async function getExample() {
+  const response = await apiClient.get<ExampleResponse>("/api/example");
+  return response.data;
+}
+```
+
+### 액세스 토큰 만료와 자동 갱신
+
+보호 API가 `401`을 반환하면 인증 인터셉터가 다음 순서로 처리합니다.
+
+1. `POST /api/auth/refresh`를 호출합니다.
+2. 새 액세스 토큰을 메모리 세션에 저장합니다.
+3. 실패했던 요청의 `Authorization` 헤더를 교체합니다.
+4. 원래 요청을 한 번만 재시도합니다.
+
+동시에 여러 요청이 `401`을 반환해도 리프레시 요청은 하나만 보내고 결과를 공유합니다. 리프레시가 실패하거나 재시도도 `401`이면 세션을 만료 상태로 변경하고 `/login`으로 이동합니다. 로그인·로그아웃·리프레시 요청 자체는 자동 갱신 대상에서 제외해 무한 재시도를 방지합니다.
+
+현재 `expiresIn`은 응답 타입으로 보관하지만 사전 갱신 타이머에는 사용하지 않습니다. 토큰 갱신은 앱 시작과 보호 API의 `401` 응답을 기준으로 수행합니다.
+
+### 로그아웃
+
+`POST /api/auth/logout`이 성공한 뒤에만 메모리의 액세스 토큰과 사용자 정보를 제거합니다. 서버 로그아웃이 실패하면 로컬 세션을 유지하고 오류를 호출부에 전달해, 서버의 리프레시 쿠키가 남아 있는데 화면만 로그아웃된 것처럼 보이는 상태를 방지합니다.
+
+### 인증 관련 코드 경로
+
+| 경로                                    | 책임                                       |
+| --------------------------------------- | ------------------------------------------ |
+| `src/lib/api-client.ts`                 | 도메인과 무관한 Axios 공용 설정            |
+| `src/domain/auth/api.ts`                | 로그인·갱신·로그아웃·온보딩 API 호출       |
+| `src/domain/auth/types.ts`              | OpenAPI 기반 요청·응답 타입                |
+| `src/domain/auth/store.ts`              | 메모리 전용 인증 세션과 상태               |
+| `src/domain/auth/session.ts`            | 세션 저장·복구·갱신·로그아웃 흐름          |
+| `src/domain/auth/interceptors.ts`       | 액세스 토큰 주입과 `401` 자동 복구         |
+| `src/features/auth-session/`            | 앱 시작 시 세션 복구와 만료 시 로그인 이동 |
+| `src/features/login/use-email-login.ts` | 로그인 폼의 인증·온보딩 분기 흐름          |
+
+리프레시 API 명세에는 요청 본문과 별도 리프레시 토큰 타입이 없습니다. 현재 구현은 백엔드가 로그인 성공 시 리프레시 토큰 쿠키를 설정하고 갱신·로그아웃 요청에서 해당 쿠키를 사용한다는 전제입니다. 쿠키 이름과 `HttpOnly`, `Secure`, `SameSite`, `Path` 속성은 OpenAPI JSON에 명시되어 있지 않으므로 백엔드 설정을 별도로 확인해야 합니다.
+
 ## 명령어
 
 ```bash
