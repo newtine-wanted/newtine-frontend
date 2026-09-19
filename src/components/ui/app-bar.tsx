@@ -1,26 +1,21 @@
-"use client";
-
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import type { ReactNode } from "react";
 
 export interface AppBarProps {
-  showBack?: boolean;
+  backHref?: string;
   title?: string;
   action?: ReactNode;
 }
 
-export function AppBar({ showBack = false, title, action }: AppBarProps) {
-  const router = useRouter();
-
+export function AppBar({ backHref, title, action }: AppBarProps) {
   return (
     <header className="sticky top-[env(safe-area-inset-top)] z-10 flex h-[52px] w-full items-center justify-between gap-2 bg-background px-4">
       <div className="flex min-w-0 flex-1 items-center gap-2">
-        {showBack && (
-          <button
-            type="button"
+        {backHref && (
+          <Link
+            href={backHref}
             aria-label="뒤로 가기"
-            onClick={() => router.back()}
             className="flex shrink-0 items-center justify-start text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             <svg
@@ -37,7 +32,7 @@ export function AppBar({ showBack = false, title, action }: AppBarProps) {
                 strokeLinejoin="round"
               />
             </svg>
-          </button>
+          </Link>
         )}
 
         {title ? (
