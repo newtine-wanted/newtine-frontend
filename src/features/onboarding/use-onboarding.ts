@@ -31,7 +31,7 @@ export function useOnboarding() {
 
   // 온보딩이 방문 기록에 남지 않도록 현재 기록을 교체한다.
   function finish() {
-    router.replace("/feed");
+    router.replace("/");
   }
 
   // 02의 ‹는 설문 이전 단계가 아니라 로그인 화면으로 돌아간다.

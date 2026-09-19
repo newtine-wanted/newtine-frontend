@@ -28,7 +28,7 @@ export function LikedNewsEmptyState({
         </p>
       ) : (
         <Link
-          href="/feed"
+          href="/"
           className="mt-1 inline-flex h-11 min-w-50 items-center justify-center bg-primary px-4 text-button text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           피드로 가기
