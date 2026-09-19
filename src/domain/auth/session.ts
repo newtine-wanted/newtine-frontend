@@ -1,18 +1,73 @@
-import { apiClient } from "@/lib/api-client";
+import { requestAuthSessionRefresh, requestLogout } from "./api";
+import { installAuthSessionInterceptors } from "./interceptors";
+import {
+  authSessionStore,
+  setAuthenticatedSession,
+  setGuestSession,
+} from "./store";
 import type { AuthSessionResponse } from "./types";
 
-let currentSession: AuthSessionResponse | null = null;
+let refreshRequest: Promise<void> | null = null;
 
 export function setAuthSession(session: AuthSessionResponse) {
-  currentSession = session;
-  apiClient.defaults.headers.common.Authorization = `${session.tokenType} ${session.accessToken}`;
+  setAuthenticatedSession(session);
 }
 
 export function getAuthSession() {
-  return currentSession;
+  return authSessionStore.getState().session;
 }
 
 export function clearAuthSession() {
-  currentSession = null;
-  delete apiClient.defaults.headers.common.Authorization;
+  setGuestSession();
 }
+
+export function refreshAuthSession(): Promise<void> {
+  if (refreshRequest) {
+    return refreshRequest;
+  }
+
+  const refreshRevision = authSessionStore.getState().revision;
+
+  refreshRequest = requestAuthSessionRefresh()
+    .then((session) => {
+      if (authSessionStore.getState().revision === refreshRevision) {
+        setAuthSession(session);
+      }
+    })
+    .catch((error: unknown) => {
+      if (authSessionStore.getState().revision === refreshRevision) {
+        clearAuthSession();
+      }
+
+      throw error;
+    })
+    .finally(() => {
+      refreshRequest = null;
+    });
+
+  return refreshRequest;
+}
+
+export async function restoreAuthSession(): Promise<boolean> {
+  try {
+    await refreshAuthSession();
+    return authSessionStore.getState().status === "authenticated";
+  } catch {
+    return false;
+  }
+}
+
+export async function logout(): Promise<void> {
+  await requestLogout();
+  clearAuthSession();
+}
+
+function notifyAuthSessionExpired() {
+  setGuestSession("expired");
+}
+
+installAuthSessionInterceptors({
+  getAccessToken: () => getAuthSession()?.accessToken ?? null,
+  recoverSession: refreshAuthSession,
+  handleRecoveryFailure: notifyAuthSessionExpired,
+});

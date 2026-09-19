@@ -18,15 +18,20 @@ export async function loginWithEmail(
   return response.data;
 }
 
-export async function getMyOnboarding(
-  accessToken: string,
-): Promise<OnboardingStateResult> {
-  const response = await apiClient.get<OnboardingStateResult>(
-    "/api/me/onboarding",
-    {
-      headers: { Authorization: `Bearer ${accessToken}` },
-    },
-  );
+export async function requestAuthSessionRefresh(): Promise<AuthSessionResponse> {
+  const response =
+    await apiClient.post<AuthSessionResponse>("/api/auth/refresh");
+
+  return response.data;
+}
+
+export async function requestLogout(): Promise<void> {
+  await apiClient.post("/api/auth/logout");
+}
+
+export async function getMyOnboarding(): Promise<OnboardingStateResult> {
+  const response =
+    await apiClient.get<OnboardingStateResult>("/api/me/onboarding");
 
   return response.data;
 }

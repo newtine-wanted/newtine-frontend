@@ -4,7 +4,14 @@ export {
   type AuthScreenLayoutProps,
 } from "./auth-screen-layout";
 export { GuestBrowseLink } from "./guest-browse-link";
-export { clearAuthSession, getAuthSession, setAuthSession } from "./session";
+export {
+  clearAuthSession,
+  getAuthSession,
+  logout,
+  refreshAuthSession,
+  restoreAuthSession,
+  setAuthSession,
+} from "./session";
 export type {
   AuthCredentialsRequest,
   AuthSessionResponse,

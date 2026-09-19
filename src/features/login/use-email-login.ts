@@ -29,6 +29,16 @@ function getLoginErrorMessage(error: unknown) {
   }
 }
 
+function getOnboardingErrorMessage(error: unknown) {
+  const problem = getProblemDetails(error);
+
+  if (problem?.status === 401) {
+    return "로그인 세션을 확인할 수 없습니다. 다시 로그인해 주세요.";
+  }
+
+  return "로그인은 완료됐지만 사용자 상태를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.";
+}
+
 export function useEmailLogin() {
   const router = useRouter();
   const [fieldErrors, setFieldErrors] = useState<LoginFieldErrors>({});
@@ -62,15 +72,21 @@ export function useEmailLogin() {
     }
 
     setIsSubmitting(true);
+    let isAuthenticated = false;
 
     try {
       const session = await loginWithEmail({ email, password });
-      const onboarding = await getMyOnboarding(session.accessToken);
-
       setAuthSession(session);
+      isAuthenticated = true;
+
+      const onboarding = await getMyOnboarding();
       router.replace(onboarding.status === "PENDING" ? "/onboarding" : "/");
     } catch (error) {
-      setFormError(getLoginErrorMessage(error));
+      setFormError(
+        isAuthenticated
+          ? getOnboardingErrorMessage(error)
+          : getLoginErrorMessage(error),
+      );
     } finally {
       setIsSubmitting(false);
     }
