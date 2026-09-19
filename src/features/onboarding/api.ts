@@ -1,6 +1,9 @@
 import { apiClient } from "@/lib/api-client";
 import type {
+  CompleteOnboardingRequest,
+  OnboardingAgeGroup,
   OnboardingCategory,
+  OnboardingRegion,
   PoliticalActorSearchResponse,
   PoliticalActorType,
 } from "./types";
@@ -47,4 +50,48 @@ export async function getPoliticalActors({
   );
 
   return response.data;
+}
+
+export async function getOnboardingRegions(
+  signal?: AbortSignal,
+): Promise<OnboardingRegion[]> {
+  const response = await apiClient.get<OnboardingRegion[]>(
+    "/api/metadata/regions",
+    { signal },
+  );
+
+  if (response.data.length === 0) {
+    throw new Error("온보딩 지역 목록이 비어 있습니다.");
+  }
+
+  return [...response.data].sort(
+    (left, right) => left.displayOrder - right.displayOrder,
+  );
+}
+
+export async function getOnboardingAgeGroups(
+  signal?: AbortSignal,
+): Promise<OnboardingAgeGroup[]> {
+  const response = await apiClient.get<OnboardingAgeGroup[]>(
+    "/api/metadata/age-groups",
+    { signal },
+  );
+
+  if (response.data.length === 0) {
+    throw new Error("온보딩 나이대 목록이 비어 있습니다.");
+  }
+
+  return [...response.data].sort(
+    (left, right) => left.displayOrder - right.displayOrder,
+  );
+}
+
+export async function completeOnboarding(
+  request: CompleteOnboardingRequest,
+): Promise<void> {
+  await apiClient.post("/api/me/onboarding/complete", request);
+}
+
+export async function skipOnboarding(): Promise<void> {
+  await apiClient.post("/api/me/onboarding/skip");
 }
