@@ -8,18 +8,21 @@ import { useOnboarding } from "./use-onboarding";
 export function OnboardingScreen() {
   const {
     backToLogin,
+    categories,
+    categoryStatus,
     entityIds,
     finish,
     goTo,
     headingRef,
     nationwideOnly,
     regions,
+    retryCategories,
     step,
     toggleEntity,
     toggleNationwideOnly,
     toggleRegion,
     toggleTopic,
-    topics,
+    topicCodes,
   } = useOnboarding();
 
   switch (step) {
@@ -27,11 +30,14 @@ export function OnboardingScreen() {
       return (
         <TopicStep
           ref={headingRef}
-          selected={topics}
+          categories={categories}
+          requestStatus={categoryStatus}
+          selectedCodes={topicCodes}
           onToggle={toggleTopic}
           onBack={backToLogin}
           onSkip={finish}
           onNext={() => goTo("entities")}
+          onRetry={retryCategories}
         />
       );
     case "entities":

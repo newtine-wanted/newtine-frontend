@@ -1,5 +1,14 @@
 export type OnboardingStep = "topics" | "entities" | "regions"; // 02 | 03 | 04
 
+/** OpenAPI schema: MetadataCategoryResponse */
+export interface OnboardingCategory {
+  code: string;
+  name: string;
+  displayOrder: number;
+}
+
+export type CategoryRequestStatus = "loading" | "success" | "error";
+
 export type EntityType = "정치인" | "정당" | "기관";
 
 export type EntityTypeFilter = EntityType | "전체";
