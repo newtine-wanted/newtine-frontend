@@ -13,7 +13,7 @@ const TAP_MAX_DISTANCE = 8;
 const TAP_MAX_DURATION_MS = 200;
 const COMMIT_DISTANCE_RATIO = 0.3;
 const COMMIT_VELOCITY = 0.5;
-const TRANSITION_DURATION_MS = 180;
+const TRANSITION_DURATION_MS = 320;
 const MAX_ROTATION = 12;
 
 export type FeedSwipeDirection = "left" | "right" | "up" | "down";

@@ -3,7 +3,8 @@ import { FeedCard } from "./feed-card";
 import type { FeedCardResponse } from "./types";
 import type { useFeedSwipe } from "./use-feed-swipe";
 
-const CARD_TRANSITION = "transform 180ms cubic-bezier(0.22, 1, 0.36, 1)";
+const SWIPE_TRANSITION_DURATION_MS = 320;
+const CARD_TRANSITION = `transform ${SWIPE_TRANSITION_DURATION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`;
 
 type FeedSwipe = ReturnType<typeof useFeedSwipe>;
 
@@ -24,6 +25,7 @@ export function FeedCardDeck({
   previousCard,
   swipe,
 }: FeedCardDeckProps) {
+  const isSwipingRight = swipe.offset.x > 0;
   const currentCardStyle: CSSProperties = {
     transform: `translate3d(${swipe.offset.x}px, ${swipe.offset.y}px, 0) rotate(${swipe.rotation}deg)`,
     transition: swipe.isTransitioning ? CARD_TRANSITION : undefined,
@@ -34,7 +36,7 @@ export function FeedCardDeck({
       ? {
           opacity: swipe.horizontalProgress,
           transition: swipe.isTransitioning
-            ? "opacity 180ms ease-out"
+            ? `opacity ${SWIPE_TRANSITION_DURATION_MS}ms ease-out`
             : undefined,
         }
       : swipe.axis === "y" && swipe.offset.y < 0
@@ -100,18 +102,20 @@ export function FeedCardDeck({
       {swipe.axis === "x" && swipe.offset.x !== 0 && (
         <div
           aria-hidden="true"
-          className={`pointer-events-none absolute top-[40%] z-20 border px-3.5 py-2 text-button font-bold text-primary-foreground ${
-            swipe.offset.x > 0
-              ? "left-5 border-positive bg-positive"
-              : "right-5 border-danger bg-danger"
+          className={`pointer-events-none absolute top-[40%] z-20 border px-3.5 py-2 text-button font-bold whitespace-nowrap text-primary-foreground ${
+            isSwipingRight
+              ? "left-0 border-positive bg-positive"
+              : "right-0 border-danger bg-danger"
           }`}
           style={{
             opacity: swipe.horizontalProgress,
-            transform: `translate3d(${swipe.offset.x}px, -50%, 0)`,
+            transform: isSwipingRight
+              ? `translate3d(calc(${swipe.offset.x}px - 100% - 0.75rem), -50%, 0)`
+              : `translate3d(calc(${swipe.offset.x}px + 100% + 0.75rem), -50%, 0)`,
             transition: swipe.isTransitioning ? CARD_TRANSITION : undefined,
           }}
         >
-          {swipe.offset.x > 0 ? "♥ 관심 있어요" : "✕ 넘기기"}
+          {isSwipingRight ? "♥ 관심 있어요" : "✕ 넘기기"}
         </div>
       )}
     </>

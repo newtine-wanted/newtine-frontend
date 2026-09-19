@@ -4,11 +4,17 @@ import type { ReactNode } from "react";
 
 export interface AppBarProps {
   backHref?: string;
+  logoHref?: string;
   title?: string;
   action?: ReactNode;
 }
 
-export function AppBar({ backHref, title, action }: AppBarProps) {
+export function AppBar({
+  backHref,
+  logoHref = "/",
+  title,
+  action,
+}: AppBarProps) {
   return (
     <header className="sticky top-[env(safe-area-inset-top)] z-10 flex h-[52px] w-full items-center justify-between gap-2 bg-background px-4">
       <div className="flex min-w-0 flex-1 items-center gap-2">
@@ -16,7 +22,7 @@ export function AppBar({ backHref, title, action }: AppBarProps) {
           <Link
             href={backHref}
             aria-label="뒤로 가기"
-            className="flex shrink-0 items-center justify-start text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="flex size-11 shrink-0 items-center justify-center text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             <svg
               aria-hidden="true"
@@ -40,13 +46,19 @@ export function AppBar({ backHref, title, action }: AppBarProps) {
             {title}
           </h1>
         ) : (
-          <Image
-            src="/images/logo/newtine-logo-container.svg"
-            width={84}
-            height={25}
-            alt="NEWTINE"
-            loading="eager"
-          />
+          <Link
+            href={logoHref}
+            aria-label="홈으로 이동"
+            className="flex min-h-11 shrink-0 items-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            <Image
+              src="/images/logo/newtine-logo-container.svg"
+              width={84}
+              height={25}
+              alt="NEWTINE"
+              loading="eager"
+            />
+          </Link>
         )}
       </div>
 
