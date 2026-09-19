@@ -28,6 +28,8 @@ export function EntityStep({
   requestStatus,
   selectedIds,
   typeFilter,
+  isSkipping,
+  skipError,
   onQueryChange,
   onRetry,
   onTypeFilterChange,
@@ -42,6 +44,8 @@ export function EntityStep({
   requestStatus: AsyncRequestStatus;
   selectedIds: string[];
   typeFilter: PoliticalActorTypeFilter;
+  isSkipping: boolean;
+  skipError: string | null;
   onQueryChange: (value: string) => void;
   onRetry: () => void;
   onTypeFilterChange: (value: PoliticalActorTypeFilter) => void;
@@ -57,7 +61,9 @@ export function EntityStep({
       question="관심 있는 인물·정당·기관이 있나요?"
       description="선택하지 않아도 괜찮아요."
       ctaLabel={`다음 (${selectedIds.length}개 선택)`}
+      isSkipping={isSkipping}
       scrollMode="contained"
+      errorMessage={skipError}
       onBack={onBack}
       onSkip={onSkip}
       onCta={onNext}

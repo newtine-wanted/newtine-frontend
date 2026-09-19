@@ -11,6 +11,8 @@ export function TopicStep({
   categories,
   requestStatus,
   selectedCodes,
+  isSkipping,
+  skipError,
   onToggle,
   onBack,
   onSkip,
@@ -21,6 +23,8 @@ export function TopicStep({
   categories: OnboardingCategory[];
   requestStatus: AsyncRequestStatus;
   selectedCodes: string[];
+  isSkipping: boolean;
+  skipError: string | null;
   onToggle: (code: string) => void;
   onBack: () => void;
   onSkip: () => void;
@@ -35,6 +39,8 @@ export function TopicStep({
       description="1개 이상 골라주세요. 첫 피드를 만드는 데 써요."
       ctaLabel={`다음 (${selectedCodes.length}개 선택)`}
       ctaDisabled={requestStatus !== "success" || selectedCodes.length === 0}
+      isSkipping={isSkipping}
+      errorMessage={skipError}
       onBack={onBack}
       onSkip={onSkip}
       onCta={onNext}
