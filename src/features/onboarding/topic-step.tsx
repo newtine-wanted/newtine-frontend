@@ -4,7 +4,7 @@ import { Fragment, type Ref } from "react";
 import { AsyncContentError, AsyncContentLoading } from "@/components/ui";
 import { ChoiceChip } from "./choice-chip";
 import { SurveyLayout } from "./survey-layout";
-import type { CategoryRequestStatus, OnboardingCategory } from "./types";
+import type { AsyncRequestStatus, OnboardingCategory } from "./types";
 
 export function TopicStep({
   ref,
@@ -19,7 +19,7 @@ export function TopicStep({
 }: {
   ref: Ref<HTMLHeadingElement>;
   categories: OnboardingCategory[];
-  requestStatus: CategoryRequestStatus;
+  requestStatus: AsyncRequestStatus;
   selectedCodes: string[];
   onToggle: (code: string) => void;
   onBack: () => void;

@@ -10,13 +10,20 @@ export function OnboardingScreen() {
     backToLogin,
     categories,
     categoryStatus,
-    entityIds,
+    entities,
+    entityQuery,
+    entityRequestStatus,
+    entityTypeFilter,
     finish,
     goTo,
     headingRef,
     nationwideOnly,
     regions,
     retryCategories,
+    retryEntities,
+    selectedEntityIds,
+    setEntityQuery,
+    setEntityTypeFilter,
     step,
     toggleEntity,
     toggleNationwideOnly,
@@ -44,7 +51,14 @@ export function OnboardingScreen() {
       return (
         <EntityStep
           ref={headingRef}
-          selectedIds={entityIds}
+          entities={entities}
+          query={entityQuery}
+          requestStatus={entityRequestStatus}
+          selectedIds={selectedEntityIds}
+          typeFilter={entityTypeFilter}
+          onQueryChange={setEntityQuery}
+          onRetry={retryEntities}
+          onTypeFilterChange={setEntityTypeFilter}
           onToggle={toggleEntity}
           onBack={() => goTo("topics")}
           onSkip={finish}

@@ -2,13 +2,13 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { getOnboardingCategories } from "./api";
-import type { CategoryRequestStatus, OnboardingCategory } from "./types";
+import type { AsyncRequestStatus, OnboardingCategory } from "./types";
 
 export function useOnboardingTopics() {
   const requestRef = useRef<AbortController>(null);
   const [categories, setCategories] = useState<OnboardingCategory[]>([]);
   const [requestStatus, setRequestStatus] =
-    useState<CategoryRequestStatus>("loading");
+    useState<AsyncRequestStatus>("loading");
   const [selectedCodes, setSelectedCodes] = useState<string[]>([]);
 
   const requestCategories = useCallback(async () => {

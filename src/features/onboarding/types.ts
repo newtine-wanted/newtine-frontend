@@ -7,16 +7,26 @@ export interface OnboardingCategory {
   displayOrder: number;
 }
 
-export type CategoryRequestStatus = "loading" | "success" | "error";
+export type AsyncRequestStatus = "loading" | "success" | "error";
 
-export type EntityType = "정치인" | "정당" | "기관";
+export type PoliticalActorTypeFilter =
+  "ALL" | "POLITICIAN" | "PARTY" | "INSTITUTION";
 
-export type EntityTypeFilter = EntityType | "전체";
+export type PoliticalActorType = Exclude<PoliticalActorTypeFilter, "ALL">;
 
+/** OpenAPI schema: PoliticalActorResponse */
 export interface OnboardingEntity {
   id: string;
   name: string;
-  type: EntityType;
-  /** 이름 아래 보조 설명. 예: "국회의원 · ○○당" */
-  description: string;
+  type: string;
+  subtitle?: string;
+  aliases: string[];
+}
+
+/** OpenAPI schema: PoliticalActorSearchResponse */
+export interface PoliticalActorSearchResponse {
+  items: OnboardingEntity[];
+  total: number;
+  limit: number;
+  offset: number;
 }

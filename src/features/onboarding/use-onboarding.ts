@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import type { Region } from "./regions";
 import type { OnboardingStep } from "./types";
+import { useOnboardingEntities } from "./use-onboarding-entities";
 import { useOnboardingTopics } from "./use-onboarding-topics";
 
 function toggle<T>(list: T[], value: T) {
@@ -17,9 +18,9 @@ export function useOnboarding() {
   const router = useRouter();
   const headingRef = useRef<HTMLHeadingElement>(null);
   const [step, setStep] = useState<OnboardingStep>("topics");
-  const [entityIds, setEntityIds] = useState<string[]>([]);
   const [regions, setRegions] = useState<Region[]>([]);
   const [nationwideOnly, setNationwideOnly] = useState(false);
+  const entities = useOnboardingEntities(step === "entities");
   const topics = useOnboardingTopics();
 
   function goTo(next: OnboardingStep) {
@@ -39,10 +40,6 @@ export function useOnboarding() {
     router.replace("/login");
   }
 
-  function toggleEntity(id: string) {
-    setEntityIds((current) => toggle(current, id));
-  }
-
   function toggleRegion(region: Region) {
     setRegions((current) => toggle(current, region));
   }
@@ -56,15 +53,22 @@ export function useOnboarding() {
     backToLogin,
     categories: topics.categories,
     categoryStatus: topics.requestStatus,
-    entityIds,
+    entities: entities.entities,
+    entityQuery: entities.query,
+    entityRequestStatus: entities.requestStatus,
+    entityTypeFilter: entities.typeFilter,
     finish,
     goTo,
     headingRef,
     nationwideOnly,
     regions,
     retryCategories: topics.retry,
+    retryEntities: entities.retry,
+    selectedEntityIds: entities.selectedIds,
+    setEntityQuery: entities.changeQuery,
+    setEntityTypeFilter: entities.changeTypeFilter,
     step,
-    toggleEntity,
+    toggleEntity: entities.toggle,
     toggleNationwideOnly,
     toggleRegion,
     toggleTopic: topics.toggle,

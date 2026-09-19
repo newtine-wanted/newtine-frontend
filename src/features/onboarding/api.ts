@@ -1,5 +1,15 @@
 import { apiClient } from "@/lib/api-client";
-import type { OnboardingCategory } from "./types";
+import type {
+  OnboardingCategory,
+  PoliticalActorSearchResponse,
+  PoliticalActorType,
+} from "./types";
+
+interface GetPoliticalActorsParams {
+  query: string;
+  type: PoliticalActorType | null;
+  signal?: AbortSignal;
+}
 
 export async function getOnboardingCategories(
   signal?: AbortSignal,
@@ -16,4 +26,25 @@ export async function getOnboardingCategories(
   return [...response.data].sort(
     (left, right) => left.displayOrder - right.displayOrder,
   );
+}
+
+export async function getPoliticalActors({
+  query,
+  type,
+  signal,
+}: GetPoliticalActorsParams): Promise<PoliticalActorSearchResponse> {
+  const response = await apiClient.get<PoliticalActorSearchResponse>(
+    "/api/metadata/political-actors",
+    {
+      params: {
+        q: query || undefined,
+        type: type ?? undefined,
+        limit: 100,
+        offset: 0,
+      },
+      signal,
+    },
+  );
+
+  return response.data;
 }
