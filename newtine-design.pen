@@ -11045,91 +11045,48 @@
               "clip": true,
               "width": "fill_container",
               "height": "fill_container",
-              "layout": "vertical",
-              "gap": 24,
-              "padding": [
-                32,
-                24,
-                16,
-                24
-              ],
-              "justifyContent": "space_between",
+              "layout": "none",
               "children": [
                 {
                   "type": "frame",
-                  "id": "R3H2we",
-                  "name": "브랜드 소개",
-                  "width": "fill_container",
+                  "id": "XYGqT",
+                  "x": 24,
+                  "y": 32,
+                  "name": "로그인 상단 콘텐츠",
+                  "width": 342,
                   "layout": "vertical",
-                  "gap": 6,
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "sXeP7",
-                      "name": "NEWTINE 워드마크",
-                      "fill": "#000000ff",
-                      "content": "NEWTINE",
-                      "lineHeight": 1,
-                      "fontFamily": "Barlow Semi Condensed",
-                      "fontSize": 30,
-                      "fontWeight": "900",
-                      "letterSpacing": -0.3,
-                      "fontStyle": "italic"
-                    },
-                    {
-                      "type": "text",
-                      "id": "h5RbZf",
-                      "name": "브랜드 문구",
-                      "fill": "#666666ff",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "카드로 넘기는 정치 뉴스,\n내 관심사대로 가볍게 시작해요.",
-                      "lineHeight": 1.55,
-                      "fontFamily": "Noto Sans KR",
-                      "fontSize": 14,
-                      "fontWeight": "normal"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "EJLMk",
-                  "name": "로그인 영역",
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 22,
+                  "gap": 24,
                   "children": [
                     {
                       "type": "frame",
-                      "id": "z6eOn",
-                      "name": "로그인 헤더",
+                      "id": "R3H2we",
+                      "name": "브랜드 소개",
                       "width": "fill_container",
                       "layout": "vertical",
-                      "gap": 8,
+                      "gap": 6,
                       "children": [
                         {
                           "type": "text",
-                          "id": "CdjL1",
-                          "name": "로그인 제목",
+                          "id": "sXeP7",
+                          "name": "NEWTINE 워드마크",
                           "fill": "#000000ff",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "다시 만나서 반가워요",
-                          "lineHeight": 1.3,
-                          "fontFamily": "Gothic A1",
-                          "fontSize": 26,
-                          "fontWeight": "800",
-                          "letterSpacing": -0.39
+                          "content": "NEWTINE",
+                          "lineHeight": 1,
+                          "fontFamily": "Barlow Semi Condensed",
+                          "fontSize": 30,
+                          "fontWeight": "900",
+                          "letterSpacing": -0.3,
+                          "fontStyle": "italic"
                         },
                         {
                           "type": "text",
-                          "id": "r9ngLZ",
-                          "name": "로그인 설명",
+                          "id": "h5RbZf",
+                          "name": "브랜드 문구",
                           "fill": "#666666ff",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "가입한 이메일과 비밀번호를 입력해 주세요.",
-                          "lineHeight": 1.5,
+                          "content": "카드로 넘기는 정치 뉴스,\n내 관심사대로 가볍게 시작해요.",
+                          "lineHeight": 1.55,
                           "fontFamily": "Noto Sans KR",
                           "fontSize": 14,
                           "fontWeight": "normal"
@@ -11138,222 +11095,269 @@
                     },
                     {
                       "type": "frame",
-                      "id": "E6ApvU",
-                      "name": "로그인 폼",
+                      "id": "EJLMk",
+                      "name": "로그인 영역",
                       "width": "fill_container",
                       "layout": "vertical",
-                      "gap": 16,
+                      "gap": 22,
                       "children": [
                         {
                           "type": "frame",
-                          "id": "jFMph",
-                          "name": "이메일 입력 그룹",
+                          "id": "z6eOn",
+                          "name": "로그인 헤더",
                           "width": "fill_container",
                           "layout": "vertical",
                           "gap": 8,
                           "children": [
                             {
                               "type": "text",
-                              "id": "Q6xXlY",
-                              "name": "이메일 라벨",
+                              "id": "CdjL1",
+                              "name": "로그인 제목",
                               "fill": "#000000ff",
-                              "content": "이메일",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 13,
-                              "fontWeight": "700"
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "다시 만나서 반가워요",
+                              "lineHeight": 1.3,
+                              "fontFamily": "Gothic A1",
+                              "fontSize": 26,
+                              "fontWeight": "800",
+                              "letterSpacing": -0.39
                             },
                             {
-                              "type": "frame",
-                              "id": "mAue3",
-                              "name": "이메일 입력",
-                              "width": "fill_container",
-                              "height": 52,
-                              "fill": "#ffffffff",
-                              "stroke": "#000000ff",
-                              "strokeWidth": 1,
-                              "strokeAlignment": "inner",
-                              "padding": [
-                                0,
-                                16
-                              ],
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "ZmQRN",
-                                  "name": "이메일 플레이스홀더",
-                                  "fill": "#999999ff",
-                                  "textGrowth": "fixed-width",
-                                  "width": "fill_container",
-                                  "content": "name@example.com",
-                                  "lineHeight": 1.5,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 16,
-                                  "fontWeight": "normal"
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "sCrWK",
-                          "name": "비밀번호 입력 그룹",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 8,
-                          "children": [
-                            {
                               "type": "text",
-                              "id": "XImtP",
-                              "name": "비밀번호 라벨",
-                              "fill": "#000000ff",
-                              "content": "비밀번호",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 13,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "EoSEa",
-                              "name": "비밀번호 입력",
-                              "width": "fill_container",
-                              "height": 52,
-                              "fill": "#ffffffff",
-                              "stroke": "#000000ff",
-                              "strokeWidth": 1,
-                              "strokeAlignment": "inner",
-                              "padding": [
-                                0,
-                                16
-                              ],
-                              "justifyContent": "space_between",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "Ao1wW",
-                                  "name": "비밀번호 플레이스홀더",
-                                  "fill": "#999999ff",
-                                  "content": "12자 이상 입력해 주세요",
-                                  "lineHeight": 1.5,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 16,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "icon",
-                                  "id": "ybbyd",
-                                  "name": "비밀번호 보기",
-                                  "width": 20,
-                                  "height": 20,
-                                  "icon": "eye",
-                                  "library": "lucide",
-                                  "fill": "#666666ff"
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "t0Zch",
-                      "name": "로그인 액션",
-                      "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 12,
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "dDKgw",
-                          "name": "로그인 버튼",
-                          "width": "fill_container",
-                          "height": 54,
-                          "fill": "#000000ff",
-                          "padding": [
-                            0,
-                            16
-                          ],
-                          "justifyContent": "center",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "wGC7f",
-                              "name": "로그인 버튼 라벨",
-                              "fill": "#ffffffff",
-                              "content": "로그인",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 16,
-                              "fontWeight": "700"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "ImnHq",
-                          "name": "회원가입 안내",
-                          "width": "fill_container",
-                          "gap": 8,
-                          "justifyContent": "center",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "r1x11",
-                              "name": "회원가입 질문",
+                              "id": "r9ngLZ",
+                              "name": "로그인 설명",
                               "fill": "#666666ff",
-                              "content": "아직 계정이 없나요?",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 13,
-                              "fontWeight": "normal"
-                            },
-                            {
-                              "type": "text",
-                              "id": "o9KWO",
-                              "name": "회원가입 링크",
-                              "fill": "#000000ff",
-                              "content": "회원가입",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 13,
-                              "fontWeight": "700"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "G2jqWq",
-                          "name": "비회원 둘러보기 버튼",
-                          "width": "fill_container",
-                          "height": 44,
-                          "fill": "#ffffffff",
-                          "stroke": "#000000ff",
-                          "strokeWidth": 1,
-                          "strokeAlignment": "inner",
-                          "padding": [
-                            0,
-                            16
-                          ],
-                          "justifyContent": "center",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "vLP1f",
-                              "name": "비회원 둘러보기 라벨",
-                              "fill": "#000000ff",
-                              "content": "로그인 없이 둘러보기",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "가입한 이메일과 비밀번호를 입력해 주세요.",
                               "lineHeight": 1.5,
                               "fontFamily": "Noto Sans KR",
                               "fontSize": 14,
-                              "fontWeight": "500"
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "E6ApvU",
+                          "name": "로그인 폼",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 16,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "jFMph",
+                              "name": "이메일 입력 그룹",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 8,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Q6xXlY",
+                                  "name": "이메일 라벨",
+                                  "fill": "#000000ff",
+                                  "content": "이메일",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 13,
+                                  "fontWeight": "700"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "mAue3",
+                                  "name": "이메일 입력",
+                                  "width": "fill_container",
+                                  "height": 52,
+                                  "fill": "#ffffffff",
+                                  "stroke": "#000000ff",
+                                  "strokeWidth": 1,
+                                  "strokeAlignment": "inner",
+                                  "padding": [
+                                    0,
+                                    16
+                                  ],
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "ZmQRN",
+                                      "name": "이메일 플레이스홀더",
+                                      "fill": "#999999ff",
+                                      "textGrowth": "fixed-width",
+                                      "width": "fill_container",
+                                      "content": "name@example.com",
+                                      "lineHeight": 1.5,
+                                      "fontFamily": "Noto Sans KR",
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "sCrWK",
+                              "name": "비밀번호 입력 그룹",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 8,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "XImtP",
+                                  "name": "비밀번호 라벨",
+                                  "fill": "#000000ff",
+                                  "content": "비밀번호",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 13,
+                                  "fontWeight": "700"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "EoSEa",
+                                  "name": "비밀번호 입력",
+                                  "width": "fill_container",
+                                  "height": 52,
+                                  "fill": "#ffffffff",
+                                  "stroke": "#000000ff",
+                                  "strokeWidth": 1,
+                                  "strokeAlignment": "inner",
+                                  "padding": [
+                                    0,
+                                    16
+                                  ],
+                                  "justifyContent": "space_between",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "Ao1wW",
+                                      "name": "비밀번호 플레이스홀더",
+                                      "fill": "#999999ff",
+                                      "content": "12자 이상 입력해 주세요",
+                                      "lineHeight": 1.5,
+                                      "fontFamily": "Noto Sans KR",
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
+                                    },
+                                    {
+                                      "type": "icon",
+                                      "id": "ybbyd",
+                                      "name": "비밀번호 보기",
+                                      "width": 20,
+                                      "height": 20,
+                                      "icon": "eye",
+                                      "library": "lucide",
+                                      "fill": "#666666ff"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "t0Zch",
+                          "name": "로그인 액션",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 12,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "dDKgw",
+                              "name": "로그인 버튼",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "#000000ff",
+                              "padding": [
+                                0,
+                                16
+                              ],
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "wGC7f",
+                                  "name": "로그인 버튼 라벨",
+                                  "fill": "#ffffffff",
+                                  "content": "로그인",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 16,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "ImnHq",
+                              "name": "회원가입 안내",
+                              "width": "fill_container",
+                              "gap": 8,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "r1x11",
+                                  "name": "회원가입 질문",
+                                  "fill": "#666666ff",
+                                  "content": "아직 계정이 없나요?",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "o9KWO",
+                                  "name": "회원가입 링크",
+                                  "fill": "#000000ff",
+                                  "content": "회원가입",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 13,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "G2jqWq",
+                              "name": "비회원 둘러보기 버튼",
+                              "width": "fill_container",
+                              "height": 44,
+                              "fill": "#ffffffff",
+                              "stroke": "#000000ff",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "inner",
+                              "padding": [
+                                0,
+                                16
+                              ],
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "vLP1f",
+                                  "name": "비회원 둘러보기 라벨",
+                                  "fill": "#000000ff",
+                                  "content": "로그인 없이 둘러보기",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 14,
+                                  "fontWeight": "500"
+                                }
+                              ]
                             }
                           ]
                         }
@@ -11364,8 +11368,10 @@
                 {
                   "type": "frame",
                   "id": "qREnc",
+                  "x": 24,
+                  "y": 795,
                   "name": "약관 안내",
-                  "width": "fill_container",
+                  "width": 342,
                   "layout": "vertical",
                   "gap": 3,
                   "alignItems": "center",
@@ -11525,91 +11531,48 @@
               "clip": true,
               "width": "fill_container",
               "height": "fill_container",
-              "layout": "vertical",
-              "gap": 24,
-              "padding": [
-                32,
-                24,
-                16,
-                24
-              ],
-              "justifyContent": "space_between",
+              "layout": "none",
               "children": [
                 {
                   "type": "frame",
-                  "id": "t0Zuxn",
-                  "name": "브랜드 소개",
-                  "width": "fill_container",
+                  "id": "K7UCn",
+                  "x": 24,
+                  "y": 32,
+                  "name": "회원가입 상단 콘텐츠",
+                  "width": 342,
                   "layout": "vertical",
-                  "gap": 6,
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "R9aF1",
-                      "name": "NEWTINE 워드마크",
-                      "fill": "#000000ff",
-                      "content": "NEWTINE",
-                      "lineHeight": 1,
-                      "fontFamily": "Barlow Semi Condensed",
-                      "fontSize": 30,
-                      "fontWeight": "900",
-                      "letterSpacing": -0.3,
-                      "fontStyle": "italic"
-                    },
-                    {
-                      "type": "text",
-                      "id": "w1XJbZ",
-                      "name": "브랜드 문구",
-                      "fill": "#666666ff",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "카드로 넘기는 정치 뉴스,\n내 관심사대로 가볍게 시작해요.",
-                      "lineHeight": 1.55,
-                      "fontFamily": "Noto Sans KR",
-                      "fontSize": 14,
-                      "fontWeight": "normal"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "SiBYL",
-                  "name": "회원가입 영역",
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 22,
+                  "gap": 24,
                   "children": [
                     {
                       "type": "frame",
-                      "id": "GS5I9",
-                      "name": "회원가입 헤더",
+                      "id": "t0Zuxn",
+                      "name": "브랜드 소개",
                       "width": "fill_container",
                       "layout": "vertical",
-                      "gap": 8,
+                      "gap": 6,
                       "children": [
                         {
                           "type": "text",
-                          "id": "p6eol",
-                          "name": "회원가입 제목",
+                          "id": "R9aF1",
+                          "name": "NEWTINE 워드마크",
                           "fill": "#000000ff",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "처음 만나서 반가워요",
-                          "lineHeight": 1.3,
-                          "fontFamily": "Gothic A1",
-                          "fontSize": 26,
-                          "fontWeight": "800",
-                          "letterSpacing": -0.39
+                          "content": "NEWTINE",
+                          "lineHeight": 1,
+                          "fontFamily": "Barlow Semi Condensed",
+                          "fontSize": 30,
+                          "fontWeight": "900",
+                          "letterSpacing": -0.3,
+                          "fontStyle": "italic"
                         },
                         {
                           "type": "text",
-                          "id": "gSvO7",
-                          "name": "회원가입 설명",
+                          "id": "w1XJbZ",
+                          "name": "브랜드 문구",
                           "fill": "#666666ff",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "이메일과 비밀번호로 계정을 만들어 주세요.",
-                          "lineHeight": 1.5,
+                          "content": "카드로 넘기는 정치 뉴스,\n내 관심사대로 가볍게 시작해요.",
+                          "lineHeight": 1.55,
                           "fontFamily": "Noto Sans KR",
                           "fontSize": 14,
                           "fontWeight": "normal"
@@ -11618,283 +11581,330 @@
                     },
                     {
                       "type": "frame",
-                      "id": "sFQJf",
-                      "name": "회원가입 폼",
+                      "id": "SiBYL",
+                      "name": "회원가입 영역",
                       "width": "fill_container",
                       "layout": "vertical",
-                      "gap": 16,
+                      "gap": 22,
                       "children": [
                         {
                           "type": "frame",
-                          "id": "fFamS",
-                          "name": "이메일 입력 그룹",
+                          "id": "GS5I9",
+                          "name": "회원가입 헤더",
                           "width": "fill_container",
                           "layout": "vertical",
                           "gap": 8,
                           "children": [
                             {
                               "type": "text",
-                              "id": "zMhbd",
-                              "name": "이메일 라벨",
+                              "id": "p6eol",
+                              "name": "회원가입 제목",
                               "fill": "#000000ff",
-                              "content": "이메일",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 13,
-                              "fontWeight": "700"
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "처음 만나서 반가워요",
+                              "lineHeight": 1.3,
+                              "fontFamily": "Gothic A1",
+                              "fontSize": 26,
+                              "fontWeight": "800",
+                              "letterSpacing": -0.39
                             },
                             {
-                              "type": "frame",
-                              "id": "ax40p",
-                              "name": "이메일 입력",
-                              "width": "fill_container",
-                              "height": 52,
-                              "fill": "#ffffffff",
-                              "stroke": "#000000ff",
-                              "strokeWidth": 1,
-                              "strokeAlignment": "inner",
-                              "padding": [
-                                0,
-                                16
-                              ],
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "HN9uw",
-                                  "name": "이메일 플레이스홀더",
-                                  "fill": "#999999ff",
-                                  "textGrowth": "fixed-width",
-                                  "width": "fill_container",
-                                  "content": "name@example.com",
-                                  "lineHeight": 1.5,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 16,
-                                  "fontWeight": "normal"
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "tmUng",
-                          "name": "비밀번호 입력 그룹",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 8,
-                          "children": [
-                            {
                               "type": "text",
-                              "id": "oB2K0",
-                              "name": "비밀번호 라벨",
-                              "fill": "#000000ff",
-                              "content": "비밀번호",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 13,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "kGS8f",
-                              "name": "비밀번호 입력",
-                              "width": "fill_container",
-                              "height": 52,
-                              "fill": "#ffffffff",
-                              "stroke": "#000000ff",
-                              "strokeWidth": 1,
-                              "strokeAlignment": "inner",
-                              "padding": [
-                                0,
-                                16
-                              ],
-                              "justifyContent": "space_between",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "UkPg9",
-                                  "name": "비밀번호 플레이스홀더",
-                                  "fill": "#999999ff",
-                                  "content": "12자 이상 입력해 주세요",
-                                  "lineHeight": 1.5,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 16,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "icon",
-                                  "id": "a9yhk",
-                                  "name": "비밀번호 보기",
-                                  "width": 20,
-                                  "height": 20,
-                                  "icon": "eye",
-                                  "library": "lucide",
-                                  "fill": "#666666ff"
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "f9866",
-                          "name": "비밀번호 확인 입력 그룹",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 8,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "Nj8sq",
-                              "name": "비밀번호 확인 라벨",
-                              "fill": "#000000ff",
-                              "content": "비밀번호 확인",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 13,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "UyRLz",
-                              "name": "비밀번호 확인 입력",
-                              "width": "fill_container",
-                              "height": 52,
-                              "fill": "#ffffffff",
-                              "stroke": "#000000ff",
-                              "strokeWidth": 1,
-                              "strokeAlignment": "inner",
-                              "padding": [
-                                0,
-                                16
-                              ],
-                              "justifyContent": "space_between",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "zt2IN",
-                                  "name": "비밀번호 확인 플레이스홀더",
-                                  "fill": "#999999ff",
-                                  "content": "비밀번호를 다시 입력해 주세요",
-                                  "lineHeight": 1.5,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 16,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "icon",
-                                  "id": "tjvu1",
-                                  "name": "비밀번호 확인 보기",
-                                  "width": 20,
-                                  "height": 20,
-                                  "icon": "eye",
-                                  "library": "lucide",
-                                  "fill": "#666666ff"
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "issLg",
-                      "name": "회원가입 액션",
-                      "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 12,
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "tuMo9",
-                          "name": "회원가입 버튼",
-                          "width": "fill_container",
-                          "height": 54,
-                          "fill": "#000000ff",
-                          "padding": [
-                            0,
-                            16
-                          ],
-                          "justifyContent": "center",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "sujjq",
-                              "name": "회원가입 버튼 라벨",
-                              "fill": "#ffffffff",
-                              "content": "회원가입",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 16,
-                              "fontWeight": "700"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "nQ9WN",
-                          "name": "로그인 안내",
-                          "width": "fill_container",
-                          "gap": 8,
-                          "justifyContent": "center",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "s0B3n",
-                              "name": "로그인 질문",
+                              "id": "gSvO7",
+                              "name": "회원가입 설명",
                               "fill": "#666666ff",
-                              "content": "이미 계정이 있나요?",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 13,
-                              "fontWeight": "normal"
-                            },
-                            {
-                              "type": "text",
-                              "id": "azQHn",
-                              "name": "로그인 링크",
-                              "fill": "#000000ff",
-                              "content": "로그인",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 13,
-                              "fontWeight": "700"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "gxmBk",
-                          "name": "비회원 둘러보기 버튼",
-                          "width": "fill_container",
-                          "height": 44,
-                          "fill": "#ffffffff",
-                          "stroke": "#000000ff",
-                          "strokeWidth": 1,
-                          "strokeAlignment": "inner",
-                          "padding": [
-                            0,
-                            16
-                          ],
-                          "justifyContent": "center",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "greMf",
-                              "name": "비회원 둘러보기 라벨",
-                              "fill": "#000000ff",
-                              "content": "로그인 없이 둘러보기",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "이메일과 비밀번호로 계정을 만들어 주세요.",
                               "lineHeight": 1.5,
                               "fontFamily": "Noto Sans KR",
                               "fontSize": 14,
-                              "fontWeight": "500"
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "sFQJf",
+                          "name": "회원가입 폼",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 16,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "fFamS",
+                              "name": "이메일 입력 그룹",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 8,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "zMhbd",
+                                  "name": "이메일 라벨",
+                                  "fill": "#000000ff",
+                                  "content": "이메일",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 13,
+                                  "fontWeight": "700"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "ax40p",
+                                  "name": "이메일 입력",
+                                  "width": "fill_container",
+                                  "height": 52,
+                                  "fill": "#ffffffff",
+                                  "stroke": "#000000ff",
+                                  "strokeWidth": 1,
+                                  "strokeAlignment": "inner",
+                                  "padding": [
+                                    0,
+                                    16
+                                  ],
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "HN9uw",
+                                      "name": "이메일 플레이스홀더",
+                                      "fill": "#999999ff",
+                                      "textGrowth": "fixed-width",
+                                      "width": "fill_container",
+                                      "content": "name@example.com",
+                                      "lineHeight": 1.5,
+                                      "fontFamily": "Noto Sans KR",
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "tmUng",
+                              "name": "비밀번호 입력 그룹",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 8,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "oB2K0",
+                                  "name": "비밀번호 라벨",
+                                  "fill": "#000000ff",
+                                  "content": "비밀번호",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 13,
+                                  "fontWeight": "700"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "kGS8f",
+                                  "name": "비밀번호 입력",
+                                  "width": "fill_container",
+                                  "height": 52,
+                                  "fill": "#ffffffff",
+                                  "stroke": "#000000ff",
+                                  "strokeWidth": 1,
+                                  "strokeAlignment": "inner",
+                                  "padding": [
+                                    0,
+                                    16
+                                  ],
+                                  "justifyContent": "space_between",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "UkPg9",
+                                      "name": "비밀번호 플레이스홀더",
+                                      "fill": "#999999ff",
+                                      "content": "12자 이상 입력해 주세요",
+                                      "lineHeight": 1.5,
+                                      "fontFamily": "Noto Sans KR",
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
+                                    },
+                                    {
+                                      "type": "icon",
+                                      "id": "a9yhk",
+                                      "name": "비밀번호 보기",
+                                      "width": 20,
+                                      "height": 20,
+                                      "icon": "eye",
+                                      "library": "lucide",
+                                      "fill": "#666666ff"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "f9866",
+                              "name": "비밀번호 확인 입력 그룹",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 8,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Nj8sq",
+                                  "name": "비밀번호 확인 라벨",
+                                  "fill": "#000000ff",
+                                  "content": "비밀번호 확인",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 13,
+                                  "fontWeight": "700"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "UyRLz",
+                                  "name": "비밀번호 확인 입력",
+                                  "width": "fill_container",
+                                  "height": 52,
+                                  "fill": "#ffffffff",
+                                  "stroke": "#000000ff",
+                                  "strokeWidth": 1,
+                                  "strokeAlignment": "inner",
+                                  "padding": [
+                                    0,
+                                    16
+                                  ],
+                                  "justifyContent": "space_between",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "zt2IN",
+                                      "name": "비밀번호 확인 플레이스홀더",
+                                      "fill": "#999999ff",
+                                      "content": "비밀번호를 다시 입력해 주세요",
+                                      "lineHeight": 1.5,
+                                      "fontFamily": "Noto Sans KR",
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
+                                    },
+                                    {
+                                      "type": "icon",
+                                      "id": "tjvu1",
+                                      "name": "비밀번호 확인 보기",
+                                      "width": 20,
+                                      "height": 20,
+                                      "icon": "eye",
+                                      "library": "lucide",
+                                      "fill": "#666666ff"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "issLg",
+                          "name": "회원가입 액션",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 12,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "tuMo9",
+                              "name": "회원가입 버튼",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "#000000ff",
+                              "padding": [
+                                0,
+                                16
+                              ],
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "sujjq",
+                                  "name": "회원가입 버튼 라벨",
+                                  "fill": "#ffffffff",
+                                  "content": "회원가입",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 16,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "nQ9WN",
+                              "name": "로그인 안내",
+                              "width": "fill_container",
+                              "gap": 8,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "s0B3n",
+                                  "name": "로그인 질문",
+                                  "fill": "#666666ff",
+                                  "content": "이미 계정이 있나요?",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "azQHn",
+                                  "name": "로그인 링크",
+                                  "fill": "#000000ff",
+                                  "content": "로그인",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 13,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "gxmBk",
+                              "name": "비회원 둘러보기 버튼",
+                              "width": "fill_container",
+                              "height": 44,
+                              "fill": "#ffffffff",
+                              "stroke": "#000000ff",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "inner",
+                              "padding": [
+                                0,
+                                16
+                              ],
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "greMf",
+                                  "name": "비회원 둘러보기 라벨",
+                                  "fill": "#000000ff",
+                                  "content": "로그인 없이 둘러보기",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 14,
+                                  "fontWeight": "500"
+                                }
+                              ]
                             }
                           ]
                         }
@@ -11905,8 +11915,10 @@
                 {
                   "type": "frame",
                   "id": "A9js0P",
+                  "x": 24,
+                  "y": 795,
                   "name": "약관 안내",
-                  "width": "fill_container",
+                  "width": 342,
                   "layout": "vertical",
                   "gap": 3,
                   "alignItems": "center",

@@ -16,6 +16,7 @@ const NON_RECOVERABLE_AUTH_PATHS = new Set([
   "/api/auth/login",
   "/api/auth/logout",
   "/api/auth/refresh",
+  "/api/auth/signup",
 ]);
 
 export function installAuthSessionInterceptors(

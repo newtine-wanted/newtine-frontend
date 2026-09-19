@@ -1,4 +1,9 @@
-export { getMyOnboarding, getProblemDetails, loginWithEmail } from "./api";
+export {
+  getMyOnboarding,
+  getProblemDetails,
+  loginWithEmail,
+  signupWithEmail,
+} from "./api";
 export {
   AuthScreenLayout,
   type AuthScreenLayoutProps,

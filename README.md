@@ -54,12 +54,13 @@ API 경로는 `API_BASE_URL`을 제외한 상대 경로만 코드와 문서에 �
 
 | 용도             | 메서드와 경로            | 요청값              | 성공 응답               |
 | ---------------- | ------------------------ | ------------------- | ----------------------- |
+| 이메일 회원가입  | `POST /api/auth/signup`  | `email`, `password` | `AuthSessionResponse`   |
 | 이메일 로그인    | `POST /api/auth/login`   | `email`, `password` | `AuthSessionResponse`   |
 | 세션 갱신        | `POST /api/auth/refresh` | 없음                | `AuthSessionResponse`   |
 | 로그아웃         | `POST /api/auth/logout`  | 없음                | `204 No Content`        |
 | 온보딩 상태 조회 | `GET /api/me/onboarding` | 없음                | `OnboardingStateResult` |
 
-API 타입은 전달받은 OpenAPI JSON의 `components.schemas`를 `src/domain/auth/types.ts`에 수동 반영합니다. 로그인과 세션 갱신은 다음 형태의 동일한 응답을 사용합니다.
+API 타입은 전달받은 OpenAPI JSON의 `components.schemas`를 `src/domain/auth/types.ts`에 수동 반영합니다. 회원가입·로그인·세션 갱신은 다음 형태의 동일한 응답을 사용합니다.
 
 ```ts
 interface AuthSessionResponse {
@@ -73,6 +74,16 @@ interface AuthSessionResponse {
   };
 }
 ```
+
+### 회원가입 흐름
+
+1. 회원가입 폼에서 이메일, 비밀번호, 비밀번호 확인을 검증합니다.
+2. 비밀번호 확인 값은 API 요청에 포함하지 않고 프런트엔드에서 일치 여부를 확인하는 데만 사용합니다.
+3. `POST /api/auth/signup`에 이메일과 비밀번호를 전송합니다.
+4. 성공 응답의 액세스 토큰은 로그인과 동일하게 비공개 메모리 세션에 저장합니다.
+5. 신규 사용자의 관심사 설정을 위해 `/onboarding`으로 이동합니다.
+
+이미 가입된 이메일로 요청해 `409 Conflict`가 반환되면 중복 이메일 안내를 표시합니다.
 
 ### 로그인 흐름
 
@@ -142,13 +153,14 @@ export async function getExample() {
 | 경로                                    | 책임                                              |
 | --------------------------------------- | ------------------------------------------------- |
 | `src/lib/api-client.ts`                 | 도메인과 무관한 Axios 공용 설정                   |
-| `src/domain/auth/api.ts`                | 로그인·갱신·로그아웃·온보딩 API 호출              |
+| `src/domain/auth/api.ts`                | 회원가입·로그인·갱신·로그아웃·온보딩 API 호출     |
 | `src/domain/auth/types.ts`              | OpenAPI 기반 요청·응답 타입                       |
 | `src/domain/auth/store.ts`              | 인증 상태와 화면용 사용자 정보                    |
 | `src/domain/auth/session.ts`            | 비공개 액세스 토큰과 세션 복구·갱신·로그아웃 흐름 |
 | `src/domain/auth/interceptors.ts`       | 액세스 토큰 주입과 `401` 자동 복구                |
 | `src/features/auth-session/`            | 앱 시작 시 세션 복구와 만료 시 로그인 이동        |
 | `src/features/login/use-email-login.ts` | 로그인 폼의 인증·온보딩 분기 흐름                 |
+| `src/features/signup/use-signup.ts`     | 회원가입 폼의 검증·인증·온보딩 이동 흐름          |
 
 리프레시 API 명세에는 요청 본문과 별도 리프레시 토큰 타입이 없습니다. 현재 구현은 백엔드가 로그인 성공 시 리프레시 토큰 쿠키를 설정하고 갱신·로그아웃 요청에서 해당 쿠키를 사용한다는 전제입니다. 쿠키 이름과 `HttpOnly`, `Secure`, `SameSite`, `Path` 속성은 OpenAPI JSON에 명시되어 있지 않으므로 백엔드 설정을 별도로 확인해야 합니다.
 
