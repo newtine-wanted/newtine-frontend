@@ -4,10 +4,7 @@ import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import type { PolicyArea } from "@/domain/policy-area";
-import { EntityStep } from "./entity-step";
-import { RegionStep } from "./region-step";
 import type { Region } from "./regions";
-import { TopicStep } from "./topic-step";
 import type { OnboardingStep } from "./types";
 
 function toggle<T>(list: T[], value: T) {
@@ -16,7 +13,7 @@ function toggle<T>(list: T[], value: T) {
     : [...list, value];
 }
 
-export function OnboardingFlow() {
+export function useOnboarding() {
   const router = useRouter();
   const headingRef = useRef<HTMLHeadingElement>(null);
   const [step, setStep] = useState<OnboardingStep>("topics");
@@ -42,48 +39,36 @@ export function OnboardingFlow() {
     router.replace("/login");
   }
 
+  function toggleTopic(area: PolicyArea) {
+    setTopics((current) => toggle(current, area));
+  }
+
+  function toggleEntity(id: string) {
+    setEntityIds((current) => toggle(current, id));
+  }
+
+  function toggleRegion(region: Region) {
+    setRegions((current) => toggle(current, region));
+  }
+
   function toggleNationwideOnly() {
     setNationwideOnly((current) => !current);
     setRegions([]);
   }
 
-  switch (step) {
-    case "topics":
-      return (
-        <TopicStep
-          ref={headingRef}
-          selected={topics}
-          onToggle={(area) => setTopics((current) => toggle(current, area))}
-          onBack={backToLogin}
-          onSkip={finish}
-          onNext={() => goTo("entities")}
-        />
-      );
-    case "entities":
-      return (
-        <EntityStep
-          ref={headingRef}
-          selectedIds={entityIds}
-          onToggle={(id) => setEntityIds((current) => toggle(current, id))}
-          onBack={() => goTo("topics")}
-          onSkip={finish}
-          onNext={() => goTo("regions")}
-        />
-      );
-    case "regions":
-      return (
-        <RegionStep
-          ref={headingRef}
-          selected={regions}
-          nationwideOnly={nationwideOnly}
-          onToggleRegion={(region) =>
-            setRegions((current) => toggle(current, region))
-          }
-          onToggleNationwideOnly={toggleNationwideOnly}
-          onBack={() => goTo("entities")}
-          onSkip={finish}
-          onComplete={finish}
-        />
-      );
-  }
+  return {
+    backToLogin,
+    entityIds,
+    finish,
+    goTo,
+    headingRef,
+    nationwideOnly,
+    regions,
+    step,
+    toggleEntity,
+    toggleNationwideOnly,
+    toggleRegion,
+    toggleTopic,
+    topics,
+  };
 }

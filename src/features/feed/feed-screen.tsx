@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { AppBar } from "@/components/ui";
 import { FeedActionBar } from "./feed-action-bar";
 import { FeedCardDeck } from "./feed-card-deck";
@@ -13,7 +12,6 @@ import { MyPageLink } from "./my-page-link";
 import { useFeedScreen } from "./use-feed-screen";
 
 export function FeedScreen() {
-  const router = useRouter();
   const {
     feed,
     swipe,
@@ -21,6 +19,8 @@ export function FeedScreen() {
     toastMessage,
     dismissToast,
     handleCardKeyDown,
+    openLikedNews,
+    openReport,
     triggerSwipe,
     isFinished,
     actionDisabled,
@@ -59,8 +59,8 @@ export function FeedScreen() {
           {isFinished && (
             <FeedFinishedState
               hasLikedNews={feed.likedCount > 0 ? true : undefined}
-              onOpenLikedNews={() => router.push("/my-page/liked-news")}
-              onOpenReport={() => router.push("/report")}
+              onOpenLikedNews={openLikedNews}
+              onOpenReport={openReport}
             />
           )}
 

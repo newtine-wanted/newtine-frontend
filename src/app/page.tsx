@@ -3,6 +3,6 @@ import { FeedScreen } from "@/features/feed";
 
 export const metadata: Metadata = { title: "메인 피드" };
 
-export default function Home() {
+export default function FeedPage() {
   return <FeedScreen />;
 }

@@ -5,7 +5,7 @@ import { InterestSection } from "./interest-section";
 import { MY_PAGE_MOCK } from "./mock-data";
 import { ShortcutTiles } from "./shortcut-tiles";
 
-export function MyPage() {
+export function MyPageContent() {
   const { account, interest, likedNewsCount, swipeCount, appVersion } =
     MY_PAGE_MOCK;
   const summary = getInterestSummary(

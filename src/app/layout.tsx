@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { AuthSessionProvider } from "@/features/auth-session";
 import "./globals.css";
 
 const neoHyundai = localFont({
@@ -61,7 +62,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             id="main-content"
             className="mx-auto w-full max-w-[480px] min-w-0 flex-1"
           >
-            {children}
+            <AuthSessionProvider>{children}</AuthSessionProvider>
           </main>
         </div>
       </body>

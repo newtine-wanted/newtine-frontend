@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import {
   useCallback,
   useEffect,
@@ -13,6 +14,7 @@ import { useFeedSwipe, type FeedSwipeDirection } from "./use-feed-swipe";
 const TOAST_DURATION_MS = 1500;
 
 export function useFeedScreen() {
+  const router = useRouter();
   const feed = useFeed();
   const cardElementRef = useRef<HTMLDivElement>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -87,6 +89,8 @@ export function useFeedScreen() {
     toastMessage,
     dismissToast: () => setToastMessage(null),
     handleCardKeyDown,
+    openLikedNews: () => router.push("/my-page/liked-news"),
+    openReport: () => router.push("/report"),
     triggerSwipe,
     isFinished,
     actionDisabled: feed.status !== "ready" || swipe.isInteracting,
