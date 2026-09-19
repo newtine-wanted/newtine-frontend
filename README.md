@@ -21,6 +21,8 @@ npm ci
 npm run dev
 ```
 
+API 요청은 Next.js의 `/api/*` 프록시를 통해 전달됩니다. API 서버 주소는 프로젝트 루트의 커밋되지 않는 `.env`에서 관리합니다.
+
 [http://localhost:3000](http://localhost:3000)에서 앱을 확인할 수 있습니다. 기본 샘플 화면을 제거한 상태이므로 빈 화면이 표시됩니다.
 첫 화면은 `src/app/page.tsx`, 공통 레이아웃은 `src/app/layout.tsx`에서 수정합니다.
 `@/*` 경로 별칭은 `src/*`를 가리킵니다.
