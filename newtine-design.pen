@@ -11045,48 +11045,91 @@
               "clip": true,
               "width": "fill_container",
               "height": "fill_container",
-              "layout": "none",
+              "layout": "vertical",
+              "gap": 24,
+              "padding": [
+                32,
+                24,
+                16,
+                24
+              ],
+              "justifyContent": "space_between",
               "children": [
                 {
                   "type": "frame",
-                  "id": "XYGqT",
-                  "x": 24,
-                  "y": 32,
-                  "name": "로그인 상단 콘텐츠",
-                  "width": 342,
+                  "id": "R3H2we",
+                  "name": "브랜드 소개",
+                  "width": "fill_container",
                   "layout": "vertical",
-                  "gap": 24,
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "sXeP7",
+                      "name": "NEWTINE 워드마크",
+                      "fill": "#000000ff",
+                      "content": "NEWTINE",
+                      "lineHeight": 1,
+                      "fontFamily": "Barlow Semi Condensed",
+                      "fontSize": 30,
+                      "fontWeight": "900",
+                      "letterSpacing": -0.3,
+                      "fontStyle": "italic"
+                    },
+                    {
+                      "type": "text",
+                      "id": "h5RbZf",
+                      "name": "브랜드 문구",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "카드로 넘기는 정치 뉴스,\n내 관심사대로 가볍게 시작해요.",
+                      "lineHeight": 1.55,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "EJLMk",
+                  "name": "로그인 영역",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 22,
                   "children": [
                     {
                       "type": "frame",
-                      "id": "R3H2we",
-                      "name": "브랜드 소개",
+                      "id": "z6eOn",
+                      "name": "로그인 헤더",
                       "width": "fill_container",
                       "layout": "vertical",
-                      "gap": 6,
+                      "gap": 8,
                       "children": [
                         {
                           "type": "text",
-                          "id": "sXeP7",
-                          "name": "NEWTINE 워드마크",
+                          "id": "CdjL1",
+                          "name": "로그인 제목",
                           "fill": "#000000ff",
-                          "content": "NEWTINE",
-                          "lineHeight": 1,
-                          "fontFamily": "Barlow Semi Condensed",
-                          "fontSize": 30,
-                          "fontWeight": "900",
-                          "letterSpacing": -0.3,
-                          "fontStyle": "italic"
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "다시 만나서 반가워요",
+                          "lineHeight": 1.3,
+                          "fontFamily": "Gothic A1",
+                          "fontSize": 26,
+                          "fontWeight": "800",
+                          "letterSpacing": -0.39
                         },
                         {
                           "type": "text",
-                          "id": "h5RbZf",
-                          "name": "브랜드 문구",
+                          "id": "r9ngLZ",
+                          "name": "로그인 설명",
                           "fill": "#666666ff",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "카드로 넘기는 정치 뉴스,\n내 관심사대로 가볍게 시작해요.",
-                          "lineHeight": 1.55,
+                          "content": "가입한 이메일과 비밀번호를 입력해 주세요.",
+                          "lineHeight": 1.5,
                           "fontFamily": "Noto Sans KR",
                           "fontSize": 14,
                           "fontWeight": "normal"
@@ -11095,246 +11138,37 @@
                     },
                     {
                       "type": "frame",
-                      "id": "EJLMk",
-                      "name": "로그인 영역",
+                      "id": "E6ApvU",
+                      "name": "로그인 폼",
                       "width": "fill_container",
                       "layout": "vertical",
-                      "gap": 22,
+                      "gap": 16,
                       "children": [
                         {
                           "type": "frame",
-                          "id": "z6eOn",
-                          "name": "로그인 헤더",
+                          "id": "jFMph",
+                          "name": "이메일 입력 그룹",
                           "width": "fill_container",
                           "layout": "vertical",
                           "gap": 8,
                           "children": [
                             {
                               "type": "text",
-                              "id": "CdjL1",
-                              "name": "로그인 제목",
+                              "id": "Q6xXlY",
+                              "name": "이메일 라벨",
                               "fill": "#000000ff",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "다시 만나서 반가워요",
-                              "lineHeight": 1.3,
-                              "fontFamily": "Gothic A1",
-                              "fontSize": 26,
-                              "fontWeight": "800",
-                              "letterSpacing": -0.39
-                            },
-                            {
-                              "type": "text",
-                              "id": "r9ngLZ",
-                              "name": "로그인 설명",
-                              "fill": "#666666ff",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "가입한 이메일과 비밀번호를 입력해 주세요.",
+                              "content": "이메일",
                               "lineHeight": 1.5,
                               "fontFamily": "Noto Sans KR",
-                              "fontSize": 14,
-                              "fontWeight": "normal"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "E6ApvU",
-                          "name": "로그인 폼",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 16,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "jFMph",
-                              "name": "이메일 입력 그룹",
-                              "width": "fill_container",
-                              "layout": "vertical",
-                              "gap": 8,
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "Q6xXlY",
-                                  "name": "이메일 라벨",
-                                  "fill": "#000000ff",
-                                  "content": "이메일",
-                                  "lineHeight": 1.5,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 13,
-                                  "fontWeight": "700"
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "mAue3",
-                                  "name": "이메일 입력",
-                                  "width": "fill_container",
-                                  "height": 52,
-                                  "fill": "#ffffffff",
-                                  "stroke": "#000000ff",
-                                  "strokeWidth": 1,
-                                  "strokeAlignment": "inner",
-                                  "padding": [
-                                    0,
-                                    16
-                                  ],
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "id": "ZmQRN",
-                                      "name": "이메일 플레이스홀더",
-                                      "fill": "#999999ff",
-                                      "textGrowth": "fixed-width",
-                                      "width": "fill_container",
-                                      "content": "name@example.com",
-                                      "lineHeight": 1.5,
-                                      "fontFamily": "Noto Sans KR",
-                                      "fontSize": 16,
-                                      "fontWeight": "normal"
-                                    }
-                                  ]
-                                }
-                              ]
+                              "fontSize": 13,
+                              "fontWeight": "700"
                             },
                             {
                               "type": "frame",
-                              "id": "sCrWK",
-                              "name": "비밀번호 입력 그룹",
+                              "id": "mAue3",
+                              "name": "이메일 입력",
                               "width": "fill_container",
-                              "layout": "vertical",
-                              "gap": 8,
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "XImtP",
-                                  "name": "비밀번호 라벨",
-                                  "fill": "#000000ff",
-                                  "content": "비밀번호",
-                                  "lineHeight": 1.5,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 13,
-                                  "fontWeight": "700"
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "EoSEa",
-                                  "name": "비밀번호 입력",
-                                  "width": "fill_container",
-                                  "height": 52,
-                                  "fill": "#ffffffff",
-                                  "stroke": "#000000ff",
-                                  "strokeWidth": 1,
-                                  "strokeAlignment": "inner",
-                                  "padding": [
-                                    0,
-                                    16
-                                  ],
-                                  "justifyContent": "space_between",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "id": "Ao1wW",
-                                      "name": "비밀번호 플레이스홀더",
-                                      "fill": "#999999ff",
-                                      "content": "12자 이상 입력해 주세요",
-                                      "lineHeight": 1.5,
-                                      "fontFamily": "Noto Sans KR",
-                                      "fontSize": 16,
-                                      "fontWeight": "normal"
-                                    },
-                                    {
-                                      "type": "icon",
-                                      "id": "ybbyd",
-                                      "name": "비밀번호 보기",
-                                      "width": 20,
-                                      "height": 20,
-                                      "icon": "eye",
-                                      "library": "lucide",
-                                      "fill": "#666666ff"
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "t0Zch",
-                          "name": "로그인 액션",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 12,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "dDKgw",
-                              "name": "로그인 버튼",
-                              "width": "fill_container",
-                              "height": 54,
-                              "fill": "#000000ff",
-                              "padding": [
-                                0,
-                                16
-                              ],
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "wGC7f",
-                                  "name": "로그인 버튼 라벨",
-                                  "fill": "#ffffffff",
-                                  "content": "로그인",
-                                  "lineHeight": 1.5,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 16,
-                                  "fontWeight": "700"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "ImnHq",
-                              "name": "회원가입 안내",
-                              "width": "fill_container",
-                              "gap": 8,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "r1x11",
-                                  "name": "회원가입 질문",
-                                  "fill": "#666666ff",
-                                  "content": "아직 계정이 없나요?",
-                                  "lineHeight": 1.5,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 13,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "o9KWO",
-                                  "name": "회원가입 링크",
-                                  "fill": "#000000ff",
-                                  "content": "회원가입",
-                                  "lineHeight": 1.5,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 13,
-                                  "fontWeight": "700"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "G2jqWq",
-                              "name": "비회원 둘러보기 버튼",
-                              "width": "fill_container",
-                              "height": 44,
+                              "height": 52,
                               "fill": "#ffffffff",
                               "stroke": "#000000ff",
                               "strokeWidth": 1,
@@ -11343,21 +11177,183 @@
                                 0,
                                 16
                               ],
-                              "justifyContent": "center",
                               "alignItems": "center",
                               "children": [
                                 {
                                   "type": "text",
-                                  "id": "vLP1f",
-                                  "name": "비회원 둘러보기 라벨",
-                                  "fill": "#000000ff",
-                                  "content": "로그인 없이 둘러보기",
+                                  "id": "ZmQRN",
+                                  "name": "이메일 플레이스홀더",
+                                  "fill": "#999999ff",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "name@example.com",
                                   "lineHeight": 1.5,
                                   "fontFamily": "Noto Sans KR",
-                                  "fontSize": 14,
-                                  "fontWeight": "500"
+                                  "fontSize": 16,
+                                  "fontWeight": "normal"
                                 }
                               ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "sCrWK",
+                          "name": "비밀번호 입력 그룹",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "XImtP",
+                              "name": "비밀번호 라벨",
+                              "fill": "#000000ff",
+                              "content": "비밀번호",
+                              "lineHeight": 1.5,
+                              "fontFamily": "Noto Sans KR",
+                              "fontSize": 13,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "EoSEa",
+                              "name": "비밀번호 입력",
+                              "width": "fill_container",
+                              "height": 52,
+                              "fill": "#ffffffff",
+                              "stroke": "#000000ff",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "inner",
+                              "padding": [
+                                0,
+                                16
+                              ],
+                              "justifyContent": "space_between",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Ao1wW",
+                                  "name": "비밀번호 플레이스홀더",
+                                  "fill": "#999999ff",
+                                  "content": "12자 이상 입력해 주세요",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 16,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "ybbyd",
+                                  "name": "비밀번호 보기",
+                                  "width": 20,
+                                  "height": 20,
+                                  "icon": "eye",
+                                  "library": "lucide",
+                                  "fill": "#666666ff"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "t0Zch",
+                      "name": "로그인 액션",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "dDKgw",
+                          "name": "로그인 버튼",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "#000000ff",
+                          "padding": [
+                            0,
+                            16
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "wGC7f",
+                              "name": "로그인 버튼 라벨",
+                              "fill": "#ffffffff",
+                              "content": "로그인",
+                              "lineHeight": 1.5,
+                              "fontFamily": "Noto Sans KR",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "ImnHq",
+                          "name": "회원가입 안내",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "r1x11",
+                              "name": "회원가입 질문",
+                              "fill": "#666666ff",
+                              "content": "아직 계정이 없나요?",
+                              "lineHeight": 1.5,
+                              "fontFamily": "Noto Sans KR",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "o9KWO",
+                              "name": "회원가입 링크",
+                              "fill": "#000000ff",
+                              "content": "회원가입",
+                              "lineHeight": 1.5,
+                              "fontFamily": "Noto Sans KR",
+                              "fontSize": 13,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "G2jqWq",
+                          "name": "비회원 둘러보기 버튼",
+                          "width": "fill_container",
+                          "height": 44,
+                          "fill": "#ffffffff",
+                          "stroke": "#000000ff",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "inner",
+                          "padding": [
+                            0,
+                            16
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "vLP1f",
+                              "name": "비회원 둘러보기 라벨",
+                              "fill": "#000000ff",
+                              "content": "로그인 없이 둘러보기",
+                              "lineHeight": 1.5,
+                              "fontFamily": "Noto Sans KR",
+                              "fontSize": 14,
+                              "fontWeight": "500"
                             }
                           ]
                         }
@@ -11368,10 +11364,8 @@
                 {
                   "type": "frame",
                   "id": "qREnc",
-                  "x": 24,
-                  "y": 795,
                   "name": "약관 안내",
-                  "width": 342,
+                  "width": "fill_container",
                   "layout": "vertical",
                   "gap": 3,
                   "alignItems": "center",
@@ -11531,48 +11525,91 @@
               "clip": true,
               "width": "fill_container",
               "height": "fill_container",
-              "layout": "none",
+              "layout": "vertical",
+              "gap": 24,
+              "padding": [
+                32,
+                24,
+                16,
+                24
+              ],
+              "justifyContent": "space_between",
               "children": [
                 {
                   "type": "frame",
-                  "id": "K7UCn",
-                  "x": 24,
-                  "y": 32,
-                  "name": "회원가입 상단 콘텐츠",
-                  "width": 342,
+                  "id": "t0Zuxn",
+                  "name": "브랜드 소개",
+                  "width": "fill_container",
                   "layout": "vertical",
-                  "gap": 24,
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "R9aF1",
+                      "name": "NEWTINE 워드마크",
+                      "fill": "#000000ff",
+                      "content": "NEWTINE",
+                      "lineHeight": 1,
+                      "fontFamily": "Barlow Semi Condensed",
+                      "fontSize": 30,
+                      "fontWeight": "900",
+                      "letterSpacing": -0.3,
+                      "fontStyle": "italic"
+                    },
+                    {
+                      "type": "text",
+                      "id": "w1XJbZ",
+                      "name": "브랜드 문구",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "카드로 넘기는 정치 뉴스,\n내 관심사대로 가볍게 시작해요.",
+                      "lineHeight": 1.55,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "SiBYL",
+                  "name": "회원가입 영역",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 22,
                   "children": [
                     {
                       "type": "frame",
-                      "id": "t0Zuxn",
-                      "name": "브랜드 소개",
+                      "id": "GS5I9",
+                      "name": "회원가입 헤더",
                       "width": "fill_container",
                       "layout": "vertical",
-                      "gap": 6,
+                      "gap": 8,
                       "children": [
                         {
                           "type": "text",
-                          "id": "R9aF1",
-                          "name": "NEWTINE 워드마크",
+                          "id": "p6eol",
+                          "name": "회원가입 제목",
                           "fill": "#000000ff",
-                          "content": "NEWTINE",
-                          "lineHeight": 1,
-                          "fontFamily": "Barlow Semi Condensed",
-                          "fontSize": 30,
-                          "fontWeight": "900",
-                          "letterSpacing": -0.3,
-                          "fontStyle": "italic"
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "처음 만나서 반가워요",
+                          "lineHeight": 1.3,
+                          "fontFamily": "Gothic A1",
+                          "fontSize": 26,
+                          "fontWeight": "800",
+                          "letterSpacing": -0.39
                         },
                         {
                           "type": "text",
-                          "id": "w1XJbZ",
-                          "name": "브랜드 문구",
+                          "id": "gSvO7",
+                          "name": "회원가입 설명",
                           "fill": "#666666ff",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "카드로 넘기는 정치 뉴스,\n내 관심사대로 가볍게 시작해요.",
-                          "lineHeight": 1.55,
+                          "content": "이메일과 비밀번호로 계정을 만들어 주세요.",
+                          "lineHeight": 1.5,
                           "fontFamily": "Noto Sans KR",
                           "fontSize": 14,
                           "fontWeight": "normal"
@@ -11581,307 +11618,37 @@
                     },
                     {
                       "type": "frame",
-                      "id": "SiBYL",
-                      "name": "회원가입 영역",
+                      "id": "sFQJf",
+                      "name": "회원가입 폼",
                       "width": "fill_container",
                       "layout": "vertical",
-                      "gap": 22,
+                      "gap": 16,
                       "children": [
                         {
                           "type": "frame",
-                          "id": "GS5I9",
-                          "name": "회원가입 헤더",
+                          "id": "fFamS",
+                          "name": "이메일 입력 그룹",
                           "width": "fill_container",
                           "layout": "vertical",
                           "gap": 8,
                           "children": [
                             {
                               "type": "text",
-                              "id": "p6eol",
-                              "name": "회원가입 제목",
+                              "id": "zMhbd",
+                              "name": "이메일 라벨",
                               "fill": "#000000ff",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "처음 만나서 반가워요",
-                              "lineHeight": 1.3,
-                              "fontFamily": "Gothic A1",
-                              "fontSize": 26,
-                              "fontWeight": "800",
-                              "letterSpacing": -0.39
-                            },
-                            {
-                              "type": "text",
-                              "id": "gSvO7",
-                              "name": "회원가입 설명",
-                              "fill": "#666666ff",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "이메일과 비밀번호로 계정을 만들어 주세요.",
+                              "content": "이메일",
                               "lineHeight": 1.5,
                               "fontFamily": "Noto Sans KR",
-                              "fontSize": 14,
-                              "fontWeight": "normal"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "sFQJf",
-                          "name": "회원가입 폼",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 16,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "fFamS",
-                              "name": "이메일 입력 그룹",
-                              "width": "fill_container",
-                              "layout": "vertical",
-                              "gap": 8,
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "zMhbd",
-                                  "name": "이메일 라벨",
-                                  "fill": "#000000ff",
-                                  "content": "이메일",
-                                  "lineHeight": 1.5,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 13,
-                                  "fontWeight": "700"
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "ax40p",
-                                  "name": "이메일 입력",
-                                  "width": "fill_container",
-                                  "height": 52,
-                                  "fill": "#ffffffff",
-                                  "stroke": "#000000ff",
-                                  "strokeWidth": 1,
-                                  "strokeAlignment": "inner",
-                                  "padding": [
-                                    0,
-                                    16
-                                  ],
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "id": "HN9uw",
-                                      "name": "이메일 플레이스홀더",
-                                      "fill": "#999999ff",
-                                      "textGrowth": "fixed-width",
-                                      "width": "fill_container",
-                                      "content": "name@example.com",
-                                      "lineHeight": 1.5,
-                                      "fontFamily": "Noto Sans KR",
-                                      "fontSize": 16,
-                                      "fontWeight": "normal"
-                                    }
-                                  ]
-                                }
-                              ]
+                              "fontSize": 13,
+                              "fontWeight": "700"
                             },
                             {
                               "type": "frame",
-                              "id": "tmUng",
-                              "name": "비밀번호 입력 그룹",
+                              "id": "ax40p",
+                              "name": "이메일 입력",
                               "width": "fill_container",
-                              "layout": "vertical",
-                              "gap": 8,
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "oB2K0",
-                                  "name": "비밀번호 라벨",
-                                  "fill": "#000000ff",
-                                  "content": "비밀번호",
-                                  "lineHeight": 1.5,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 13,
-                                  "fontWeight": "700"
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "kGS8f",
-                                  "name": "비밀번호 입력",
-                                  "width": "fill_container",
-                                  "height": 52,
-                                  "fill": "#ffffffff",
-                                  "stroke": "#000000ff",
-                                  "strokeWidth": 1,
-                                  "strokeAlignment": "inner",
-                                  "padding": [
-                                    0,
-                                    16
-                                  ],
-                                  "justifyContent": "space_between",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "id": "UkPg9",
-                                      "name": "비밀번호 플레이스홀더",
-                                      "fill": "#999999ff",
-                                      "content": "12자 이상 입력해 주세요",
-                                      "lineHeight": 1.5,
-                                      "fontFamily": "Noto Sans KR",
-                                      "fontSize": 16,
-                                      "fontWeight": "normal"
-                                    },
-                                    {
-                                      "type": "icon",
-                                      "id": "a9yhk",
-                                      "name": "비밀번호 보기",
-                                      "width": 20,
-                                      "height": 20,
-                                      "icon": "eye",
-                                      "library": "lucide",
-                                      "fill": "#666666ff"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "f9866",
-                              "name": "비밀번호 확인 입력 그룹",
-                              "width": "fill_container",
-                              "layout": "vertical",
-                              "gap": 8,
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "Nj8sq",
-                                  "name": "비밀번호 확인 라벨",
-                                  "fill": "#000000ff",
-                                  "content": "비밀번호 확인",
-                                  "lineHeight": 1.5,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 13,
-                                  "fontWeight": "700"
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "UyRLz",
-                                  "name": "비밀번호 확인 입력",
-                                  "width": "fill_container",
-                                  "height": 52,
-                                  "fill": "#ffffffff",
-                                  "stroke": "#000000ff",
-                                  "strokeWidth": 1,
-                                  "strokeAlignment": "inner",
-                                  "padding": [
-                                    0,
-                                    16
-                                  ],
-                                  "justifyContent": "space_between",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "id": "zt2IN",
-                                      "name": "비밀번호 확인 플레이스홀더",
-                                      "fill": "#999999ff",
-                                      "content": "비밀번호를 다시 입력해 주세요",
-                                      "lineHeight": 1.5,
-                                      "fontFamily": "Noto Sans KR",
-                                      "fontSize": 16,
-                                      "fontWeight": "normal"
-                                    },
-                                    {
-                                      "type": "icon",
-                                      "id": "tjvu1",
-                                      "name": "비밀번호 확인 보기",
-                                      "width": 20,
-                                      "height": 20,
-                                      "icon": "eye",
-                                      "library": "lucide",
-                                      "fill": "#666666ff"
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "issLg",
-                          "name": "회원가입 액션",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 12,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "tuMo9",
-                              "name": "회원가입 버튼",
-                              "width": "fill_container",
-                              "height": 54,
-                              "fill": "#000000ff",
-                              "padding": [
-                                0,
-                                16
-                              ],
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "sujjq",
-                                  "name": "회원가입 버튼 라벨",
-                                  "fill": "#ffffffff",
-                                  "content": "회원가입",
-                                  "lineHeight": 1.5,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 16,
-                                  "fontWeight": "700"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "nQ9WN",
-                              "name": "로그인 안내",
-                              "width": "fill_container",
-                              "gap": 8,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "s0B3n",
-                                  "name": "로그인 질문",
-                                  "fill": "#666666ff",
-                                  "content": "이미 계정이 있나요?",
-                                  "lineHeight": 1.5,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 13,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "azQHn",
-                                  "name": "로그인 링크",
-                                  "fill": "#000000ff",
-                                  "content": "로그인",
-                                  "lineHeight": 1.5,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 13,
-                                  "fontWeight": "700"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "gxmBk",
-                              "name": "비회원 둘러보기 버튼",
-                              "width": "fill_container",
-                              "height": 44,
+                              "height": 52,
                               "fill": "#ffffffff",
                               "stroke": "#000000ff",
                               "strokeWidth": 1,
@@ -11890,21 +11657,244 @@
                                 0,
                                 16
                               ],
-                              "justifyContent": "center",
                               "alignItems": "center",
                               "children": [
                                 {
                                   "type": "text",
-                                  "id": "greMf",
-                                  "name": "비회원 둘러보기 라벨",
-                                  "fill": "#000000ff",
-                                  "content": "로그인 없이 둘러보기",
+                                  "id": "HN9uw",
+                                  "name": "이메일 플레이스홀더",
+                                  "fill": "#999999ff",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "name@example.com",
                                   "lineHeight": 1.5,
                                   "fontFamily": "Noto Sans KR",
-                                  "fontSize": 14,
-                                  "fontWeight": "500"
+                                  "fontSize": 16,
+                                  "fontWeight": "normal"
                                 }
                               ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "tmUng",
+                          "name": "비밀번호 입력 그룹",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "oB2K0",
+                              "name": "비밀번호 라벨",
+                              "fill": "#000000ff",
+                              "content": "비밀번호",
+                              "lineHeight": 1.5,
+                              "fontFamily": "Noto Sans KR",
+                              "fontSize": 13,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "kGS8f",
+                              "name": "비밀번호 입력",
+                              "width": "fill_container",
+                              "height": 52,
+                              "fill": "#ffffffff",
+                              "stroke": "#000000ff",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "inner",
+                              "padding": [
+                                0,
+                                16
+                              ],
+                              "justifyContent": "space_between",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "UkPg9",
+                                  "name": "비밀번호 플레이스홀더",
+                                  "fill": "#999999ff",
+                                  "content": "12자 이상 입력해 주세요",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 16,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "a9yhk",
+                                  "name": "비밀번호 보기",
+                                  "width": 20,
+                                  "height": 20,
+                                  "icon": "eye",
+                                  "library": "lucide",
+                                  "fill": "#666666ff"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "f9866",
+                          "name": "비밀번호 확인 입력 그룹",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Nj8sq",
+                              "name": "비밀번호 확인 라벨",
+                              "fill": "#000000ff",
+                              "content": "비밀번호 확인",
+                              "lineHeight": 1.5,
+                              "fontFamily": "Noto Sans KR",
+                              "fontSize": 13,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "UyRLz",
+                              "name": "비밀번호 확인 입력",
+                              "width": "fill_container",
+                              "height": 52,
+                              "fill": "#ffffffff",
+                              "stroke": "#000000ff",
+                              "strokeWidth": 1,
+                              "strokeAlignment": "inner",
+                              "padding": [
+                                0,
+                                16
+                              ],
+                              "justifyContent": "space_between",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "zt2IN",
+                                  "name": "비밀번호 확인 플레이스홀더",
+                                  "fill": "#999999ff",
+                                  "content": "비밀번호를 다시 입력해 주세요",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 16,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "tjvu1",
+                                  "name": "비밀번호 확인 보기",
+                                  "width": 20,
+                                  "height": 20,
+                                  "icon": "eye",
+                                  "library": "lucide",
+                                  "fill": "#666666ff"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "issLg",
+                      "name": "회원가입 액션",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "tuMo9",
+                          "name": "회원가입 버튼",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "#000000ff",
+                          "padding": [
+                            0,
+                            16
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "sujjq",
+                              "name": "회원가입 버튼 라벨",
+                              "fill": "#ffffffff",
+                              "content": "회원가입",
+                              "lineHeight": 1.5,
+                              "fontFamily": "Noto Sans KR",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "nQ9WN",
+                          "name": "로그인 안내",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "s0B3n",
+                              "name": "로그인 질문",
+                              "fill": "#666666ff",
+                              "content": "이미 계정이 있나요?",
+                              "lineHeight": 1.5,
+                              "fontFamily": "Noto Sans KR",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "azQHn",
+                              "name": "로그인 링크",
+                              "fill": "#000000ff",
+                              "content": "로그인",
+                              "lineHeight": 1.5,
+                              "fontFamily": "Noto Sans KR",
+                              "fontSize": 13,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "gxmBk",
+                          "name": "비회원 둘러보기 버튼",
+                          "width": "fill_container",
+                          "height": 44,
+                          "fill": "#ffffffff",
+                          "stroke": "#000000ff",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "inner",
+                          "padding": [
+                            0,
+                            16
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "greMf",
+                              "name": "비회원 둘러보기 라벨",
+                              "fill": "#000000ff",
+                              "content": "로그인 없이 둘러보기",
+                              "lineHeight": 1.5,
+                              "fontFamily": "Noto Sans KR",
+                              "fontSize": 14,
+                              "fontWeight": "500"
                             }
                           ]
                         }
@@ -11915,10 +11905,8 @@
                 {
                   "type": "frame",
                   "id": "A9js0P",
-                  "x": 24,
-                  "y": 795,
                   "name": "약관 안내",
-                  "width": 342,
+                  "width": "fill_container",
                   "layout": "vertical",
                   "gap": 3,
                   "alignItems": "center",
@@ -12305,7 +12293,7 @@
       "y": 6603,
       "name": "03_피드(카드)",
       "clip": true,
-      "width": 5112,
+      "width": 6012,
       "height": 2394,
       "fill": "#FFFFFF",
       "layout": "none",
@@ -15826,6 +15814,679 @@
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
                       "content": "카드 상태와 무관하게 화면 하단 위치·크기 고정. 카드 탭(어디든) → 요약 바텀시트(03-01). 자세히 보기 버튼 없음. 노출 중 스와이프하면 애니메이션 취소 후 즉시 다음 카드.",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "g8dYe",
+          "x": 4851,
+          "y": 775,
+          "name": "Feed / 06 비회원 가입 제안 팝업",
+          "clip": true,
+          "width": 390,
+          "height": 844,
+          "fill": "#ffffffff",
+          "stroke": "#ddddddff",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "n2QdY",
+              "name": "nav bar",
+              "width": "fill_container",
+              "height": 52,
+              "padding": [
+                0,
+                16
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n5sLu",
+                  "name": "left",
+                  "clip": true,
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "sUjvv",
+                      "name": "title",
+                      "fill": "#000000ff",
+                      "content": "NEWTINE",
+                      "lineHeight": 1,
+                      "fontFamily": "Barlow Semi Condensed",
+                      "fontSize": 26,
+                      "fontWeight": "900",
+                      "letterSpacing": -0.26,
+                      "fontStyle": "italic"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "xj6Hg",
+                  "name": "right",
+                  "clip": true,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Dgcr4",
+                      "name": "right-label",
+                      "fill": "#666666ff",
+                      "content": "◯ 마이",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "OAKGU",
+              "name": "body (feed behind)",
+              "clip": true,
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                4,
+                16,
+                12,
+                16
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "DdBAV",
+                  "name": "card viewport (current only)",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Iwc8V",
+                      "name": "issue card",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "#ffffffff",
+                      "stroke": "#000000ff",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#00000014",
+                        "offset": {
+                          "x": 0,
+                          "y": 4
+                        },
+                        "blur": 14
+                      },
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "f7mfZa",
+                          "name": "top",
+                          "clip": true,
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "d71ZSh",
+                              "name": "chip",
+                              "fill": "#f8f8f8ff",
+                              "gap": 6,
+                              "padding": [
+                                5,
+                                10
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "PJdoX",
+                                  "name": "icon",
+                                  "fill": "#666666ff",
+                                  "content": "▣",
+                                  "lineHeight": 1.4500000476837158,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 12,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "pOHaT",
+                                  "name": "label",
+                                  "fill": "#666666ff",
+                                  "content": "국회·정당",
+                                  "lineHeight": 1.4500000476837158,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 12,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "rHksO",
+                              "name": "count",
+                              "fill": "#999999ff",
+                              "content": "기사 4건 묶음",
+                              "lineHeight": 1.4500000476837158,
+                              "fontFamily": "Noto Sans KR",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "fPBkS",
+                          "name": "title",
+                          "fill": "#000000ff",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "국회, 이번 주 본회의서 예산안 처리 예정",
+                          "lineHeight": 1.3,
+                          "fontFamily": "Gothic A1",
+                          "fontSize": 28,
+                          "fontWeight": "800",
+                          "letterSpacing": -0.56
+                        },
+                        {
+                          "type": "frame",
+                          "id": "UnaUN",
+                          "name": "spacer",
+                          "clip": true,
+                          "width": "fill_container",
+                          "height": "fill_container",
+                          "layout": "vertical"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ZTnml",
+                          "name": "hint",
+                          "fill": "#666666ff",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "탭하면 자세히 볼 수 있어요  ›",
+                          "lineHeight": 1.4500000476837158,
+                          "textAlign": "center",
+                          "fontFamily": "Noto Sans KR",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "tSe0R",
+              "name": "action bar",
+              "width": "fill_container",
+              "fill": "#ffffffff",
+              "layout": "vertical",
+              "gap": 8,
+              "padding": [
+                8,
+                16
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "N3ixQ",
+                  "name": "buttons",
+                  "clip": true,
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "k2HWWf",
+                      "name": "btn-skip",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "#ffffffff",
+                      "stroke": "#000000ff",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "padding": [
+                        0,
+                        16
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "YRubY",
+                          "name": "label",
+                          "fill": "#000000ff",
+                          "content": "✕  넘기기",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Noto Sans KR",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "F3mZG",
+                      "name": "btn-like",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "#000000ff",
+                      "padding": [
+                        0,
+                        16
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "L6TKPh",
+                          "name": "label",
+                          "fill": "#ffffffff",
+                          "content": "♥  관심 있어요",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Noto Sans KR",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "FO6O8",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "scrim",
+              "opacity": 0.44999998807907104,
+              "clip": true,
+              "width": 390,
+              "height": 844,
+              "fill": "#000000ff",
+              "layout": "vertical"
+            },
+            {
+              "type": "frame",
+              "id": "k1AxW1",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 492,
+              "name": "signup prompt sheet",
+              "clip": true,
+              "width": 390,
+              "fill": "#ffffffff",
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [
+                12,
+                24,
+                0,
+                24
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ONGJ7",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n6JjB3",
+                      "name": "box",
+                      "clip": true,
+                      "width": 40,
+                      "height": 5,
+                      "fill": "#000000ff"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "NHWAz",
+                  "name": "관심 표시를 기억하려면 로그인이 필요해요",
+                  "fill": "#000000ff",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "관심 표시를 기억하려면\n로그인이 필요해요",
+                  "lineHeight": 1.35,
+                  "fontFamily": "Gothic A1",
+                  "fontSize": 22,
+                  "fontWeight": "800",
+                  "letterSpacing": -0.33
+                },
+                {
+                  "type": "text",
+                  "id": "EB1Wx",
+                  "name": "로그인하면 관심 표시가 계정에 저장되고, 마이페이지에서 관심 분석과 진단보고서를 볼 수 있어요. 로그인 전 기록은 저장되지 않아요.",
+                  "fill": "#666666ff",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "로그인하면 관심 표시가 계정에 저장되고, 마이페이지에서 관심 분석과 진단보고서를 볼 수 있어요. 로그인 전 기록은 저장되지 않아요.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Noto Sans KR",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "xqGhj",
+                  "name": "btn 카카오로 시작하기",
+                  "width": "fill_container",
+                  "height": 54,
+                  "fill": "#000000ff",
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ZYfzc",
+                      "name": "label",
+                      "fill": "#ffffffff",
+                      "content": "카카오로 시작하기",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "I2uPOa",
+                  "name": "btn 나중에 할게요",
+                  "width": "fill_container",
+                  "height": 44,
+                  "fill": "#ffffffff",
+                  "stroke": "#000000ff",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "R3WLYp",
+                      "name": "label",
+                      "fill": "#000000ff",
+                      "content": "나중에 할게요",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "W2nYBH",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": 34,
+                  "layout": "vertical"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "nBb4w",
+          "x": 5281,
+          "y": 775,
+          "name": "notes · Feed / 06 비회원 가입 제안 — 스펙",
+          "clip": true,
+          "width": 380,
+          "fill": "#f8f8f8ff",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": 20,
+          "children": [
+            {
+              "type": "text",
+              "id": "lKiFV",
+              "name": "Feed / 06 비회원 가입 제안 — 스펙",
+              "fill": "#000000ff",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Feed / 06 비회원 가입 제안 — 스펙",
+              "lineHeight": 1.4500000476837158,
+              "fontFamily": "Noto Sans KR",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "KD0hH",
+              "name": "box",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "WMKd5",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "BVJSr",
+                      "name": "트리거·문구",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "트리거·문구",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "t1zjz",
+                      "name": "노출 시점(팀 결정): ① 비회원이 관심(우 스와이프) 3회째 ② 카드를 5장 이상 넘겼을 때(좌/우/하 합산, 1회만) ③ 마이 아이콘 탭(로그인 게이트). 트리거별 제목 문구 분기(③: \"마이페이지는 로그인 후 볼 수 있어요\").",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "노출 시점(팀 결정): ① 비회원이 관심(우 스와이프) 3회째 ② 카드를 5장 이상 넘겼을 때(좌/우/하 합산, 1회만) ③ 마이 아이콘 탭(로그인 게이트). 트리거별 제목 문구 분기(③: \"마이페이지는 로그인 후 볼 수 있어요\").",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "dEawe",
+              "name": "box",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Ul0Dr",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n4SS4",
+                      "name": "로그인 CTA",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "로그인 CTA",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Pu2s6",
+                      "name": "로그인 성공 시 비회원 로컬 기록은 병합하지 않고 폐기(팀 결정) → 이어서 02 설문. 본문에 \"로그인 전 기록은 저장되지 않아요\" 명시.",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "로그인 성공 시 비회원 로컬 기록은 병합하지 않고 폐기(팀 결정) → 이어서 02 설문. 본문에 \"로그인 전 기록은 저장되지 않아요\" 명시.",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vcSLa",
+              "name": "box",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "PT7Ya",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "I2NdiT",
+                      "name": "나중에",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "나중에",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "EoSjI",
+                      "name": "시트 닫고 피드 유지. 같은 트리거로 재노출은 세션당 1회, 이후 관심 10회마다. 스크림 탭 = 나중에와 동일.",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "시트 닫고 피드 유지. 같은 트리거로 재노출은 세션당 1회, 이후 관심 10회마다. 스크림 탭 = 나중에와 동일.",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "EzSPW",
+              "name": "box",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "oin8Y",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "E3Abra",
+                      "name": "스크림",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "스크림",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "r97pL",
+                      "name": "#000 45%. 뒤 피드는 스크롤·스와이프 차단. 시트는 아래로 드래그해서 닫기 가능.",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "#000 45%. 뒤 피드는 스크롤·스와이프 차단. 시트는 아래로 드래그해서 닫기 가능.",
                       "lineHeight": 1.4500000476837158,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 12,
@@ -35356,6 +36017,194 @@
           "fontFamily": "Noto Sans KR",
           "fontSize": 13,
           "fontWeight": "700"
+        },
+        {
+          "type": "text",
+          "id": "oBuha",
+          "x": 3500,
+          "y": 557,
+          "name": "비동기 콘텐츠 상태 제목",
+          "fill": "#000000ff",
+          "content": "Async Content State · Loading / Error",
+          "lineHeight": 1.35,
+          "fontFamily": "Gothic A1",
+          "fontSize": 28,
+          "fontWeight": "800"
+        },
+        {
+          "type": "text",
+          "id": "K2G9P",
+          "x": 3500,
+          "y": 601,
+          "name": "비동기 콘텐츠 상태 설명",
+          "fill": "#666666ff",
+          "textGrowth": "fixed-width",
+          "width": 1050,
+          "content": "온보딩의 주제·정치 주체·지역 목록에서 공통 사용. 화면의 제목·진행률·내비게이션은 유지하고 데이터 영역만 이 상태로 교체합니다.",
+          "lineHeight": 1.5,
+          "fontFamily": "Noto Sans KR",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "xZApW",
+          "x": 3500,
+          "y": 669,
+          "name": "Loading 컴포넌트 라벨",
+          "fill": "#444444ff",
+          "content": "AsyncContentLoading",
+          "lineHeight": 1.45,
+          "fontFamily": "Noto Sans KR",
+          "fontSize": 13,
+          "fontWeight": "700"
+        },
+        {
+          "type": "frame",
+          "id": "GAuw5",
+          "x": 3500,
+          "y": 701,
+          "name": "Async Content Loading",
+          "reusable": true,
+          "width": 342,
+          "height": 260,
+          "fill": "#ffffffff",
+          "layout": "vertical",
+          "gap": 12,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "CVmCT",
+              "name": "로딩 표시",
+              "width": 28,
+              "height": 28,
+              "icon": "loader-circle",
+              "library": "lucide",
+              "fill": "#666666ff"
+            },
+            {
+              "type": "text",
+              "id": "bTWTW",
+              "name": "로딩 제목",
+              "fill": "#000000ff",
+              "content": "목록을 불러오는 중이에요",
+              "lineHeight": 1.5,
+              "fontFamily": "Noto Sans KR",
+              "fontSize": 14,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "QQPVo",
+              "name": "로딩 설명",
+              "fill": "#666666ff",
+              "textGrowth": "fixed-width",
+              "width": 280,
+              "content": "잠시만 기다려 주세요.",
+              "lineHeight": 1.5,
+              "textAlign": "center",
+              "fontFamily": "Noto Sans KR",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "oZZ3a",
+          "x": 3890,
+          "y": 669,
+          "name": "Error 컴포넌트 라벨",
+          "fill": "#444444ff",
+          "content": "AsyncContentError",
+          "lineHeight": 1.45,
+          "fontFamily": "Noto Sans KR",
+          "fontSize": 13,
+          "fontWeight": "700"
+        },
+        {
+          "type": "frame",
+          "id": "S0xcG",
+          "x": 3890,
+          "y": 701,
+          "name": "Async Content Error",
+          "reusable": true,
+          "width": 342,
+          "height": 260,
+          "fill": "#ffffffff",
+          "layout": "vertical",
+          "gap": 12,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "hqbQE",
+              "name": "오류 표시",
+              "width": 28,
+              "height": 28,
+              "icon": "circle-alert",
+              "library": "lucide",
+              "fill": "#666666ff"
+            },
+            {
+              "type": "text",
+              "id": "qhrRI",
+              "name": "오류 제목",
+              "fill": "#000000ff",
+              "content": "목록을 불러오지 못했어요",
+              "lineHeight": 1.5,
+              "fontFamily": "Noto Sans KR",
+              "fontSize": 14,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "vP8Q3",
+              "name": "오류 설명",
+              "fill": "#666666ff",
+              "textGrowth": "fixed-width",
+              "width": 280,
+              "content": "네트워크 상태를 확인한 뒤 다시 시도해 주세요.",
+              "lineHeight": 1.5,
+              "textAlign": "center",
+              "fontFamily": "Noto Sans KR",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "a9wbR",
+              "name": "다시 시도 버튼",
+              "width": 132,
+              "height": 44,
+              "fill": "#ffffffff",
+              "stroke": "#000000ff",
+              "strokeWidth": 1,
+              "strokeAlignment": "inner",
+              "padding": [
+                0,
+                16
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "P1J4N2",
+                  "name": "다시 시도 라벨",
+                  "fill": "#000000ff",
+                  "content": "다시 시도",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Noto Sans KR",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -35366,8 +36215,8 @@
       "y": 3904,
       "name": "02_온보딩",
       "clip": true,
-      "width": 4050,
-      "height": 1600,
+      "width": 4320,
+      "height": 2305,
       "fill": "#ffffffff",
       "layout": "none",
       "children": [
@@ -35504,6 +36353,15 @@
                       "width": "fill_container",
                       "height": 4,
                       "fill": "#ddddddff"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ukPMS",
+                      "name": "box",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 4,
+                      "fill": "#ddddddff"
                     }
                   ]
                 },
@@ -35519,11 +36377,11 @@
                     {
                       "type": "text",
                       "id": "NJsOx",
-                      "name": "1 / 3",
+                      "name": "1 / 4",
                       "fill": "#999999ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "1 / 3",
+                      "content": "1 / 4",
                       "lineHeight": 1.4500000476837158,
                       "fontFamily": "Barlow Semi Condensed",
                       "fontSize": 12,
@@ -35615,7 +36473,7 @@
                         {
                           "type": "frame",
                           "id": "XdTTl",
-                          "name": "pill 노동",
+                          "name": "pill 일자리",
                           "fill": "#000000ff",
                           "gap": 6,
                           "padding": [
@@ -35640,7 +36498,7 @@
                               "id": "LbfFX",
                               "name": "label",
                               "fill": "#ffffffff",
-                              "content": "노동",
+                              "content": "일자리",
                               "lineHeight": 1.4500000476837158,
                               "fontFamily": "Noto Sans KR",
                               "fontSize": 14,
@@ -35651,7 +36509,7 @@
                         {
                           "type": "frame",
                           "id": "PSBER",
-                          "name": "pill 금융·세제",
+                          "name": "pill 세금·금융",
                           "fill": "#ffffffff",
                           "stroke": "#000000ff",
                           "strokeWidth": 1,
@@ -35682,7 +36540,7 @@
                               "id": "Q1BST",
                               "name": "label",
                               "fill": "#000000ff",
-                              "content": "금융·세제",
+                              "content": "세금·금융",
                               "lineHeight": 1.4500000476837158,
                               "fontFamily": "Noto Sans KR",
                               "fontSize": 14,
@@ -35703,7 +36561,7 @@
                         {
                           "type": "frame",
                           "id": "lFDAO",
-                          "name": "pill 교육",
+                          "name": "pill 복지·연금",
                           "fill": "#ffffffff",
                           "stroke": "#000000ff",
                           "strokeWidth": 1,
@@ -35734,7 +36592,7 @@
                               "id": "R4WuZf",
                               "name": "label",
                               "fill": "#000000ff",
-                              "content": "교육",
+                              "content": "복지·연금",
                               "lineHeight": 1.4500000476837158,
                               "fontFamily": "Noto Sans KR",
                               "fontSize": 14,
@@ -35745,7 +36603,7 @@
                         {
                           "type": "frame",
                           "id": "Awh3E",
-                          "name": "pill 복지",
+                          "name": "pill 교육",
                           "fill": "#ffffffff",
                           "stroke": "#000000ff",
                           "strokeWidth": 1,
@@ -35776,7 +36634,7 @@
                               "id": "aGdoA",
                               "name": "label",
                               "fill": "#000000ff",
-                              "content": "복지",
+                              "content": "교육",
                               "lineHeight": 1.4500000476837158,
                               "fontFamily": "Noto Sans KR",
                               "fontSize": 14,
@@ -35787,7 +36645,7 @@
                         {
                           "type": "frame",
                           "id": "KjerO",
-                          "name": "pill 외교·안보",
+                          "name": "pill 보건·의료",
                           "fill": "#ffffffff",
                           "stroke": "#000000ff",
                           "strokeWidth": 1,
@@ -35818,7 +36676,7 @@
                               "id": "sZ7hb",
                               "name": "label",
                               "fill": "#000000ff",
-                              "content": "외교·안보",
+                              "content": "보건·의료",
                               "lineHeight": 1.4500000476837158,
                               "fontFamily": "Noto Sans KR",
                               "fontSize": 14,
@@ -35839,7 +36697,7 @@
                         {
                           "type": "frame",
                           "id": "IVGqv",
-                          "name": "pill 환경·에너지",
+                          "name": "pill 환경·기후",
                           "fill": "#ffffffff",
                           "stroke": "#000000ff",
                           "strokeWidth": 1,
@@ -35870,7 +36728,7 @@
                               "id": "cgO1g",
                               "name": "label",
                               "fill": "#000000ff",
-                              "content": "환경·에너지",
+                              "content": "환경·기후",
                               "lineHeight": 1.4500000476837158,
                               "fontFamily": "Noto Sans KR",
                               "fontSize": 14,
@@ -35881,7 +36739,7 @@
                         {
                           "type": "frame",
                           "id": "T7BhN2",
-                          "name": "pill 지역",
+                          "name": "pill 외교·안보",
                           "fill": "#ffffffff",
                           "stroke": "#000000ff",
                           "strokeWidth": 1,
@@ -35912,7 +36770,7 @@
                               "id": "QXJ66",
                               "name": "label",
                               "fill": "#000000ff",
-                              "content": "지역",
+                              "content": "외교·안보",
                               "lineHeight": 1.4500000476837158,
                               "fontFamily": "Noto Sans KR",
                               "fontSize": 14,
@@ -35923,7 +36781,7 @@
                         {
                           "type": "frame",
                           "id": "XMbEX",
-                          "name": "pill 청년·세대",
+                          "name": "pill 지역·교통",
                           "fill": "#000000ff",
                           "gap": 6,
                           "padding": [
@@ -35948,7 +36806,7 @@
                               "id": "Um3mh",
                               "name": "label",
                               "fill": "#ffffffff",
-                              "content": "청년·세대",
+                              "content": "지역·교통",
                               "lineHeight": 1.4500000476837158,
                               "fontFamily": "Noto Sans KR",
                               "fontSize": 14,
@@ -35969,7 +36827,7 @@
                         {
                           "type": "frame",
                           "id": "etHpP",
-                          "name": "pill 사법·검찰",
+                          "name": "pill 정치·사법",
                           "fill": "#ffffffff",
                           "stroke": "#000000ff",
                           "strokeWidth": 1,
@@ -36000,91 +36858,7 @@
                               "id": "nVGlf",
                               "name": "label",
                               "fill": "#000000ff",
-                              "content": "사법·검찰",
-                              "lineHeight": 1.4500000476837158,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 14,
-                              "fontWeight": "500"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "EeTQQ",
-                          "name": "pill 국회·정당",
-                          "fill": "#ffffffff",
-                          "stroke": "#000000ff",
-                          "strokeWidth": 1,
-                          "strokeAlignment": "inner",
-                          "gap": 6,
-                          "padding": [
-                            10,
-                            16
-                          ],
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "cErap",
-                              "x": 0,
-                              "y": 0,
-                              "name": "check",
-                              "enabled": false,
-                              "fill": "#ffffffff",
-                              "content": "✓",
-                              "lineHeight": 1.4500000476837158,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 12,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "text",
-                              "id": "LTDbU",
-                              "name": "label",
-                              "fill": "#000000ff",
-                              "content": "국회·정당",
-                              "lineHeight": 1.4500000476837158,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 14,
-                              "fontWeight": "500"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "fT03L",
-                          "name": "pill 미디어",
-                          "fill": "#ffffffff",
-                          "stroke": "#000000ff",
-                          "strokeWidth": 1,
-                          "strokeAlignment": "inner",
-                          "gap": 6,
-                          "padding": [
-                            10,
-                            16
-                          ],
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "IOdpX",
-                              "x": 0,
-                              "y": 0,
-                              "name": "check",
-                              "enabled": false,
-                              "fill": "#ffffffff",
-                              "content": "✓",
-                              "lineHeight": 1.4500000476837158,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 12,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "text",
-                              "id": "V74B0P",
-                              "name": "label",
-                              "fill": "#000000ff",
-                              "content": "미디어",
+                              "content": "정치·사법",
                               "lineHeight": 1.4500000476837158,
                               "fontFamily": "Noto Sans KR",
                               "fontSize": 14,
@@ -36147,9 +36921,9 @@
           "id": "G1mhL",
           "x": 691,
           "y": 359,
-          "name": "notes · Onboarding / 02 설문 1 — 관심 주제",
+          "name": "notes · Onboarding / 02 설문 1 — 화면·API",
           "clip": true,
-          "width": 380,
+          "width": 520,
           "fill": "#f8f8f8ff",
           "layout": "vertical",
           "gap": 12,
@@ -36248,11 +37022,11 @@
                     {
                       "type": "text",
                       "id": "F8pOg",
-                      "name": "user.selected_topics. 선택 항목 topic_weight 초기값 +2. 최소 1개 선택 시 CTA 활성. 항목 = 정책 영역 12종으로 확정(팀 결정) — 카드 칩·마이페이지 그래프·관심 뉴스 필터와 같은 축.",
+                      "name": "주제 칩 · API 데이터 기반",
                       "fill": "#666666ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "user.selected_topics. 선택 항목 topic_weight 초기값 +2. 최소 1개 선택 시 CTA 활성. 항목 = 정책 영역 12종으로 확정(팀 결정) — 카드 칩·마이페이지 그래프·관심 뉴스 필터와 같은 축.",
+                      "content": "GET /api/metadata/categories 응답을 displayOrder 순으로 출력. 화면은 name을 표시하고 선택 상태는 code를 저장. 서버 응답만 단일 원본으로 사용하며 정적 주제 목록이나 목업 fallback을 두지 않음. 최소 1개 선택 시 CTA 활성.",
                       "lineHeight": 1.4500000476837158,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 12,
@@ -36308,13 +37082,308 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "text",
+              "id": "nKiA3",
+              "name": "API 연동 명세 제목",
+              "fill": "#000000ff",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "API 연동 명세",
+              "lineHeight": 1.4500000476837158,
+              "fontFamily": "Noto Sans KR",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "h4IHP",
+              "name": "API · 사용 API",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "D6QS1N",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "aX7ru",
+                      "name": "사용 API",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "사용 API",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "W3Tp70",
+                      "name": "사용 API 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "GET /api/metadata/categories\n관심 주제 목록 조회 · 인증 없음 · 200 OK\n\nGET /api/me/onboarding\n온보딩 상태 확인 · Bearer 인증 · 200 OK\n\nPOST /api/me/onboarding/skip\n전체 건너뛰기 · Bearer 인증 · 200 OK\n\n※ 화면은 서버 응답의 code/name/displayOrder만 사용하며 정적 주제 목록이나 목업 fallback을 두지 않습니다.",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "kVpYy",
+              "name": "API · 요청 값",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "TxpK0",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wm2fd",
+                      "name": "요청 필드 · AuthCredentialsRequest",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "요청 값 · 쿼리/본문/헤더",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "AmeBZ",
+                      "name": "요청 필드 · AuthCredentialsRequest 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "세 API 모두 쿼리와 요청 본문 없음\n\nGET /api/metadata/categories\nAuthorization 불필요\n\nGET /api/me/onboarding\nAuthorization · Bearer <accessToken> · 필수\n\nPOST /api/me/onboarding/skip\nAuthorization · Bearer <accessToken> · 필수",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "hiRTf",
+              "name": "API · 요청 예시",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "G51P3",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "MjgCW",
+                      "name": "요청 JSON 예시",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "요청 예시",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VD74w",
+                      "name": "요청 JSON 예시 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "GET /api/metadata/categories\n\nGET /api/me/onboarding\nAuthorization: Bearer eyJhbGciOi...\n\nPOST /api/me/onboarding/skip\nAuthorization: Bearer eyJhbGciOi...",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "N7cuKw",
+              "name": "API · 응답 필드",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "iKk7l",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YevmP",
+                      "name": "응답 필드 · AuthSessionResponse",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "응답 필드 · MetadataCategoryResponse[] / OnboardingStateResult",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "xRCpu",
+                      "name": "응답 필드 · AuthSessionResponse 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "MetadataCategoryResponse[]\n[].code · TopicCode · 주제 코드\n예: \"housing\"\n[].name · string · 화면 표시명\n예: \"주거\"\n[].displayOrder · number · 표시 순서\n예: 1\n\nTopicCode\n\"climate\" | \"education\" | \"finance\" | \"health\" | \"housing\" | \"labor\" | \"local\" | \"politics\" | \"security\" | \"welfare\"\n\nOnboardingStateResult\nstatus · \"PENDING\" | \"COMPLETED\" | \"SKIPPED\"\ncompletedAt · string | null\nageGroup · AgeGroup | null\nregionCodes · string[]",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jo5UH",
+              "name": "API · 성공 응답 예시",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "T8vnnL",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "yXy3v",
+                      "name": "성공 응답 JSON 예시",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "성공 응답 예시",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "qosYk",
+                      "name": "성공 응답 JSON 예시 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "GET categories · 200\n[\n  {\"code\":\"housing\",\"name\":\"주거\",\"displayOrder\":1},\n  {\"code\":\"labor\",\"name\":\"일자리\",\"displayOrder\":2}\n]\n\nPOST skip · 200\n{\n  \"status\": \"SKIPPED\",\n  \"completedAt\": \"2026-09-20T00:00:00.000Z\",\n  \"ageGroup\": null,\n  \"regionCodes\": []\n}",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HAqrj",
+              "name": "API · 오류 응답",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "U0V5c",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "yONXn",
+                      "name": "오류 응답 · ProblemDetails",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "오류 응답 · ProblemDetails",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "fDmvU",
+                      "name": "오류 응답 · ProblemDetails 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "GET categories\n500 · 서버 처리 실패\n\nGET onboarding / POST skip\n401 · 인증 실패 또는 만료\n500 · 서버 처리 실패\n\nProblemDetails\ntitle · string · 오류 제목\nstatus · number · HTTP 상태 코드\ndetail · string · 상세 내용\ncode · string · 서버 오류 식별 코드\n\n예:\n{\"title\":\"Unauthorized\",\"status\":401,\n \"detail\":\"Authentication is required.\",\n \"code\":\"UNAUTHORIZED\"}\n\n※ 실제 문구와 code는 서버 응답 기준",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
         {
           "type": "frame",
           "id": "x4ZYgJ",
-          "x": 1161,
+          "x": 1251,
           "y": 359,
           "name": "Onboarding / 03 설문 2·인물·정당·기관",
           "clip": true,
@@ -36444,6 +37513,15 @@
                       "width": "fill_container",
                       "height": 4,
                       "fill": "#ddddddff"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "h7fsi",
+                      "name": "box",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 4,
+                      "fill": "#ddddddff"
                     }
                   ]
                 },
@@ -36459,11 +37537,11 @@
                     {
                       "type": "text",
                       "id": "m7ovS",
-                      "name": "2 / 3",
+                      "name": "2 / 4",
                       "fill": "#999999ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "2 / 3",
+                      "content": "2 / 4",
                       "lineHeight": 1.4500000476837158,
                       "fontFamily": "Barlow Semi Condensed",
                       "fontSize": 12,
@@ -37246,11 +38324,11 @@
         {
           "type": "frame",
           "id": "ZDaXW",
-          "x": 1591,
+          "x": 1681,
           "y": 359,
-          "name": "notes · Onboarding / 03 설문 2 — 인물·정당·기관",
+          "name": "notes · Onboarding / 03 설문 2 — 화면·API",
           "clip": true,
-          "width": 380,
+          "width": 520,
           "fill": "#f8f8f8ff",
           "layout": "vertical",
           "gap": 12,
@@ -37456,13 +38534,308 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "text",
+              "id": "gG9xN",
+              "name": "API 연동 명세 제목",
+              "fill": "#000000ff",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "API 연동 명세",
+              "lineHeight": 1.4500000476837158,
+              "fontFamily": "Noto Sans KR",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "KGRJA",
+              "name": "API · 사용 API",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "JxAVm",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jV2jm",
+                      "name": "사용 API",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "사용 API",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "kN3Et",
+                      "name": "사용 API 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "GET /api/metadata/political-actors\n정치인·정당·기관 목록/검색 · 인증 없음 · 200 OK\n\nPOST /api/me/onboarding/skip\n전체 건너뛰기 · Bearer 인증 · 200 OK\n.",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "nq15d",
+              "name": "API · 요청 값",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "E57vw0",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "vm1Gg",
+                      "name": "요청 필드 · AuthCredentialsRequest",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "요청 값 · 정치 주체 검색 쿼리",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "gS2cR",
+                      "name": "요청 필드 · AuthCredentialsRequest 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "q · string · 선택\n예: \"교육\"\n이름/별칭 검색어\n\ntype · \"INSTITUTION\" | \"PARTY\" | \"POLITICIAN\" · 선택\n예: \"INSTITUTION\"\n정치 주체 유형 필터\n\nlimit · number · 선택\n예: 20\n한 번에 받을 항목 수\n\noffset · number · 선택\n예: 0\n페이지 시작 위치\n\nPOST skip · 요청 본문 없음 · Bearer 인증",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Y6iGtC",
+              "name": "API · 요청 예시",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "X25j7",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Vl99v",
+                      "name": "요청 JSON 예시",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "요청 예시",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "xKNyR",
+                      "name": "요청 JSON 예시 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "GET /api/metadata/political-actors?q=교육&type=INSTITUTION&limit=20&offset=0\n\nPOST /api/me/onboarding/skip\nAuthorization: Bearer eyJhbGciOi...",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "cj6iC",
+              "name": "API · 응답 필드",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Ek9JW",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "cjSI3",
+                      "name": "응답 필드 · AuthSessionResponse",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "응답 필드 · PoliticalActorSearchResponse",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "E8YM8",
+                      "name": "응답 필드 · AuthSessionResponse 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "items · PoliticalActorResponse[]\n검색 결과 목록\n\nitems[].id · string(uuid) · 선택 저장에 사용할 ID\nitems[].name · string · 표시 이름\nitems[].type · \"INSTITUTION\" | \"PARTY\" | \"POLITICIAN\"\nitems[].subtitle · string · 선택 필드, 보조 설명\nitems[].aliases · string[] · 검색 별칭\n\ntotal · number · 전체 결과 수\nlimit · number · 적용된 limit\noffset · number · 적용된 offset\n\nPOST skip 응답은 OnboardingStateResult",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "x5zDgf",
+              "name": "API · 성공 응답 예시",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jJtpO",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "e8Oz7",
+                      "name": "성공 응답 JSON 예시",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "성공 응답 예시",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "yJGsn",
+                      "name": "성공 응답 JSON 예시 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "GET political-actors · 200\n{\n  \"items\": [{\n    \"id\": \"8c612e24-d89e-760c-bfe4-1b115b68b06a\",\n    \"name\": \"고용노동부\",\n    \"type\": \"INSTITUTION\",\n    \"subtitle\": \"고용·노동 부처\",\n    \"aliases\": [\"노동부\", \"고용부\"]\n  }],\n  \"total\": 14,\n  \"limit\": 20,\n  \"offset\": 0\n}",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "qEvlY",
+              "name": "API · 오류 응답",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "s70kY",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Egioc",
+                      "name": "오류 응답 · ProblemDetails",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "오류 응답 · ProblemDetails",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "JHsnP",
+                      "name": "오류 응답 · ProblemDetails 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "GET political-actors\n400 · 쿼리 값 검증 실패\n500 · 서버 처리 실패\n\nPOST skip\n401 · 인증 실패 또는 만료\n500 · 서버 처리 실패\n\nProblemDetails\ntitle · string\nstatus · number\ndetail · string\ncode · string\n\n예:\n{\"title\":\"Bad Request\",\"status\":400,\n \"detail\":\"요청 값이 올바르지 않습니다.\",\n \"code\":\"INVALID_ARGUMENT\"}\n\n※ 실제 문구와 code는 서버 응답 기준",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
         {
           "type": "frame",
           "id": "pDOcl",
-          "x": 2061,
+          "x": 2241,
           "y": 359,
           "name": "Onboarding / 04 설문 3·관심 지역",
           "clip": true,
@@ -37592,6 +38965,15 @@
                       "width": "fill_container",
                       "height": 4,
                       "fill": "#000000ff"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "UCfN8",
+                      "name": "box",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 4,
+                      "fill": "#ddddddff"
                     }
                   ]
                 },
@@ -37607,11 +38989,11 @@
                     {
                       "type": "text",
                       "id": "ECu07",
-                      "name": "3 / 3",
+                      "name": "3 / 4",
                       "fill": "#999999ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "3 / 3",
+                      "content": "3 / 4",
                       "lineHeight": 1.4500000476837158,
                       "fontFamily": "Barlow Semi Condensed",
                       "fontSize": 12,
@@ -38256,7 +39638,7 @@
                       "id": "GQf4V",
                       "name": "label",
                       "fill": "#ffffffff",
-                      "content": "시작하기",
+                      "content": "다음",
                       "lineHeight": 1.5,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 16,
@@ -38271,11 +39653,11 @@
         {
           "type": "frame",
           "id": "yXOmA",
-          "x": 2491,
+          "x": 2671,
           "y": 359,
-          "name": "notes · Onboarding / 04 설문 3 — 관심 지역",
+          "name": "notes · Onboarding / 04 설문 3 — 화면·API",
           "clip": true,
-          "width": 380,
+          "width": 520,
           "fill": "#f8f8f8ff",
           "layout": "vertical",
           "gap": 12,
@@ -38331,7 +39713,7 @@
                       "fill": "#666666ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "선택 시 지역 그리드 비활성(opacity 0.4)·선택 해제. preferred_regions=[] 로 저장, region_weight 갱신 안 함.",
+                      "content": "선택 시 지역 그리드 비활성·선택 해제. regionCodes=[]을 로컬 draft에 저장하며 이 단계에서는 서버에 전송하지 않음.",
                       "lineHeight": 1.4500000476837158,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 12,
@@ -38378,7 +39760,7 @@
                       "fill": "#666666ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "17개 시도, 3열 고정 44px 셀. user.preferred_regions. 선택 시 region_weight 초기 +1. 위치 권한 요청 없음(신상 미수집 원칙).",
+                      "content": "GET regions의 17개 항목을 displayOrder 순으로 표시. 서버 name을 보여주고 선택한 code만 regionCodes draft에 저장.",
                       "lineHeight": 1.4500000476837158,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 12,
@@ -38408,11 +39790,11 @@
                     {
                       "type": "text",
                       "id": "fCnUQ",
-                      "name": "시작하기",
+                      "name": "다음",
                       "fill": "#000000ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "시작하기",
+                      "content": "다음",
                       "lineHeight": 1.5,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 13,
@@ -38421,11 +39803,306 @@
                     {
                       "type": "text",
                       "id": "Y9ptNw",
-                      "name": "onboarding_completed=true, profile_updated_at 갱신 → 첫 피드 생성 API 호출 후 02 피드로 이동. 로딩 동안 스켈레톤 카드 표시(06 컴포넌트 참고).",
+                      "name": "다음 설명",
                       "fill": "#666666ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "onboarding_completed=true, profile_updated_at 갱신 → 첫 피드 생성 API 호출 후 02 피드로 이동. 로딩 동안 스켈레톤 카드 표시(06 컴포넌트 참고).",
+                      "content": "선택한 regionCodes를 로컬 draft에 유지하고 4단계 나이대 선택으로 이동. 완료 API는 아직 호출하지 않음.",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "bGcac",
+              "name": "API 연동 명세 제목",
+              "fill": "#000000ff",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "API 연동 명세",
+              "lineHeight": 1.4500000476837158,
+              "fontFamily": "Noto Sans KR",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "qNAyu",
+              "name": "API · 사용 API",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "rgUed",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "T3cH5w",
+                      "name": "사용 API",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "사용 API",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "tSlPN",
+                      "name": "사용 API 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "GET /api/metadata/regions\n관심 지역 목록 조회 · 인증 없음 · 200 OK\n\nPOST /api/me/onboarding/skip\n전체 건너뛰기 · Bearer 인증 · 200 OK",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "H7jH9",
+              "name": "API · 요청 값",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "SmneB",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "U6b5F",
+                      "name": "요청 값",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "요청 값",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "glwQS",
+                      "name": "요청 값 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "GET regions · 요청 본문 없음\n\nPOST skip · 요청 본문 없음\n\n화면 선택값\nregionCodes · string[]\n선택한 지역 code를 로컬 draft에 저장\n'전국 이슈만' 선택 시 []",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Aa9sT",
+              "name": "API · 요청 예시",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "F9mk5",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "sTxMj",
+                      "name": "요청 예시",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "요청 예시",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "xGZo5",
+                      "name": "요청 JSON 예시 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "GET /api/metadata/regions\n요청 본문 없음\n\nPOST /api/me/onboarding/skip\n요청 본문 없음\n\n※ 다음 버튼은 API 요청 없이 4단계로 이동",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "voseB",
+              "name": "API · 응답 필드",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jLchK",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Lis6y",
+                      "name": "응답 필드 · AuthSessionResponse",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "응답 필드 · MetadataRegionResponse[] / OnboardingStateResult",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "XAF9X",
+                      "name": "응답 필드 · AuthSessionResponse 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "MetadataRegionResponse[]\n[].code · string · 저장에 사용할 지역 코드\n[].name · string · 화면 표시명\n[].displayOrder · number · 표시 순서\n\nOnboardingStateResult (skip)\nstatus · \"SKIPPED\"\ncompletedAt · string | null\nageGroup · string | null\nregionCodes · string[]",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "YimgJ",
+              "name": "API · 성공 응답 예시",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "WTrx5",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "k1mGn",
+                      "name": "성공 응답 JSON 예시",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "성공 응답 예시",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "eUOZe",
+                      "name": "성공 응답 JSON 예시 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "GET regions · 200\n[\n  {\"code\":\"SEOUL\",\"name\":\"서울특별시\",\"displayOrder\":1},\n  {\"code\":\"BUSAN\",\"name\":\"부산광역시\",\"displayOrder\":2}\n]\n\nPOST skip · 200\n{\n  \"status\": \"SKIPPED\",\n  \"completedAt\": null,\n  \"ageGroup\": null,\n  \"regionCodes\": []\n}",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "JqxZ8",
+              "name": "API · 오류 응답",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "GdbuK",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "H0otE",
+                      "name": "오류 응답 · ProblemDetails",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "오류 응답 · ProblemDetails",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FpUHD",
+                      "name": "오류 응답 · ProblemDetails 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "GET regions\n500 · 서버 처리 실패\n\nPOST skip\n401 · 인증 실패 또는 만료\n500 · 서버 처리 실패\n\nProblemDetails\ntitle · string · 오류 제목\nstatus · number · HTTP 상태 코드\ndetail · string · 상세 내용\ncode · string · 서버 오류 식별 코드\n\n※ 실제 문구와 code는 서버 응답 기준",
                       "lineHeight": 1.4500000476837158,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 12,
@@ -38439,10 +40116,10 @@
         },
         {
           "type": "frame",
-          "id": "g8dYe",
-          "x": 2961,
+          "id": "Li70M",
+          "x": 3231,
           "y": 359,
-          "name": "Onboarding / 05 비회원 가입 제안 팝업",
+          "name": "Onboarding / 05 설문 4·나이대",
           "clip": true,
           "width": 390,
           "height": 844,
@@ -38454,7 +40131,7 @@
           "children": [
             {
               "type": "frame",
-              "id": "n2QdY",
+              "id": "D78Xp",
               "name": "nav bar",
               "width": "fill_container",
               "height": 52,
@@ -38467,7 +40144,7 @@
               "children": [
                 {
                   "type": "frame",
-                  "id": "n5sLu",
+                  "id": "pxAFg",
                   "name": "left",
                   "clip": true,
                   "gap": 8,
@@ -38475,22 +40152,31 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "sUjvv",
+                      "id": "fwBrS",
+                      "name": "back",
+                      "fill": "#000000ff",
+                      "content": "‹",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 26,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "xPedo",
                       "name": "title",
                       "fill": "#000000ff",
-                      "content": "NEWTINE",
-                      "lineHeight": 1,
-                      "fontFamily": "Barlow Semi Condensed",
-                      "fontSize": 26,
-                      "fontWeight": "900",
-                      "letterSpacing": -0.26,
-                      "fontStyle": "italic"
+                      "lineHeight": 1.35,
+                      "fontFamily": "Gothic A1",
+                      "fontSize": 20,
+                      "fontWeight": "800",
+                      "letterSpacing": -0.3
                     }
                   ]
                 },
                 {
                   "type": "frame",
-                  "id": "xj6Hg",
+                  "id": "AOgjP",
                   "name": "right",
                   "clip": true,
                   "gap": 12,
@@ -38498,10 +40184,10 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "Dgcr4",
+                      "id": "EC36o",
                       "name": "right-label",
                       "fill": "#666666ff",
-                      "content": "◯ 마이",
+                      "content": "건너뛰기",
                       "lineHeight": 1.4500000476837158,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 14,
@@ -38513,321 +40199,247 @@
             },
             {
               "type": "frame",
-              "id": "OAKGU",
-              "name": "body (feed behind)",
+              "id": "C82w0",
+              "name": "body",
               "clip": true,
               "width": "fill_container",
               "height": "fill_container",
               "layout": "vertical",
-              "gap": 12,
-              "padding": [
-                4,
-                16,
-                12,
-                16
-              ],
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "DdBAV",
-                  "name": "card viewport (current only)",
-                  "clip": true,
-                  "width": "fill_container",
-                  "height": "fill_container",
-                  "layout": "vertical",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "Iwc8V",
-                      "name": "issue card",
-                      "clip": true,
-                      "width": "fill_container",
-                      "height": "fill_container",
-                      "fill": "#ffffffff",
-                      "stroke": "#000000ff",
-                      "strokeWidth": 1,
-                      "strokeAlignment": "inner",
-                      "effect": {
-                        "type": "shadow",
-                        "shadowType": "outer",
-                        "color": "#00000014",
-                        "offset": {
-                          "x": 0,
-                          "y": 4
-                        },
-                        "blur": 14
-                      },
-                      "layout": "vertical",
-                      "gap": 16,
-                      "padding": 24,
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "f7mfZa",
-                          "name": "top",
-                          "clip": true,
-                          "width": "fill_container",
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "d71ZSh",
-                              "name": "chip",
-                              "fill": "#f8f8f8ff",
-                              "gap": 6,
-                              "padding": [
-                                5,
-                                10
-                              ],
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "PJdoX",
-                                  "name": "icon",
-                                  "fill": "#666666ff",
-                                  "content": "▣",
-                                  "lineHeight": 1.4500000476837158,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 12,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "pOHaT",
-                                  "name": "label",
-                                  "fill": "#666666ff",
-                                  "content": "국회·정당",
-                                  "lineHeight": 1.4500000476837158,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 12,
-                                  "fontWeight": "500"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "text",
-                              "id": "rHksO",
-                              "name": "count",
-                              "fill": "#999999ff",
-                              "content": "기사 4건 묶음",
-                              "lineHeight": 1.4500000476837158,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 12,
-                              "fontWeight": "normal"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "text",
-                          "id": "fPBkS",
-                          "name": "title",
-                          "fill": "#000000ff",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "국회, 이번 주 본회의서 예산안 처리 예정",
-                          "lineHeight": 1.3,
-                          "fontFamily": "Gothic A1",
-                          "fontSize": 28,
-                          "fontWeight": "800",
-                          "letterSpacing": -0.56
-                        },
-                        {
-                          "type": "frame",
-                          "id": "UnaUN",
-                          "name": "spacer",
-                          "clip": true,
-                          "width": "fill_container",
-                          "height": "fill_container",
-                          "layout": "vertical"
-                        },
-                        {
-                          "type": "text",
-                          "id": "ZTnml",
-                          "name": "hint",
-                          "fill": "#666666ff",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "탭하면 자세히 볼 수 있어요  ›",
-                          "lineHeight": 1.4500000476837158,
-                          "textAlign": "center",
-                          "fontFamily": "Noto Sans KR",
-                          "fontSize": 12,
-                          "fontWeight": "500"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "tSe0R",
-              "name": "action bar",
-              "width": "fill_container",
-              "fill": "#ffffffff",
-              "layout": "vertical",
-              "gap": 8,
+              "gap": 20,
               "padding": [
                 8,
-                16
-              ],
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "N3ixQ",
-                  "name": "buttons",
-                  "clip": true,
-                  "width": "fill_container",
-                  "gap": 12,
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "k2HWWf",
-                      "name": "btn-skip",
-                      "width": "fill_container",
-                      "height": 56,
-                      "fill": "#ffffffff",
-                      "stroke": "#000000ff",
-                      "strokeWidth": 1,
-                      "strokeAlignment": "inner",
-                      "padding": [
-                        0,
-                        16
-                      ],
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "YRubY",
-                          "name": "label",
-                          "fill": "#000000ff",
-                          "content": "✕  넘기기",
-                          "lineHeight": 1.5,
-                          "fontFamily": "Noto Sans KR",
-                          "fontSize": 16,
-                          "fontWeight": "500"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "F3mZG",
-                      "name": "btn-like",
-                      "width": "fill_container",
-                      "height": 56,
-                      "fill": "#000000ff",
-                      "padding": [
-                        0,
-                        16
-                      ],
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "L6TKPh",
-                          "name": "label",
-                          "fill": "#ffffffff",
-                          "content": "♥  관심 있어요",
-                          "lineHeight": 1.5,
-                          "fontFamily": "Noto Sans KR",
-                          "fontSize": 16,
-                          "fontWeight": "500"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "FO6O8",
-              "layoutPosition": "absolute",
-              "x": 0,
-              "y": 0,
-              "name": "scrim",
-              "opacity": 0.44999998807907104,
-              "clip": true,
-              "width": 390,
-              "height": 844,
-              "fill": "#000000ff",
-              "layout": "vertical"
-            },
-            {
-              "type": "frame",
-              "id": "k1AxW1",
-              "layoutPosition": "absolute",
-              "x": 0,
-              "y": 492,
-              "name": "signup prompt sheet",
-              "clip": true,
-              "width": 390,
-              "fill": "#ffffffff",
-              "layout": "vertical",
-              "gap": 16,
-              "padding": [
-                12,
                 24,
-                0,
+                16,
                 24
               ],
               "children": [
                 {
                   "type": "frame",
-                  "id": "ONGJ7",
-                  "name": "box",
+                  "id": "unHGJ",
+                  "name": "step indicator",
                   "clip": true,
                   "width": "fill_container",
-                  "justifyContent": "center",
-                  "alignItems": "center",
+                  "gap": 6,
                   "children": [
                     {
                       "type": "frame",
-                      "id": "n6JjB3",
+                      "id": "F75wel",
                       "name": "box",
                       "clip": true,
-                      "width": 40,
-                      "height": 5,
+                      "width": "fill_container",
+                      "height": 4,
+                      "fill": "#000000ff"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "heBQA",
+                      "name": "box",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 4,
+                      "fill": "#000000ff"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "wAHuk",
+                      "name": "box",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 4,
+                      "fill": "#000000ff"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "JsZyD",
+                      "name": "box",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 4,
                       "fill": "#000000ff"
                     }
                   ]
                 },
                 {
-                  "type": "text",
-                  "id": "NHWAz",
-                  "name": "관심 표시를 기억하려면 로그인이 필요해요",
-                  "fill": "#000000ff",
-                  "textGrowth": "fixed-width",
+                  "type": "frame",
+                  "id": "WOZ2m",
+                  "name": "box",
+                  "clip": true,
                   "width": "fill_container",
-                  "content": "관심 표시를 기억하려면\n로그인이 필요해요",
-                  "lineHeight": 1.35,
-                  "fontFamily": "Gothic A1",
-                  "fontSize": 22,
-                  "fontWeight": "800",
-                  "letterSpacing": -0.33
-                },
-                {
-                  "type": "text",
-                  "id": "EB1Wx",
-                  "name": "로그인하면 관심 표시가 계정에 저장되고, 마이페이지에서 관심 분석과 진단보고서를 볼 수 있어요. 로그인 전 기록은 저장되지 않아요.",
-                  "fill": "#666666ff",
-                  "textGrowth": "fixed-width",
-                  "width": "fill_container",
-                  "content": "로그인하면 관심 표시가 계정에 저장되고, 마이페이지에서 관심 분석과 진단보고서를 볼 수 있어요. 로그인 전 기록은 저장되지 않아요.",
-                  "lineHeight": 1.5,
-                  "fontFamily": "Noto Sans KR",
-                  "fontSize": 14,
-                  "fontWeight": "normal"
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "GW7NW",
+                      "name": "4 / 4",
+                      "fill": "#999999ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "4 / 4",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Barlow Semi Condensed",
+                      "fontSize": 12,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.6
+                    },
+                    {
+                      "type": "text",
+                      "id": "GQzjv",
+                      "name": "어느 나이대에 해당하나요?",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "어느 나이대에 해당하나요?",
+                      "lineHeight": 1.35,
+                      "fontFamily": "Gothic A1",
+                      "fontSize": 22,
+                      "fontWeight": "800",
+                      "letterSpacing": -0.33
+                    },
+                    {
+                      "type": "text",
+                      "id": "KQ5kA",
+                      "name": "선택하지 않아도 괜찮아요.",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "선택하지 않아도 괜찮아요.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
                 },
                 {
                   "type": "frame",
-                  "id": "xqGhj",
-                  "name": "btn 카카오로 시작하기",
+                  "id": "k0F2nE",
+                  "name": "age group options",
+                  "width": 342,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "nSGEr",
+                      "name": "age 19~34세",
+                      "width": "fill_container",
+                      "height": 48,
+                      "stroke": "#000000ff",
+                      "strokeWidth": 1,
+                      "padding": [
+                        0,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "rHKf5",
+                          "name": "19~34세",
+                          "fill": "#000000ff",
+                          "content": "19~34세",
+                          "fontFamily": "Neo Hyundai",
+                          "fontSize": 14
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "XAHcX",
+                      "name": "age 35~49세",
+                      "width": "fill_container",
+                      "height": 48,
+                      "stroke": "#000000ff",
+                      "strokeWidth": 1,
+                      "padding": [
+                        0,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "pWJzE",
+                          "name": "35~49세",
+                          "fill": "#000000ff",
+                          "content": "35~49세",
+                          "fontFamily": "Neo Hyundai",
+                          "fontSize": 14
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Zoo6V",
+                      "name": "age 50~64세",
+                      "width": "fill_container",
+                      "height": 48,
+                      "stroke": "#000000ff",
+                      "strokeWidth": 1,
+                      "padding": [
+                        0,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "QW9Gm",
+                          "name": "50~64세",
+                          "fill": "#000000ff",
+                          "content": "50~64세",
+                          "fontFamily": "Neo Hyundai",
+                          "fontSize": 14
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Bd35K",
+                      "name": "age 65세 이상",
+                      "width": "fill_container",
+                      "height": 48,
+                      "stroke": "#000000ff",
+                      "strokeWidth": 1,
+                      "padding": [
+                        0,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Oh1kD",
+                          "name": "65세 이상",
+                          "fill": "#000000ff",
+                          "content": "65세 이상",
+                          "fontFamily": "Neo Hyundai",
+                          "fontSize": 14
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "QUja1",
+              "name": "bottom cta",
+              "clip": true,
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "padding": [
+                8,
+                24
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "kWxVA",
+                  "name": "btn 시작하기",
                   "width": "fill_container",
                   "height": 54,
                   "fill": "#000000ff",
@@ -38840,55 +40452,16 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "ZYfzc",
+                      "id": "MiIX5",
                       "name": "label",
                       "fill": "#ffffffff",
-                      "content": "카카오로 시작하기",
+                      "content": "시작하기",
                       "lineHeight": 1.5,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 16,
                       "fontWeight": "500"
                     }
                   ]
-                },
-                {
-                  "type": "frame",
-                  "id": "I2uPOa",
-                  "name": "btn 나중에 할게요",
-                  "width": "fill_container",
-                  "height": 44,
-                  "fill": "#ffffffff",
-                  "stroke": "#000000ff",
-                  "strokeWidth": 1,
-                  "strokeAlignment": "inner",
-                  "padding": [
-                    0,
-                    16
-                  ],
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "R3WLYp",
-                      "name": "label",
-                      "fill": "#000000ff",
-                      "content": "나중에 할게요",
-                      "lineHeight": 1.5,
-                      "fontFamily": "Noto Sans KR",
-                      "fontSize": 16,
-                      "fontWeight": "500"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "W2nYBH",
-                  "name": "box",
-                  "clip": true,
-                  "width": "fill_container",
-                  "height": 34,
-                  "layout": "vertical"
                 }
               ]
             }
@@ -38896,12 +40469,12 @@
         },
         {
           "type": "frame",
-          "id": "nBb4w",
-          "x": 3391,
+          "id": "o0KThO",
+          "x": 3661,
           "y": 359,
-          "name": "notes · Onboarding / 05 비회원 가입 제안 — 스펙",
+          "name": "notes · Onboarding / 05 설문 4 — 화면·API",
           "clip": true,
-          "width": 380,
+          "width": 520,
           "fill": "#f8f8f8ff",
           "layout": "vertical",
           "gap": 12,
@@ -38909,12 +40482,12 @@
           "children": [
             {
               "type": "text",
-              "id": "lKiFV",
-              "name": "Onboarding / 05 비회원 가입 제안 — 스펙",
+              "id": "o184Q",
+              "name": "Onboarding / 05 설문 4 — 나이대",
               "fill": "#000000ff",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "Onboarding / 05 비회원 가입 제안 — 스펙",
+              "content": "Onboarding / 05 설문 4 — 나이대",
               "lineHeight": 1.4500000476837158,
               "fontFamily": "Noto Sans KR",
               "fontSize": 16,
@@ -38922,7 +40495,7 @@
             },
             {
               "type": "frame",
-              "id": "KD0hH",
+              "id": "bkUsa",
               "name": "box",
               "clip": true,
               "width": "fill_container",
@@ -38930,7 +40503,7 @@
               "children": [
                 {
                   "type": "frame",
-                  "id": "WMKd5",
+                  "id": "ohnIS",
                   "name": "box",
                   "clip": true,
                   "width": "fill_container",
@@ -38939,12 +40512,12 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "BVJSr",
-                      "name": "트리거·문구",
+                      "id": "MeUP0",
+                      "name": "나이대 선택",
                       "fill": "#000000ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "트리거·문구",
+                      "content": "나이대 선택",
                       "lineHeight": 1.5,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 13,
@@ -38952,12 +40525,12 @@
                     },
                     {
                       "type": "text",
-                      "id": "t1zjz",
-                      "name": "노출 시점(팀 결정): ① 비회원이 관심(우 스와이프) 3회째 ② 카드를 5장 이상 넘겼을 때(좌/우/하 합산, 1회만) ③ 마이 아이콘 탭(로그인 게이트). 트리거별 제목 문구 분기(③: \"마이페이지는 로그인 후 볼 수 있어요\").",
+                      "id": "qlURO",
+                      "name": "나이대 선택 설명",
                       "fill": "#666666ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "노출 시점(팀 결정): ① 비회원이 관심(우 스와이프) 3회째 ② 카드를 5장 이상 넘겼을 때(좌/우/하 합산, 1회만) ③ 마이 아이콘 탭(로그인 게이트). 트리거별 제목 문구 분기(③: \"마이페이지는 로그인 후 볼 수 있어요\").",
+                      "content": "GET age-groups의 4개 항목을 displayOrder 순으로 표시. 한 개만 선택 가능하며 다시 누르면 선택 해제.",
                       "lineHeight": 1.4500000476837158,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 12,
@@ -38969,7 +40542,7 @@
             },
             {
               "type": "frame",
-              "id": "dEawe",
+              "id": "x4aG9v",
               "name": "box",
               "clip": true,
               "width": "fill_container",
@@ -38977,7 +40550,7 @@
               "children": [
                 {
                   "type": "frame",
-                  "id": "Ul0Dr",
+                  "id": "EGMEg",
                   "name": "box",
                   "clip": true,
                   "width": "fill_container",
@@ -38986,12 +40559,12 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "n4SS4",
-                      "name": "로그인 CTA",
+                      "id": "W5dgZ",
+                      "name": "선택값",
                       "fill": "#000000ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "로그인 CTA",
+                      "content": "선택값",
                       "lineHeight": 1.5,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 13,
@@ -38999,12 +40572,12 @@
                     },
                     {
                       "type": "text",
-                      "id": "Pu2s6",
-                      "name": "로그인 성공 시 비회원 로컬 기록은 병합하지 않고 폐기(팀 결정) → 이어서 02 설문. 본문에 \"로그인 전 기록은 저장되지 않아요\" 명시.",
+                      "id": "us0p7",
+                      "name": "선택값 설명",
                       "fill": "#666666ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "로그인 성공 시 비회원 로컬 기록은 병합하지 않고 폐기(팀 결정) → 이어서 02 설문. 본문에 \"로그인 전 기록은 저장되지 않아요\" 명시.",
+                      "content": "선택한 code를 ageGroup draft에 저장. 미선택이면 null 유지. 화면에서는 서버의 name만 표시.",
                       "lineHeight": 1.4500000476837158,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 12,
@@ -39016,7 +40589,7 @@
             },
             {
               "type": "frame",
-              "id": "vcSLa",
+              "id": "ICgKC",
               "name": "box",
               "clip": true,
               "width": "fill_container",
@@ -39024,7 +40597,7 @@
               "children": [
                 {
                   "type": "frame",
-                  "id": "PT7Ya",
+                  "id": "sdeHc",
                   "name": "box",
                   "clip": true,
                   "width": "fill_container",
@@ -39033,12 +40606,12 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "I2NdiT",
-                      "name": "나중에",
+                      "id": "jP6GQ",
+                      "name": "시작하기",
                       "fill": "#000000ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "나중에",
+                      "content": "시작하기",
                       "lineHeight": 1.5,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 13,
@@ -39046,12 +40619,72 @@
                     },
                     {
                       "type": "text",
-                      "id": "EoSjI",
-                      "name": "시트 닫고 피드 유지. 같은 트리거로 재노출은 세션당 1회, 이후 관심 10회마다. 스크림 탭 = 나중에와 동일.",
+                      "id": "ou1VY",
+                      "name": "시작하기 설명",
                       "fill": "#666666ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "시트 닫고 피드 유지. 같은 트리거로 재노출은 세션당 1회, 이후 관심 10회마다. 스크림 탭 = 나중에와 동일.",
+                      "content": "누적한 topicCodes·entityIds·regionCodes·ageGroup을 POST complete로 한 번에 전송. 성공 후 첫 피드로 이동.",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "pL3Fm",
+              "name": "API 연동 명세 제목",
+              "fill": "#000000ff",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "API 연동 명세",
+              "lineHeight": 1.4500000476837158,
+              "fontFamily": "Noto Sans KR",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "VKKki",
+              "name": "API · 사용 API",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "aLwuQ",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "J5yqk",
+                      "name": "사용 API",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "사용 API",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "O7Rj1x",
+                      "name": "사용 API 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "GET /api/metadata/age-groups\n나이대 목록 조회 · 인증 없음 · 200 OK\n\nPOST /api/me/onboarding/complete\n최종 선택 저장 및 온보딩 완료 · Bearer 인증 · 200 OK\n\nPOST /api/me/onboarding/skip\n전체 건너뛰기 · Bearer 인증 · 200 OK",
                       "lineHeight": 1.4500000476837158,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 12,
@@ -39063,15 +40696,15 @@
             },
             {
               "type": "frame",
-              "id": "EzSPW",
-              "name": "box",
+              "id": "O8zFvk",
+              "name": "API · 요청 값",
               "clip": true,
               "width": "fill_container",
               "gap": 10,
               "children": [
                 {
                   "type": "frame",
-                  "id": "oin8Y",
+                  "id": "F6027",
                   "name": "box",
                   "clip": true,
                   "width": "fill_container",
@@ -39080,12 +40713,12 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "E3Abra",
-                      "name": "스크림",
+                      "id": "yoHdd",
+                      "name": "요청 필드 · CompleteOnboardingRequest",
                       "fill": "#000000ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "스크림",
+                      "content": "요청 필드 · CompleteOnboardingRequest",
                       "lineHeight": 1.5,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 13,
@@ -39093,12 +40726,200 @@
                     },
                     {
                       "type": "text",
-                      "id": "r97pL",
-                      "name": "#000 45%. 뒤 피드는 스크롤·스와이프 차단. 시트는 아래로 드래그해서 닫기 가능.",
+                      "id": "M2Fuuc",
+                      "name": "요청 필드 · CompleteOnboardingRequest 설명",
                       "fill": "#666666ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "#000 45%. 뒤 피드는 스크롤·스와이프 차단. 시트는 아래로 드래그해서 닫기 가능.",
+                      "content": "topicCodes · string[] · 필수 · 1~10개\n1단계에서 선택한 주제 코드\n\nentityIds · string(uuid)[] · 필수 · 최대 100개\n2단계에서 선택한 정치 주체 ID. 미선택 시 []\n\nregionCodes · string[] · 필수 · 최대 17개\n3단계에서 선택한 지역 코드. 전국이면 []\n\nageGroup · string | null · 필수\n현재 화면에서 선택한 나이대 코드. 미선택 시 null\n\nGET age-groups / POST skip · 요청 본문 없음",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vpDYE",
+              "name": "API · 요청 예시",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "BdAyV",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "lBulh",
+                      "name": "요청 JSON 예시",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "요청 JSON 예시",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "QWYma",
+                      "name": "요청 JSON 예시 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "POST /api/me/onboarding/complete\n{\n  \"topicCodes\": [\"housing\", \"labor\"],\n  \"entityIds\": [\n    \"8c612e24-d89e-760c-bfe4-1b115b68b06a\"\n  ],\n  \"ageGroup\": \"AGE_19_34\",\n  \"regionCodes\": [\"SEOUL\", \"GYEONGGI\"]\n}\n\n미선택 시 ageGroup: null",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "gJ0TX",
+              "name": "API · 응답 필드",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VD3wH",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "o4Dxs",
+                      "name": "응답 필드 · MetadataAgeGroupResponse[] / OnboardingStateResult",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "응답 필드 · MetadataAgeGroupResponse[] / OnboardingStateResult",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "M5yX4",
+                      "name": "응답 필드 · MetadataAgeGroupResponse[] / OnboardingStateResult 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "MetadataAgeGroupResponse[]\n[].code · string · 저장할 나이대 코드\n[].name · string · 화면 표시명\n[].displayOrder · number · 표시 순서\n\nOnboardingStateResult\nstatus · \"PENDING\" | \"COMPLETED\" | \"SKIPPED\"\ncomplete 성공 시 \"COMPLETED\"\nskip 성공 시 \"SKIPPED\"\ncompletedAt · string | null · 완료 시각\nageGroup · string | null · 저장된 나이대 코드\nregionCodes · string[] · 저장된 지역 코드",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "tiNJY",
+              "name": "API · 성공 응답 예시",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jeImP",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ZnM4J",
+                      "name": "성공 응답 JSON 예시",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "성공 응답 예시",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "SUJIB",
+                      "name": "성공 응답 JSON 예시 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "GET age-groups · 200\n[\n  {\"code\":\"AGE_19_34\",\"name\":\"19~34세\",\"displayOrder\":1},\n  {\"code\":\"AGE_65_PLUS\",\"name\":\"65세 이상\",\"displayOrder\":4}\n]\n\nPOST complete · 200\n{\n  \"status\": \"COMPLETED\",\n  \"completedAt\": \"2026-09-20T00:00:00.000Z\",\n  \"ageGroup\": \"AGE_19_34\",\n  \"regionCodes\": [\"SEOUL\", \"GYEONGGI\"]\n}",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "FUTv3",
+              "name": "API · 오류 응답",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Fplws",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bBFRL",
+                      "name": "오류 응답 · ProblemDetails",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "오류 응답 · ProblemDetails",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "dxxXK",
+                      "name": "오류 응답 · ProblemDetails 설명",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "GET age-groups\n500 · 서버 처리 실패\n\nPOST complete\n400 · 요청 본문 또는 선택 값 검증 실패\n401 · 인증 실패 또는 만료\n500 · 서버 처리 실패\n\nPOST skip\n401 · 인증 실패 또는 만료\n500 · 서버 처리 실패\n\nProblemDetails\ntitle · string · 오류 제목\nstatus · number · HTTP 상태 코드\ndetail · string · 상세 내용\ncode · string · 서버 오류 식별 코드\n\n※ 실제 문구와 code는 서버 응답 기준",
                       "lineHeight": 1.4500000476837158,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 12,
