@@ -37,7 +37,10 @@ const neoHyundai = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Newtine",
+  title: {
+    default: "newtine",
+    template: "newtine | %s",
+  },
 };
 
 export const viewport: Viewport = {
