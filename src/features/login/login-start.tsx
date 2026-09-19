@@ -11,6 +11,8 @@ const focusClasses =
 export function LoginStart() {
   const router = useRouter();
 
+  // TODO: 이용약관 및 개인정보처리방침 페이지 구현 후 안내 문구와 링크를 노출한다.
+
   return (
     <div className="relative min-h-[max(640px,calc(100dvh_-_env(safe-area-inset-top)_-_env(safe-area-inset-bottom)))]">
       <div className="absolute inset-x-6 top-[25.36%] flex flex-col items-center gap-4 text-center">
@@ -49,23 +51,7 @@ export function LoginStart() {
         >
           로그인 없이 둘러보기
         </Link>
-        <p className="text-center text-hint wrap-anywhere break-keep text-muted">
-          시작하면{" "}
-          <Link
-            href="/terms"
-            className={`underline underline-offset-2 ${focusClasses}`}
-          >
-            이용약관
-          </Link>{" "}
-          및{" "}
-          <Link
-            href="/privacy"
-            className={`underline underline-offset-2 ${focusClasses}`}
-          >
-            개인정보처리방침
-          </Link>
-          에 동의하게 됩니다
-        </p>
+        <div aria-hidden="true" className="h-[15px]" />
       </div>
     </div>
   );
