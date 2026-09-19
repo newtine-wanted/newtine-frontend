@@ -1,6 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useStore } from "zustand";
+import { getProblemDetails } from "@/domain/auth";
+import { authSessionStore } from "@/domain/auth/store";
 import { feedApi } from "./api";
 import type {
   FeedApi,
@@ -22,10 +25,11 @@ interface PendingInteraction {
 }
 
 function getErrorMessage(error: unknown, fallback: string) {
-  return error instanceof Error ? error.message : fallback;
+  return getProblemDetails(error)?.detail ?? fallback;
 }
 
 export function useFeed(api: FeedApi = feedApi) {
+  const authStatus = useStore(authSessionStore, (state) => state.status);
   const [items, setItems] = useState<FeedCardResponse[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [furthestIndex, setFurthestIndex] = useState(0);
@@ -56,6 +60,8 @@ export function useFeed(api: FeedApi = feedApi) {
   ).length;
 
   const loadInitialFeed = useCallback(async () => {
+    if (authStatus === "initializing") return;
+
     setIsInitialLoading(true);
     setLoadError(null);
 
@@ -73,7 +79,7 @@ export function useFeed(api: FeedApi = feedApi) {
     } finally {
       setIsInitialLoading(false);
     }
-  }, [api]);
+  }, [api, authStatus]);
 
   const loadMore = useCallback(async () => {
     if (!nextCursor || isLoadingMore) return;
@@ -96,6 +102,8 @@ export function useFeed(api: FeedApi = feedApi) {
   }, [api, isLoadingMore, nextCursor]);
 
   useEffect(() => {
+    if (authStatus === "initializing") return;
+
     let ignore = false;
 
     void api
@@ -119,7 +127,7 @@ export function useFeed(api: FeedApi = feedApi) {
     return () => {
       ignore = true;
     };
-  }, [api]);
+  }, [api, authStatus]);
 
   const submitInteraction = useCallback(
     async (pendingInteraction: PendingInteraction) => {
@@ -158,17 +166,6 @@ export function useFeed(api: FeedApi = feedApi) {
     (action: IssueInteractionAction) => {
       if (!currentCard) return;
 
-      sessionIdRef.current ??= crypto.randomUUID();
-
-      const pendingInteraction: PendingInteraction = {
-        issueId: currentCard.issueId,
-        request: {
-          eventId: crypto.randomUUID(),
-          sessionId: sessionIdRef.current,
-          action,
-        },
-      };
-
       setActionsByIssueId((current) => ({
         ...current,
         [currentCard.issueId]: action,
@@ -186,9 +183,21 @@ export function useFeed(api: FeedApi = feedApi) {
         void loadMore();
       }
 
-      void submitInteraction(pendingInteraction);
+      if (authStatus === "authenticated") {
+        sessionIdRef.current ??= crypto.randomUUID();
+
+        void submitInteraction({
+          issueId: currentCard.issueId,
+          request: {
+            eventId: crypto.randomUUID(),
+            sessionId: sessionIdRef.current,
+            action,
+          },
+        });
+      }
     },
     [
+      authStatus,
       currentCard,
       currentIndex,
       isLoadingMore,
@@ -246,6 +255,7 @@ export function useFeed(api: FeedApi = feedApi) {
     remainingCount,
     continuation,
     status,
+    isAuthenticated: authStatus === "authenticated",
     canGoBack,
     likedCount,
     isLoadingMore,
