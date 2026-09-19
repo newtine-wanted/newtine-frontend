@@ -16,7 +16,7 @@ function toggle<T>(list: T[], value: T) {
     : [...list, value];
 }
 
-export function OnboardingFlow() {
+export function OnboardingScreen() {
   const router = useRouter();
   const headingRef = useRef<HTMLHeadingElement>(null);
   const [step, setStep] = useState<OnboardingStep>("topics");

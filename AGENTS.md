@@ -23,6 +23,10 @@
 - Server Component를 기본으로 유지하고, 상태·이벤트·브라우저 API가 필요한 최소 경계에만 `"use client"`를 지정한다.
 - Server Component에서 Client Component로 전달하는 props는 직렬화 가능한 값이어야 한다. `onClick` 같은 일반 함수나 인라인 이벤트 핸들러를 넘기지 않으며, 이벤트가 필요한 호출부 또는 최소 상호작용 영역을 Client Component로 분리한다. 단, 명시적인 Server Action은 예외다.
 - 소스는 `src/` 아래에 두고 `@/*` 별칭을 사용한다. `app`은 라우트와 조합, `features`는 사용자 흐름, `domain`은 여러 흐름이 공유하는 제품 개념, `components/ui`는 제품 의미를 모르는 공용 UI를 맡는다.
+- `src/app/**/page.tsx`는 Next.js 라우트 진입점이며 기본 컴포넌트 이름은 화면 의미를 나타내는 `*Page`로 작성한다(예: `FeedPage`, `EmailLoginPage`). 제품명 자체가 `Page`로 끝나면 `MyPagePage`처럼 중복하지 않고 `MyPage`로 작성한다.
+- 기능 계층에서 한 페이지의 화면 전체를 구성하는 컴포넌트는 `*Screen`으로 이름 짓고 파일명도 `*-screen.tsx`로 맞춘다. 재사용 컴포넌트에는 `Page` 접미사를 사용하지 않는다.
+- 화면 일부만 담당하는 컴포넌트는 역할에 따라 `*Content`, `*Form`, `*List`, `*Section`처럼 구체적으로 이름 짓는다. 전체 화면이 아닌 컴포넌트에는 `Screen`을 붙이지 않는다.
+- export한 컴포넌트 이름과 파일 이름은 같은 의미를 사용한다. 이름 변경 시 route, barrel export, import를 함께 갱신한다.
 - 폴더와 `api`·`store`·`types` 파일은 실제 코드가 생길 때 추가한다. 빈 계층이나 사용하지 않는 추상화를 미리 만들지 않는다.
 - 패키지 관리자는 npm이다. 의존성을 변경할 때 `package-lock.json`을 함께 갱신한다. Node.js 버전은 `.nvmrc`를 따른다.
 

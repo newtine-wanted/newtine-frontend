@@ -3,6 +3,6 @@ import { EmailLoginScreen } from "@/features/login";
 
 export const metadata: Metadata = { title: "이메일 로그인" };
 
-export default function EmailLoginRoute() {
+export default function EmailLoginPage() {
   return <EmailLoginScreen />;
 }

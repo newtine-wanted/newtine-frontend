@@ -1,4 +1,4 @@
-export { MyPage } from "./my-page";
+export { MyPageContent } from "./my-page-content";
 export { MyPageMenuButton } from "./menu-button";
 export { LikedNewsCount } from "./liked-news/liked-news-count";
 export { LikedNewsList } from "./liked-news/liked-news-list";

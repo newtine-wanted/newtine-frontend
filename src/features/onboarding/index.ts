@@ -1,1 +1,1 @@
-export { OnboardingFlow } from "./onboarding-flow";
+export { OnboardingScreen } from "./onboarding-screen";

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui";
 const focusClasses =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
-export function LoginStart() {
+export function LoginStartScreen() {
   const router = useRouter();
 
   // TODO: 이용약관 및 개인정보처리방침 페이지 구현 후 안내 문구와 링크를 노출한다.
