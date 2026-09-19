@@ -12293,7 +12293,7 @@
       "y": 6603,
       "name": "03_피드(카드)",
       "clip": true,
-      "width": 5112,
+      "width": 6012,
       "height": 2394,
       "fill": "#FFFFFF",
       "layout": "none",
@@ -15814,6 +15814,679 @@
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
                       "content": "카드 상태와 무관하게 화면 하단 위치·크기 고정. 카드 탭(어디든) → 요약 바텀시트(03-01). 자세히 보기 버튼 없음. 노출 중 스와이프하면 애니메이션 취소 후 즉시 다음 카드.",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "g8dYe",
+          "x": 4851,
+          "y": 775,
+          "name": "Feed / 06 비회원 가입 제안 팝업",
+          "clip": true,
+          "width": 390,
+          "height": 844,
+          "fill": "#ffffffff",
+          "stroke": "#ddddddff",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "n2QdY",
+              "name": "nav bar",
+              "width": "fill_container",
+              "height": 52,
+              "padding": [
+                0,
+                16
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n5sLu",
+                  "name": "left",
+                  "clip": true,
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "sUjvv",
+                      "name": "title",
+                      "fill": "#000000ff",
+                      "content": "NEWTINE",
+                      "lineHeight": 1,
+                      "fontFamily": "Barlow Semi Condensed",
+                      "fontSize": 26,
+                      "fontWeight": "900",
+                      "letterSpacing": -0.26,
+                      "fontStyle": "italic"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "xj6Hg",
+                  "name": "right",
+                  "clip": true,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Dgcr4",
+                      "name": "right-label",
+                      "fill": "#666666ff",
+                      "content": "◯ 마이",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "OAKGU",
+              "name": "body (feed behind)",
+              "clip": true,
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                4,
+                16,
+                12,
+                16
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "DdBAV",
+                  "name": "card viewport (current only)",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Iwc8V",
+                      "name": "issue card",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "#ffffffff",
+                      "stroke": "#000000ff",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#00000014",
+                        "offset": {
+                          "x": 0,
+                          "y": 4
+                        },
+                        "blur": 14
+                      },
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "f7mfZa",
+                          "name": "top",
+                          "clip": true,
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "d71ZSh",
+                              "name": "chip",
+                              "fill": "#f8f8f8ff",
+                              "gap": 6,
+                              "padding": [
+                                5,
+                                10
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "PJdoX",
+                                  "name": "icon",
+                                  "fill": "#666666ff",
+                                  "content": "▣",
+                                  "lineHeight": 1.4500000476837158,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 12,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "pOHaT",
+                                  "name": "label",
+                                  "fill": "#666666ff",
+                                  "content": "국회·정당",
+                                  "lineHeight": 1.4500000476837158,
+                                  "fontFamily": "Noto Sans KR",
+                                  "fontSize": 12,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "rHksO",
+                              "name": "count",
+                              "fill": "#999999ff",
+                              "content": "기사 4건 묶음",
+                              "lineHeight": 1.4500000476837158,
+                              "fontFamily": "Noto Sans KR",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "fPBkS",
+                          "name": "title",
+                          "fill": "#000000ff",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "국회, 이번 주 본회의서 예산안 처리 예정",
+                          "lineHeight": 1.3,
+                          "fontFamily": "Gothic A1",
+                          "fontSize": 28,
+                          "fontWeight": "800",
+                          "letterSpacing": -0.56
+                        },
+                        {
+                          "type": "frame",
+                          "id": "UnaUN",
+                          "name": "spacer",
+                          "clip": true,
+                          "width": "fill_container",
+                          "height": "fill_container",
+                          "layout": "vertical"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ZTnml",
+                          "name": "hint",
+                          "fill": "#666666ff",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "탭하면 자세히 볼 수 있어요  ›",
+                          "lineHeight": 1.4500000476837158,
+                          "textAlign": "center",
+                          "fontFamily": "Noto Sans KR",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "tSe0R",
+              "name": "action bar",
+              "width": "fill_container",
+              "fill": "#ffffffff",
+              "layout": "vertical",
+              "gap": 8,
+              "padding": [
+                8,
+                16
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "N3ixQ",
+                  "name": "buttons",
+                  "clip": true,
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "k2HWWf",
+                      "name": "btn-skip",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "#ffffffff",
+                      "stroke": "#000000ff",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "padding": [
+                        0,
+                        16
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "YRubY",
+                          "name": "label",
+                          "fill": "#000000ff",
+                          "content": "✕  넘기기",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Noto Sans KR",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "F3mZG",
+                      "name": "btn-like",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "#000000ff",
+                      "padding": [
+                        0,
+                        16
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "L6TKPh",
+                          "name": "label",
+                          "fill": "#ffffffff",
+                          "content": "♥  관심 있어요",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Noto Sans KR",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "FO6O8",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "scrim",
+              "opacity": 0.44999998807907104,
+              "clip": true,
+              "width": 390,
+              "height": 844,
+              "fill": "#000000ff",
+              "layout": "vertical"
+            },
+            {
+              "type": "frame",
+              "id": "k1AxW1",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 492,
+              "name": "signup prompt sheet",
+              "clip": true,
+              "width": 390,
+              "fill": "#ffffffff",
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [
+                12,
+                24,
+                0,
+                24
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ONGJ7",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n6JjB3",
+                      "name": "box",
+                      "clip": true,
+                      "width": 40,
+                      "height": 5,
+                      "fill": "#000000ff"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "NHWAz",
+                  "name": "관심 표시를 기억하려면 로그인이 필요해요",
+                  "fill": "#000000ff",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "관심 표시를 기억하려면\n로그인이 필요해요",
+                  "lineHeight": 1.35,
+                  "fontFamily": "Gothic A1",
+                  "fontSize": 22,
+                  "fontWeight": "800",
+                  "letterSpacing": -0.33
+                },
+                {
+                  "type": "text",
+                  "id": "EB1Wx",
+                  "name": "로그인하면 관심 표시가 계정에 저장되고, 마이페이지에서 관심 분석과 진단보고서를 볼 수 있어요. 로그인 전 기록은 저장되지 않아요.",
+                  "fill": "#666666ff",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "로그인하면 관심 표시가 계정에 저장되고, 마이페이지에서 관심 분석과 진단보고서를 볼 수 있어요. 로그인 전 기록은 저장되지 않아요.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Noto Sans KR",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "xqGhj",
+                  "name": "btn 카카오로 시작하기",
+                  "width": "fill_container",
+                  "height": 54,
+                  "fill": "#000000ff",
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ZYfzc",
+                      "name": "label",
+                      "fill": "#ffffffff",
+                      "content": "카카오로 시작하기",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "I2uPOa",
+                  "name": "btn 나중에 할게요",
+                  "width": "fill_container",
+                  "height": 44,
+                  "fill": "#ffffffff",
+                  "stroke": "#000000ff",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "R3WLYp",
+                      "name": "label",
+                      "fill": "#000000ff",
+                      "content": "나중에 할게요",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "W2nYBH",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": 34,
+                  "layout": "vertical"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "nBb4w",
+          "x": 5281,
+          "y": 775,
+          "name": "notes · Feed / 06 비회원 가입 제안 — 스펙",
+          "clip": true,
+          "width": 380,
+          "fill": "#f8f8f8ff",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": 20,
+          "children": [
+            {
+              "type": "text",
+              "id": "lKiFV",
+              "name": "Feed / 06 비회원 가입 제안 — 스펙",
+              "fill": "#000000ff",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Feed / 06 비회원 가입 제안 — 스펙",
+              "lineHeight": 1.4500000476837158,
+              "fontFamily": "Noto Sans KR",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "KD0hH",
+              "name": "box",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "WMKd5",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "BVJSr",
+                      "name": "트리거·문구",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "트리거·문구",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "t1zjz",
+                      "name": "노출 시점(팀 결정): ① 비회원이 관심(우 스와이프) 3회째 ② 카드를 5장 이상 넘겼을 때(좌/우/하 합산, 1회만) ③ 마이 아이콘 탭(로그인 게이트). 트리거별 제목 문구 분기(③: \"마이페이지는 로그인 후 볼 수 있어요\").",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "노출 시점(팀 결정): ① 비회원이 관심(우 스와이프) 3회째 ② 카드를 5장 이상 넘겼을 때(좌/우/하 합산, 1회만) ③ 마이 아이콘 탭(로그인 게이트). 트리거별 제목 문구 분기(③: \"마이페이지는 로그인 후 볼 수 있어요\").",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "dEawe",
+              "name": "box",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Ul0Dr",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n4SS4",
+                      "name": "로그인 CTA",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "로그인 CTA",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Pu2s6",
+                      "name": "로그인 성공 시 비회원 로컬 기록은 병합하지 않고 폐기(팀 결정) → 이어서 02 설문. 본문에 \"로그인 전 기록은 저장되지 않아요\" 명시.",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "로그인 성공 시 비회원 로컬 기록은 병합하지 않고 폐기(팀 결정) → 이어서 02 설문. 본문에 \"로그인 전 기록은 저장되지 않아요\" 명시.",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vcSLa",
+              "name": "box",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "PT7Ya",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "I2NdiT",
+                      "name": "나중에",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "나중에",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "EoSjI",
+                      "name": "시트 닫고 피드 유지. 같은 트리거로 재노출은 세션당 1회, 이후 관심 10회마다. 스크림 탭 = 나중에와 동일.",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "시트 닫고 피드 유지. 같은 트리거로 재노출은 세션당 1회, 이후 관심 10회마다. 스크림 탭 = 나중에와 동일.",
+                      "lineHeight": 1.4500000476837158,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "EzSPW",
+              "name": "box",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "oin8Y",
+                  "name": "box",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "E3Abra",
+                      "name": "스크림",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "스크림",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Noto Sans KR",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "r97pL",
+                      "name": "#000 45%. 뒤 피드는 스크롤·스와이프 차단. 시트는 아래로 드래그해서 닫기 가능.",
+                      "fill": "#666666ff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "#000 45%. 뒤 피드는 스크롤·스와이프 차단. 시트는 아래로 드래그해서 닫기 가능.",
                       "lineHeight": 1.4500000476837158,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 12,
@@ -35542,7 +36215,7 @@
       "y": 3904,
       "name": "02_온보딩",
       "clip": true,
-      "width": 4320,
+      "width": 3470,
       "height": 2305,
       "fill": "#ffffffff",
       "layout": "none",
@@ -37894,7 +38567,7 @@
                       "fill": "#666666ff",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "GET /api/metadata/political-actors\n정치인·정당·기관 목록/검색 · 인증 없음 · 200 OK\n\nPOST /api/me/onboarding/skip\n전체 건너뛰기 · Bearer 인증 · 200 OK\n\n※ q의 검색 방식과 기본 정렬 규칙은 OpenAPI에 명시되어 있지 않습니다. prefix 검색·최근 30일 보도량 순 기획은 백엔드 확인이 필요합니다.",
+                      "content": "GET /api/metadata/political-actors\n정치인·정당·기관 목록/검색 · 인증 없음 · 200 OK\n\nPOST /api/me/onboarding/skip\n전체 건너뛰기 · Bearer 인증 · 200 OK\n.",
                       "lineHeight": 1.4500000476837158,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 12,
@@ -39403,679 +40076,6 @@
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
                       "content": "GET regions\n500 · 서버 처리 실패\n\nPOST complete\n400 · 요청 본문 또는 선택 값 검증 실패\n401 · 인증 실패 또는 만료\n500 · 서버 처리 실패\n\nPOST skip\n401 · 인증 실패 또는 만료\n500 · 서버 처리 실패\n\nProblemDetails\ntitle · string · 오류 제목\nstatus · number · HTTP 상태 코드\ndetail · string · 상세 내용\ncode · string · 서버 오류 식별 코드\n\n※ 실제 문구와 code는 서버 응답 기준",
-                      "lineHeight": 1.4500000476837158,
-                      "fontFamily": "Noto Sans KR",
-                      "fontSize": 12,
-                      "fontWeight": "normal"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "g8dYe",
-          "x": 3231,
-          "y": 359,
-          "name": "Onboarding / 05 비회원 가입 제안 팝업",
-          "clip": true,
-          "width": 390,
-          "height": 844,
-          "fill": "#ffffffff",
-          "stroke": "#ddddddff",
-          "strokeWidth": 1,
-          "strokeAlignment": "inner",
-          "layout": "vertical",
-          "children": [
-            {
-              "type": "frame",
-              "id": "n2QdY",
-              "name": "nav bar",
-              "width": "fill_container",
-              "height": 52,
-              "padding": [
-                0,
-                16
-              ],
-              "justifyContent": "space_between",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "n5sLu",
-                  "name": "left",
-                  "clip": true,
-                  "gap": 8,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "sUjvv",
-                      "name": "title",
-                      "fill": "#000000ff",
-                      "content": "NEWTINE",
-                      "lineHeight": 1,
-                      "fontFamily": "Barlow Semi Condensed",
-                      "fontSize": 26,
-                      "fontWeight": "900",
-                      "letterSpacing": -0.26,
-                      "fontStyle": "italic"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "xj6Hg",
-                  "name": "right",
-                  "clip": true,
-                  "gap": 12,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "Dgcr4",
-                      "name": "right-label",
-                      "fill": "#666666ff",
-                      "content": "◯ 마이",
-                      "lineHeight": 1.4500000476837158,
-                      "fontFamily": "Noto Sans KR",
-                      "fontSize": 14,
-                      "fontWeight": "500"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "OAKGU",
-              "name": "body (feed behind)",
-              "clip": true,
-              "width": "fill_container",
-              "height": "fill_container",
-              "layout": "vertical",
-              "gap": 12,
-              "padding": [
-                4,
-                16,
-                12,
-                16
-              ],
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "DdBAV",
-                  "name": "card viewport (current only)",
-                  "clip": true,
-                  "width": "fill_container",
-                  "height": "fill_container",
-                  "layout": "vertical",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "Iwc8V",
-                      "name": "issue card",
-                      "clip": true,
-                      "width": "fill_container",
-                      "height": "fill_container",
-                      "fill": "#ffffffff",
-                      "stroke": "#000000ff",
-                      "strokeWidth": 1,
-                      "strokeAlignment": "inner",
-                      "effect": {
-                        "type": "shadow",
-                        "shadowType": "outer",
-                        "color": "#00000014",
-                        "offset": {
-                          "x": 0,
-                          "y": 4
-                        },
-                        "blur": 14
-                      },
-                      "layout": "vertical",
-                      "gap": 16,
-                      "padding": 24,
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "f7mfZa",
-                          "name": "top",
-                          "clip": true,
-                          "width": "fill_container",
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "d71ZSh",
-                              "name": "chip",
-                              "fill": "#f8f8f8ff",
-                              "gap": 6,
-                              "padding": [
-                                5,
-                                10
-                              ],
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "PJdoX",
-                                  "name": "icon",
-                                  "fill": "#666666ff",
-                                  "content": "▣",
-                                  "lineHeight": 1.4500000476837158,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 12,
-                                  "fontWeight": "normal"
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "pOHaT",
-                                  "name": "label",
-                                  "fill": "#666666ff",
-                                  "content": "국회·정당",
-                                  "lineHeight": 1.4500000476837158,
-                                  "fontFamily": "Noto Sans KR",
-                                  "fontSize": 12,
-                                  "fontWeight": "500"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "text",
-                              "id": "rHksO",
-                              "name": "count",
-                              "fill": "#999999ff",
-                              "content": "기사 4건 묶음",
-                              "lineHeight": 1.4500000476837158,
-                              "fontFamily": "Noto Sans KR",
-                              "fontSize": 12,
-                              "fontWeight": "normal"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "text",
-                          "id": "fPBkS",
-                          "name": "title",
-                          "fill": "#000000ff",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "국회, 이번 주 본회의서 예산안 처리 예정",
-                          "lineHeight": 1.3,
-                          "fontFamily": "Gothic A1",
-                          "fontSize": 28,
-                          "fontWeight": "800",
-                          "letterSpacing": -0.56
-                        },
-                        {
-                          "type": "frame",
-                          "id": "UnaUN",
-                          "name": "spacer",
-                          "clip": true,
-                          "width": "fill_container",
-                          "height": "fill_container",
-                          "layout": "vertical"
-                        },
-                        {
-                          "type": "text",
-                          "id": "ZTnml",
-                          "name": "hint",
-                          "fill": "#666666ff",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "탭하면 자세히 볼 수 있어요  ›",
-                          "lineHeight": 1.4500000476837158,
-                          "textAlign": "center",
-                          "fontFamily": "Noto Sans KR",
-                          "fontSize": 12,
-                          "fontWeight": "500"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "tSe0R",
-              "name": "action bar",
-              "width": "fill_container",
-              "fill": "#ffffffff",
-              "layout": "vertical",
-              "gap": 8,
-              "padding": [
-                8,
-                16
-              ],
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "N3ixQ",
-                  "name": "buttons",
-                  "clip": true,
-                  "width": "fill_container",
-                  "gap": 12,
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "k2HWWf",
-                      "name": "btn-skip",
-                      "width": "fill_container",
-                      "height": 56,
-                      "fill": "#ffffffff",
-                      "stroke": "#000000ff",
-                      "strokeWidth": 1,
-                      "strokeAlignment": "inner",
-                      "padding": [
-                        0,
-                        16
-                      ],
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "YRubY",
-                          "name": "label",
-                          "fill": "#000000ff",
-                          "content": "✕  넘기기",
-                          "lineHeight": 1.5,
-                          "fontFamily": "Noto Sans KR",
-                          "fontSize": 16,
-                          "fontWeight": "500"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "F3mZG",
-                      "name": "btn-like",
-                      "width": "fill_container",
-                      "height": 56,
-                      "fill": "#000000ff",
-                      "padding": [
-                        0,
-                        16
-                      ],
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "L6TKPh",
-                          "name": "label",
-                          "fill": "#ffffffff",
-                          "content": "♥  관심 있어요",
-                          "lineHeight": 1.5,
-                          "fontFamily": "Noto Sans KR",
-                          "fontSize": 16,
-                          "fontWeight": "500"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "FO6O8",
-              "layoutPosition": "absolute",
-              "x": 0,
-              "y": 0,
-              "name": "scrim",
-              "opacity": 0.44999998807907104,
-              "clip": true,
-              "width": 390,
-              "height": 844,
-              "fill": "#000000ff",
-              "layout": "vertical"
-            },
-            {
-              "type": "frame",
-              "id": "k1AxW1",
-              "layoutPosition": "absolute",
-              "x": 0,
-              "y": 492,
-              "name": "signup prompt sheet",
-              "clip": true,
-              "width": 390,
-              "fill": "#ffffffff",
-              "layout": "vertical",
-              "gap": 16,
-              "padding": [
-                12,
-                24,
-                0,
-                24
-              ],
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "ONGJ7",
-                  "name": "box",
-                  "clip": true,
-                  "width": "fill_container",
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "n6JjB3",
-                      "name": "box",
-                      "clip": true,
-                      "width": 40,
-                      "height": 5,
-                      "fill": "#000000ff"
-                    }
-                  ]
-                },
-                {
-                  "type": "text",
-                  "id": "NHWAz",
-                  "name": "관심 표시를 기억하려면 로그인이 필요해요",
-                  "fill": "#000000ff",
-                  "textGrowth": "fixed-width",
-                  "width": "fill_container",
-                  "content": "관심 표시를 기억하려면\n로그인이 필요해요",
-                  "lineHeight": 1.35,
-                  "fontFamily": "Gothic A1",
-                  "fontSize": 22,
-                  "fontWeight": "800",
-                  "letterSpacing": -0.33
-                },
-                {
-                  "type": "text",
-                  "id": "EB1Wx",
-                  "name": "로그인하면 관심 표시가 계정에 저장되고, 마이페이지에서 관심 분석과 진단보고서를 볼 수 있어요. 로그인 전 기록은 저장되지 않아요.",
-                  "fill": "#666666ff",
-                  "textGrowth": "fixed-width",
-                  "width": "fill_container",
-                  "content": "로그인하면 관심 표시가 계정에 저장되고, 마이페이지에서 관심 분석과 진단보고서를 볼 수 있어요. 로그인 전 기록은 저장되지 않아요.",
-                  "lineHeight": 1.5,
-                  "fontFamily": "Noto Sans KR",
-                  "fontSize": 14,
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "frame",
-                  "id": "xqGhj",
-                  "name": "btn 카카오로 시작하기",
-                  "width": "fill_container",
-                  "height": 54,
-                  "fill": "#000000ff",
-                  "padding": [
-                    0,
-                    16
-                  ],
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "ZYfzc",
-                      "name": "label",
-                      "fill": "#ffffffff",
-                      "content": "카카오로 시작하기",
-                      "lineHeight": 1.5,
-                      "fontFamily": "Noto Sans KR",
-                      "fontSize": 16,
-                      "fontWeight": "500"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "I2uPOa",
-                  "name": "btn 나중에 할게요",
-                  "width": "fill_container",
-                  "height": 44,
-                  "fill": "#ffffffff",
-                  "stroke": "#000000ff",
-                  "strokeWidth": 1,
-                  "strokeAlignment": "inner",
-                  "padding": [
-                    0,
-                    16
-                  ],
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "R3WLYp",
-                      "name": "label",
-                      "fill": "#000000ff",
-                      "content": "나중에 할게요",
-                      "lineHeight": 1.5,
-                      "fontFamily": "Noto Sans KR",
-                      "fontSize": 16,
-                      "fontWeight": "500"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "W2nYBH",
-                  "name": "box",
-                  "clip": true,
-                  "width": "fill_container",
-                  "height": 34,
-                  "layout": "vertical"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "nBb4w",
-          "x": 3661,
-          "y": 359,
-          "name": "notes · Onboarding / 05 비회원 가입 제안 — 스펙",
-          "clip": true,
-          "width": 380,
-          "fill": "#f8f8f8ff",
-          "layout": "vertical",
-          "gap": 12,
-          "padding": 20,
-          "children": [
-            {
-              "type": "text",
-              "id": "lKiFV",
-              "name": "Onboarding / 05 비회원 가입 제안 — 스펙",
-              "fill": "#000000ff",
-              "textGrowth": "fixed-width",
-              "width": "fill_container",
-              "content": "Onboarding / 05 비회원 가입 제안 — 스펙",
-              "lineHeight": 1.4500000476837158,
-              "fontFamily": "Noto Sans KR",
-              "fontSize": 16,
-              "fontWeight": "700"
-            },
-            {
-              "type": "frame",
-              "id": "KD0hH",
-              "name": "box",
-              "clip": true,
-              "width": "fill_container",
-              "gap": 10,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "WMKd5",
-                  "name": "box",
-                  "clip": true,
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 2,
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "BVJSr",
-                      "name": "트리거·문구",
-                      "fill": "#000000ff",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "트리거·문구",
-                      "lineHeight": 1.5,
-                      "fontFamily": "Noto Sans KR",
-                      "fontSize": 13,
-                      "fontWeight": "700"
-                    },
-                    {
-                      "type": "text",
-                      "id": "t1zjz",
-                      "name": "노출 시점(팀 결정): ① 비회원이 관심(우 스와이프) 3회째 ② 카드를 5장 이상 넘겼을 때(좌/우/하 합산, 1회만) ③ 마이 아이콘 탭(로그인 게이트). 트리거별 제목 문구 분기(③: \"마이페이지는 로그인 후 볼 수 있어요\").",
-                      "fill": "#666666ff",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "노출 시점(팀 결정): ① 비회원이 관심(우 스와이프) 3회째 ② 카드를 5장 이상 넘겼을 때(좌/우/하 합산, 1회만) ③ 마이 아이콘 탭(로그인 게이트). 트리거별 제목 문구 분기(③: \"마이페이지는 로그인 후 볼 수 있어요\").",
-                      "lineHeight": 1.4500000476837158,
-                      "fontFamily": "Noto Sans KR",
-                      "fontSize": 12,
-                      "fontWeight": "normal"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "dEawe",
-              "name": "box",
-              "clip": true,
-              "width": "fill_container",
-              "gap": 10,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "Ul0Dr",
-                  "name": "box",
-                  "clip": true,
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 2,
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "n4SS4",
-                      "name": "로그인 CTA",
-                      "fill": "#000000ff",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "로그인 CTA",
-                      "lineHeight": 1.5,
-                      "fontFamily": "Noto Sans KR",
-                      "fontSize": 13,
-                      "fontWeight": "700"
-                    },
-                    {
-                      "type": "text",
-                      "id": "Pu2s6",
-                      "name": "로그인 성공 시 비회원 로컬 기록은 병합하지 않고 폐기(팀 결정) → 이어서 02 설문. 본문에 \"로그인 전 기록은 저장되지 않아요\" 명시.",
-                      "fill": "#666666ff",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "로그인 성공 시 비회원 로컬 기록은 병합하지 않고 폐기(팀 결정) → 이어서 02 설문. 본문에 \"로그인 전 기록은 저장되지 않아요\" 명시.",
-                      "lineHeight": 1.4500000476837158,
-                      "fontFamily": "Noto Sans KR",
-                      "fontSize": 12,
-                      "fontWeight": "normal"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "vcSLa",
-              "name": "box",
-              "clip": true,
-              "width": "fill_container",
-              "gap": 10,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "PT7Ya",
-                  "name": "box",
-                  "clip": true,
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 2,
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "I2NdiT",
-                      "name": "나중에",
-                      "fill": "#000000ff",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "나중에",
-                      "lineHeight": 1.5,
-                      "fontFamily": "Noto Sans KR",
-                      "fontSize": 13,
-                      "fontWeight": "700"
-                    },
-                    {
-                      "type": "text",
-                      "id": "EoSjI",
-                      "name": "시트 닫고 피드 유지. 같은 트리거로 재노출은 세션당 1회, 이후 관심 10회마다. 스크림 탭 = 나중에와 동일.",
-                      "fill": "#666666ff",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "시트 닫고 피드 유지. 같은 트리거로 재노출은 세션당 1회, 이후 관심 10회마다. 스크림 탭 = 나중에와 동일.",
-                      "lineHeight": 1.4500000476837158,
-                      "fontFamily": "Noto Sans KR",
-                      "fontSize": 12,
-                      "fontWeight": "normal"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "EzSPW",
-              "name": "box",
-              "clip": true,
-              "width": "fill_container",
-              "gap": 10,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "oin8Y",
-                  "name": "box",
-                  "clip": true,
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 2,
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "E3Abra",
-                      "name": "스크림",
-                      "fill": "#000000ff",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "스크림",
-                      "lineHeight": 1.5,
-                      "fontFamily": "Noto Sans KR",
-                      "fontSize": 13,
-                      "fontWeight": "700"
-                    },
-                    {
-                      "type": "text",
-                      "id": "r97pL",
-                      "name": "#000 45%. 뒤 피드는 스크롤·스와이프 차단. 시트는 아래로 드래그해서 닫기 가능.",
-                      "fill": "#666666ff",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "#000 45%. 뒤 피드는 스크롤·스와이프 차단. 시트는 아래로 드래그해서 닫기 가능.",
                       "lineHeight": 1.4500000476837158,
                       "fontFamily": "Noto Sans KR",
                       "fontSize": 12,
