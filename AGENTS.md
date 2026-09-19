@@ -20,6 +20,8 @@
 - 스타일링은 Tailwind CSS 4 유틸리티를 우선 사용한다. `src/app/globals.css`에는 공용 색상과 폰트 크기만 정의하고, 별도의 스타일 라이브러리를 임의로 추가하지 않는다.
 - 전역 클라이언트 상태는 Zustand, API 통신은 Axios를 사용한다. 실제 기능에 필요한 시점에 스토어와 공통 API 클라이언트를 추가한다.
 - 지역 상태는 컴포넌트 내부에서 관리한다. Zustand 스토어에 서버 요청 간 공유되는 사용자 상태를 저장하지 않는다.
+- 액세스 토큰은 UI 상태가 아니므로 Zustand·`localStorage`·`sessionStorage`·프런트엔드 쿠키에 저장하지 않고 `session.ts` 모듈의 비공개 메모리에서만 관리한다. Zustand에는 인증 상태와 화면에 필요한 사용자 정보만 둔다.
+- 리프레시 토큰은 프런트엔드 JavaScript에서 읽거나 저장하지 않는다. 백엔드가 설정한 `HttpOnly`·`Secure` 쿠키를 브라우저가 전송하는 방식을 사용하고, API 요청에는 공통 인증 인터셉터가 액세스 토큰을 주입하게 한다.
 - Server Component를 기본으로 유지하고, 상태·이벤트·브라우저 API가 필요한 최소 경계에만 `"use client"`를 지정한다.
 - Server Component에서 Client Component로 전달하는 props는 직렬화 가능한 값이어야 한다. `onClick` 같은 일반 함수나 인라인 이벤트 핸들러를 넘기지 않으며, 이벤트가 필요한 호출부 또는 최소 상호작용 영역을 Client Component로 분리한다. 단, 명시적인 Server Action은 예외다.
 - 소스는 `src/` 아래에 두고 `@/*` 별칭을 사용한다. `app`은 라우트와 조합, `features`는 사용자 흐름, `domain`은 여러 흐름이 공유하는 제품 개념, `components/ui`는 제품 의미를 모르는 공용 UI를 맡는다.

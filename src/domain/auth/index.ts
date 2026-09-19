@@ -6,7 +6,6 @@ export {
 export { GuestBrowseLink } from "./guest-browse-link";
 export {
   clearAuthSession,
-  getAuthSession,
   logout,
   refreshAuthSession,
   restoreAuthSession,

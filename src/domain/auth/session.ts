@@ -2,22 +2,21 @@ import { requestAuthSessionRefresh, requestLogout } from "./api";
 import { installAuthSessionInterceptors } from "./interceptors";
 import {
   authSessionStore,
-  setAuthenticatedSession,
+  setAuthenticatedUser,
   setGuestSession,
 } from "./store";
 import type { AuthSessionResponse } from "./types";
 
+let accessToken: string | null = null;
 let refreshRequest: Promise<void> | null = null;
 
 export function setAuthSession(session: AuthSessionResponse) {
-  setAuthenticatedSession(session);
-}
-
-export function getAuthSession() {
-  return authSessionStore.getState().session;
+  accessToken = session.accessToken;
+  setAuthenticatedUser(session.user);
 }
 
 export function clearAuthSession() {
+  accessToken = null;
   setGuestSession();
 }
 
@@ -63,11 +62,12 @@ export async function logout(): Promise<void> {
 }
 
 function notifyAuthSessionExpired() {
+  accessToken = null;
   setGuestSession("expired");
 }
 
 installAuthSessionInterceptors({
-  getAccessToken: () => getAuthSession()?.accessToken ?? null,
+  getAccessToken: () => accessToken,
   recoverSession: refreshAuthSession,
   handleRecoveryFailure: notifyAuthSessionExpired,
 });

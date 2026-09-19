@@ -5,22 +5,22 @@ type AuthSessionStatus = "authenticated" | "guest" | "initializing";
 type AuthSessionEndReason = "expired" | null;
 
 interface AuthSessionState {
-  session: AuthSessionResponse | null;
+  user: AuthSessionResponse["user"] | null;
   status: AuthSessionStatus;
   endReason: AuthSessionEndReason;
   revision: number;
 }
 
 export const authSessionStore = createStore<AuthSessionState>(() => ({
-  session: null,
+  user: null,
   status: "initializing",
   endReason: null,
   revision: 0,
 }));
 
-export function setAuthenticatedSession(session: AuthSessionResponse) {
+export function setAuthenticatedUser(user: AuthSessionResponse["user"]) {
   authSessionStore.setState((state) => ({
-    session,
+    user,
     status: "authenticated",
     endReason: null,
     revision: state.revision + 1,
@@ -29,7 +29,7 @@ export function setAuthenticatedSession(session: AuthSessionResponse) {
 
 export function setGuestSession(endReason: AuthSessionEndReason = null) {
   authSessionStore.setState((state) => ({
-    session: null,
+    user: null,
     status: "guest",
     endReason,
     revision: state.revision + 1,
