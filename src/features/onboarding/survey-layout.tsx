@@ -58,6 +58,7 @@ export function SurveyLayout({
   description,
   ctaLabel,
   ctaDisabled = false,
+  scrollMode = "document",
   onBack,
   onSkip,
   onCta,
@@ -70,16 +71,29 @@ export function SurveyLayout({
   description: string;
   ctaLabel: string;
   ctaDisabled?: boolean;
+  scrollMode?: "document" | "contained";
   onBack: () => void;
   onSkip: () => void;
   onCta: () => void;
   children: ReactNode;
 }) {
+  const isContained = scrollMode === "contained";
+
   return (
-    <div className="flex min-h-[calc(100dvh_-_env(safe-area-inset-top)_-_env(safe-area-inset-bottom))] flex-col">
+    <div
+      className={`flex flex-col ${
+        isContained
+          ? "h-[calc(100dvh_-_env(safe-area-inset-top)_-_env(safe-area-inset-bottom))] min-h-0 overflow-hidden"
+          : "min-h-[calc(100dvh_-_env(safe-area-inset-top)_-_env(safe-area-inset-bottom))]"
+      }`}
+    >
       <OnboardingNavBar onBack={onBack} onSkip={onSkip} />
 
-      <div className="flex flex-1 flex-col gap-5 px-6 pt-2 pb-4">
+      <div
+        className={`flex flex-1 flex-col gap-5 px-6 pt-2 pb-4 ${
+          isContained ? "min-h-0 overflow-hidden" : ""
+        }`}
+      >
         <div aria-hidden="true" className="flex gap-1.5">
           {[1, 2, 3].map((n) => (
             <span
