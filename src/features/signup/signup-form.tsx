@@ -76,6 +76,7 @@ export function SignupForm() {
         >
           {isSubmitting ? "가입 중" : "회원가입"}
         </Button>
+        <GuestBrowseLink />
         <p className="flex min-h-5 items-center justify-center gap-2 text-caption leading-5">
           <span className="text-muted">이미 계정이 있나요?</span>
           <Link
@@ -85,7 +86,6 @@ export function SignupForm() {
             로그인
           </Link>
         </p>
-        <GuestBrowseLink />
       </div>
     </form>
   );

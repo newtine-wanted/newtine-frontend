@@ -35,7 +35,9 @@ export function FeedScreen() {
   return (
     <div className="flex min-h-[calc(100dvh-env(safe-area-inset-top)-env(safe-area-inset-bottom))] flex-col bg-background">
       <div className="sticky top-[env(safe-area-inset-top)] z-30 border-b-2 border-foreground bg-background">
-        <AppBar action={<MyPageLink />} />
+        <AppBar
+          action={<MyPageLink isAuthenticated={feed.isAuthenticated} />}
+        />
       </div>
 
       <div className="relative flex min-h-[38.625rem] flex-1 px-4 py-3">
