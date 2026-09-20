@@ -1,1 +1,4 @@
 export const FEED_CARD_VERTICAL_GAP_PX = 12;
+export const FEED_CARD_TRANSITION_DURATION_MS = 420;
+export const FEED_CARD_TRANSITION_MIN_DURATION_MS = 120;
+export const FEED_CARD_TRANSITION_EASING = "cubic-bezier(0.16, 1, 0.3, 1)";

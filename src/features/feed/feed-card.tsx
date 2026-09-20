@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { CategoryIcon } from "./category-icon";
 import type { FeedCardResponse } from "./types";
 
-const SUMMARY_INITIAL_DELAY_MS = 500;
+const SUMMARY_INITIAL_DELAY_MS = 1500;
 const SUMMARY_STAGGER_MS = 450;
 
 const categoryBackgrounds: Record<string, string> = {
