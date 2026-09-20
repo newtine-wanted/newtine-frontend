@@ -63,7 +63,7 @@ export function FeedCard({
         </span>
       </div>
 
-      <h2 className="text-[26px] leading-[1.3] font-extrabold tracking-[-0.02em] break-keep text-foreground">
+      <h2 className="min-w-0 text-[26px] leading-[1.3] font-extrabold tracking-[-0.02em] wrap-anywhere break-keep text-foreground">
         {card.title}
       </h2>
 

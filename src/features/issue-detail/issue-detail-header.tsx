@@ -15,7 +15,7 @@ export function IssueDetailHeader({ issue }: { issue: IssueDetailResponse }) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <h2 className="text-display leading-[1.3] font-extrabold tracking-[-0.02em] break-keep text-foreground">
+        <h2 className="min-w-0 text-display leading-[1.3] font-extrabold tracking-[-0.02em] wrap-anywhere break-keep text-foreground">
           {issue.title}
         </h2>
         <div className="flex flex-col gap-0.5">
