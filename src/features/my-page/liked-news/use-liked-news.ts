@@ -16,6 +16,7 @@ function getErrorMessage(error: unknown, fallback: string) {
 export function useLikedNews() {
   const authStatus = useStore(authSessionStore, (state) => state.status);
   const [categories, setCategories] = useState<LikedNewsCategory[]>([]);
+  const [categoriesError, setCategoriesError] = useState<string | null>(null);
   const [selectedCode, setSelectedCode] = useState<string | null>(null);
   const [items, setItems] = useState<LikedIssue[]>([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -35,11 +36,13 @@ export function useLikedNews() {
     void getLikedNewsCategories()
       .then((response) => {
         if (ignore) return;
+        setCategoriesError(null);
         setCategories(response);
       })
       .catch((error: unknown) => {
         if (ignore) return;
-        setLoadError(
+        // 칩만 못 쓰게 될 뿐이므로 목록의 에러 슬롯과 섞지 않는다.
+        setCategoriesError(
           getErrorMessage(
             error,
             "주제 목록을 불러오는 중 문제가 발생했습니다.",
@@ -61,6 +64,7 @@ export function useLikedNews() {
     void getLikedIssues({ categoryCode: selectedCode ?? undefined })
       .then((response) => {
         if (ignore) return;
+        setLoadError(null);
         setItems(response.items);
         setTotalCount(response.totalCount);
         setNextCursor(response.nextCursor);
@@ -102,6 +106,7 @@ export function useLikedNews() {
     requestGenerationRef.current += 1;
     setIsInitialLoading(true);
     setLoadError(null);
+    setCategoriesError(null);
     setCategoriesReloadCount((count) => count + 1);
     setIssuesReloadCount((count) => count + 1);
   }, []);
@@ -153,6 +158,7 @@ export function useLikedNews() {
 
   return {
     categories,
+    categoriesError,
     isInitialLoading,
     isLoadingMore,
     items,

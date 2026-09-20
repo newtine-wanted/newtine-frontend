@@ -14,6 +14,7 @@ import { TopicFilter } from "./topic-filter";
 export function LikedNewsList() {
   const {
     categories,
+    categoriesError,
     isInitialLoading,
     isLoadingMore,
     items,
@@ -94,6 +95,11 @@ export function LikedNewsList() {
         selectedCode={selectedCode}
         onSelect={selectCategory}
       />
+      {categoriesError && (
+        <p role="alert" className="px-5 pb-2 text-label text-danger">
+          {categoriesError}
+        </p>
+      )}
       {content}
     </div>
   );
