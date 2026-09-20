@@ -10,6 +10,7 @@ export {
   refreshAuthSession,
   restoreAuthSession,
   setAuthSession,
+  withdraw,
 } from "./session";
 export type {
   AuthCredentialsRequest,
