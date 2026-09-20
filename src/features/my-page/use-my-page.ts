@@ -7,6 +7,7 @@ import { getInterestAnalysis } from "./api";
 import type { InterestAnalysisResponse } from "./types";
 
 export function useMyPage() {
+  const authStatus = useStore(authSessionStore, (state) => state.status);
   const email = useStore(
     authSessionStore,
     (state) => state.user?.email ?? null,
@@ -19,6 +20,9 @@ export function useMyPage() {
   const [reloadCount, setReloadCount] = useState(0);
 
   useEffect(() => {
+    // 토큰 복원 전에 요청하면 인증 헤더 없이 나가 401을 확정으로 받는다.
+    if (authStatus === "initializing") return;
+
     let ignore = false;
 
     void getInterestAnalysis()
@@ -38,7 +42,7 @@ export function useMyPage() {
     return () => {
       ignore = true;
     };
-  }, [reloadCount]);
+  }, [authStatus, reloadCount]);
 
   const reload = useCallback(() => {
     setIsLoading(true);
