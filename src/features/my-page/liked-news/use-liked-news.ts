@@ -1,7 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useStore } from "zustand";
 import { getProblemDetails } from "@/domain/auth";
+import { authSessionStore } from "@/domain/auth/store";
 import { getLikedIssues, getLikedNewsCategories } from "./api";
 import type { LikedIssue, LikedNewsCategory } from "./types";
 
@@ -12,6 +14,7 @@ function getErrorMessage(error: unknown, fallback: string) {
 }
 
 export function useLikedNews() {
+  const authStatus = useStore(authSessionStore, (state) => state.status);
   const [categories, setCategories] = useState<LikedNewsCategory[]>([]);
   const [selectedCode, setSelectedCode] = useState<string | null>(null);
   const [items, setItems] = useState<LikedIssue[]>([]);
@@ -50,6 +53,9 @@ export function useLikedNews() {
   }, [categoriesReloadCount]);
 
   useEffect(() => {
+    // 세션 복원 전에는 토큰이 없어 확정 401을 부르므로 기다린다.
+    if (authStatus === "initializing") return;
+
     let ignore = false;
 
     void getLikedIssues({ categoryCode: selectedCode ?? undefined })
@@ -75,7 +81,7 @@ export function useLikedNews() {
     return () => {
       ignore = true;
     };
-  }, [issuesReloadCount, selectedCode]);
+  }, [authStatus, issuesReloadCount, selectedCode]);
 
   const selectCategory = useCallback(
     (code: string | null) => {
