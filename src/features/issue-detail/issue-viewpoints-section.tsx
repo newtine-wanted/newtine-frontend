@@ -8,7 +8,7 @@ export function IssueViewpointsSection({
 }) {
   return (
     <section className="flex flex-col gap-3">
-      <IssueDetailSectionHeading number="03" title="이 이슈를 보는 관점" />
+      <IssueDetailSectionHeading title="이 이슈를 보는 관점" />
       <div className="grid grid-cols-2 gap-2.5">
         {viewpoints.map((viewpoint, index) => (
           <article
