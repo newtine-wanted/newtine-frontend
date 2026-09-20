@@ -1,13 +1,17 @@
 import { InterestBarChart } from "./interest-bar-chart";
 import { InterestEmptyState } from "./interest-empty-state";
-import type { InterestSummary } from "./types";
+import type { InterestCategoryCount, InterestSampleStatus } from "./types";
 
 export function InterestSection({
+  categoryCounts,
+  issueCount,
   periodDays,
-  summary,
+  sampleStatus,
 }: {
+  categoryCounts: InterestCategoryCount[];
+  issueCount: number;
   periodDays: number;
-  summary: InterestSummary;
+  sampleStatus: InterestSampleStatus;
 }) {
   return (
     <section
@@ -27,20 +31,20 @@ export function InterestSection({
             내 관심 분석 · 최근 {periodDays}일
           </h2>
         </div>
-        {summary.state !== "empty" && (
+        {sampleStatus !== "EMPTY" && (
           <p className="text-stat leading-none font-black tracking-[-0.02em] text-foreground">
-            <span aria-hidden="true">{summary.total}</span>
-            <span className="sr-only">총 {summary.total}건</span>
+            <span aria-hidden="true">{issueCount}</span>
+            <span className="sr-only">총 {issueCount}건</span>
           </p>
         )}
       </div>
 
-      {summary.state === "empty" ? (
+      {sampleStatus === "EMPTY" ? (
         <InterestEmptyState />
       ) : (
         <>
-          <InterestBarChart bars={summary.bars} />
-          {summary.state === "low-sample" && (
+          <InterestBarChart categoryCounts={categoryCounts} />
+          {sampleStatus === "LOW_SAMPLE" && (
             <p className="flex items-center gap-1.5 bg-surface px-3 py-2 text-label text-muted">
               <span aria-hidden="true">⚠︎</span>
               아직 표본이 적어 정확도가 낮습니다.

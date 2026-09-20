@@ -1,12 +1,20 @@
-import type { InterestBar } from "./types";
+import type { InterestCategoryCount } from "./types";
 
-export function InterestBarChart({ bars }: { bars: InterestBar[] }) {
+export function InterestBarChart({
+  categoryCounts,
+}: {
+  categoryCounts: InterestCategoryCount[];
+}) {
+  // 안정 정렬 → 동률은 서버가 내려준 순서를 유지한다.
+  const bars = [...categoryCounts].sort((a, b) => b.count - a.count);
+  const maxCount = Math.max(1, ...bars.map((bar) => bar.count));
+
   return (
     <ul aria-label="분야별 관심 건수" className="flex flex-col gap-2">
       {bars.map((bar) => (
-        <li key={bar.area} className="flex items-center gap-2.5">
+        <li key={bar.code} className="flex items-center gap-2.5">
           <span className="w-16 shrink-0 text-caption text-foreground-secondary">
-            {bar.area}
+            {bar.name}
           </span>
           <span
             aria-hidden="true"
@@ -14,7 +22,7 @@ export function InterestBarChart({ bars }: { bars: InterestBar[] }) {
           >
             <span
               className="block h-full min-w-1.5 bg-foreground"
-              style={{ width: `${bar.widthPercent}%` }}
+              style={{ width: `${(bar.count / maxCount) * 100}%` }}
             />
           </span>
           <span className="w-8 shrink-0 text-right text-button font-bold text-foreground tabular-nums">
