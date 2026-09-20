@@ -13,6 +13,9 @@ export function InterestSection({
   periodDays: number;
   sampleStatus: InterestSampleStatus;
 }) {
+  // 서버가 상태를 추가해도 조용히 READY처럼 보이지 않도록 아는 값만 집계로 친다.
+  const hasSample = sampleStatus === "LOW_SAMPLE" || sampleStatus === "READY";
+
   return (
     <section
       aria-labelledby="interest-heading"
@@ -31,7 +34,7 @@ export function InterestSection({
             내 관심 분석 · 최근 {periodDays}일
           </h2>
         </div>
-        {sampleStatus !== "EMPTY" && (
+        {hasSample && (
           <p className="text-stat leading-none font-black tracking-[-0.02em] text-foreground">
             <span aria-hidden="true">{issueCount}</span>
             <span className="sr-only">총 {issueCount}건</span>
@@ -39,9 +42,7 @@ export function InterestSection({
         )}
       </div>
 
-      {sampleStatus === "EMPTY" ? (
-        <InterestEmptyState />
-      ) : (
+      {hasSample ? (
         <>
           <InterestBarChart categoryCounts={categoryCounts} />
           {sampleStatus === "LOW_SAMPLE" && (
@@ -54,6 +55,8 @@ export function InterestSection({
             ※ 관심 표시한 항목만 집계합니다. 찬반 입장은 집계하지 않습니다.
           </p>
         </>
+      ) : (
+        <InterestEmptyState />
       )}
     </section>
   );
