@@ -46,7 +46,7 @@ export function FeedCard({
   }, [active, isInteracting, visibleSummaryCount]);
 
   return (
-    <article className="flex h-full min-h-[37.625rem] w-full flex-col gap-4 overflow-hidden border border-border bg-background p-6">
+    <article className="flex h-full min-h-max w-full flex-col gap-4 border border-border bg-background p-6">
       <div className="flex min-w-0 items-center justify-between gap-3">
         <span
           className="flex min-h-7 min-w-0 items-center gap-1.5 px-2.5 py-1 text-label font-normal text-foreground"
@@ -96,9 +96,7 @@ export function FeedCard({
         </ol>
       </div>
 
-      <div className="min-h-0 flex-1" />
-
-      <p className="text-center text-label font-bold text-muted">
+      <p className="mt-auto text-center text-label font-bold text-muted">
         탭하면 자세히 볼 수 있어요&nbsp;&nbsp;›
       </p>
     </article>
