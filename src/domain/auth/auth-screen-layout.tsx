@@ -5,15 +5,15 @@ export interface AuthScreenLayoutProps {
   title: string;
   description: string;
   children: ReactNode;
+  legalNotice?: ReactNode;
 }
 
 export function AuthScreenLayout({
   title,
   description,
   children,
+  legalNotice,
 }: AuthScreenLayoutProps) {
-  // TODO: 이용약관 및 개인정보처리방침 페이지 구현 후 안내 문구와 링크를 노출한다.
-
   return (
     <div className="flex min-h-[max(640px,calc(100dvh_-_env(safe-area-inset-top)_-_env(safe-area-inset-bottom)))] flex-col justify-between gap-6 px-6 pt-8 pb-4">
       <div className="flex flex-col gap-6">
@@ -48,7 +48,7 @@ export function AuthScreenLayout({
         </section>
       </div>
 
-      <div aria-hidden="true" className="h-[33px]" />
+      {legalNotice ?? <div aria-hidden="true" className="h-[33px]" />}
     </div>
   );
 }

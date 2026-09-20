@@ -33,7 +33,14 @@ export function AccountSection() {
 
       <ul className="flex flex-col divide-y divide-divider border-b border-divider">
         <li>
-          <Link href="/terms" className={navRowClasses}>
+          <Link
+            href="/terms"
+            target="_blank"
+            rel="noreferrer"
+            prefetch={false}
+            aria-label="이용약관 새 창에서 열기"
+            className={navRowClasses}
+          >
             이용약관
             <span aria-hidden="true" className="text-foreground">
               →
@@ -41,7 +48,14 @@ export function AccountSection() {
           </Link>
         </li>
         <li>
-          <Link href="/privacy" className={navRowClasses}>
+          <Link
+            href="/privacy"
+            target="_blank"
+            rel="noreferrer"
+            prefetch={false}
+            aria-label="개인정보처리방침 새 창에서 열기"
+            className={navRowClasses}
+          >
             개인정보처리방침
             <span aria-hidden="true" className="text-foreground">
               →
@@ -55,7 +69,7 @@ export function AccountSection() {
             onClick={() => void handleLogout()}
             className={`flex h-11 w-full items-center text-left text-body text-foreground-body disabled:opacity-40 ${focusClasses}`}
           >
-            {isLoggingOut ? "로그아웃 중..." : "로그아웃"}
+            {isLoggingOut ? "로그아웃 중" : "로그아웃"}
           </button>
         </li>
       </ul>

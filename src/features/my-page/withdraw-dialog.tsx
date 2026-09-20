@@ -40,7 +40,7 @@ export function WithdrawDialog({
         type="button"
         disabled={disabled}
         onClick={openDialog}
-        className={`mt-3.5 flex min-h-11 min-w-11 items-center justify-center self-center px-4 text-label text-muted underline underline-offset-2 disabled:opacity-40 ${focusClasses}`}
+        className={`mt-3.5 flex h-[54px] min-w-11 items-center justify-center self-center px-4 text-label text-muted underline underline-offset-2 disabled:opacity-40 ${focusClasses}`}
       >
         회원탈퇴
       </button>
@@ -85,7 +85,7 @@ export function WithdrawDialog({
               type="button"
               disabled={isSubmitting}
               onClick={closeDialog}
-              className={`h-12 flex-1 bg-surface-muted text-body text-foreground disabled:opacity-40 ${focusClasses}`}
+              className={`h-[54px] flex-1 bg-surface-muted text-body text-foreground disabled:opacity-40 ${focusClasses}`}
             >
               취소
             </button>
@@ -93,9 +93,9 @@ export function WithdrawDialog({
               type="button"
               disabled={isSubmitting}
               onClick={onConfirm}
-              className={`h-12 flex-1 bg-primary text-body text-primary-foreground disabled:opacity-40 ${focusClasses}`}
+              className={`h-[54px] flex-1 bg-primary text-body text-primary-foreground disabled:opacity-40 ${focusClasses}`}
             >
-              {isSubmitting ? "탈퇴 중..." : "탈퇴"}
+              {isSubmitting ? "탈퇴 중" : "탈퇴"}
             </button>
           </div>
         </div>

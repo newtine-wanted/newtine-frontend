@@ -25,7 +25,7 @@ export function AppBar({
             <Link
               href={backHref}
               aria-label="뒤로 가기"
-              className="flex size-11 shrink-0 items-center justify-center text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              className="-mx-2.5 flex size-11 shrink-0 items-center justify-center text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               <svg
                 aria-hidden="true"
@@ -45,7 +45,7 @@ export function AppBar({
           ))}
 
         {title ? (
-          <h1 className="min-w-0 truncate text-heading leading-none font-extrabold text-foreground">
+          <h1 className="min-w-0 truncate text-heading font-extrabold text-foreground">
             {title}
           </h1>
         ) : (

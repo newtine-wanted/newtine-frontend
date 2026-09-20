@@ -9,6 +9,7 @@ export {
   type AuthScreenLayoutProps,
 } from "./auth-screen-layout";
 export { GuestBrowseLink } from "./guest-browse-link";
+export { LegalPolicyNotice } from "./legal-policy-notice";
 export {
   clearAuthSession,
   logout,

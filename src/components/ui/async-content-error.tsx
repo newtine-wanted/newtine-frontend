@@ -64,9 +64,9 @@ export function AsyncContentError({
         variant="ghost"
         disabled={isRetrying}
         onClick={onRetry}
-        className="h-11 w-[132px] text-body-sm font-bold"
+        className="w-[132px] text-body-sm font-bold"
       >
-        {isRetrying ? "다시 시도 중..." : retryLabel}
+        {isRetrying ? "다시 시도 중" : retryLabel}
       </Button>
     </div>
   );

@@ -39,7 +39,7 @@ export function AgeStep({
       stepNumber={4}
       question="어느 나이대에 해당하나요?"
       description="선택하지 않아도 괜찮아요."
-      ctaLabel={isCompleting ? "처리 중..." : "시작하기"}
+      ctaLabel={isCompleting ? "처리 중" : "시작하기"}
       ctaDisabled={requestStatus === "loading" || isCompleting || isSkipping}
       isSkipping={isSkipping || isCompleting}
       errorMessage={actionError}
