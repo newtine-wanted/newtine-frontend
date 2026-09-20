@@ -1,6 +1,7 @@
 export {
   getMyOnboarding,
   getProblemDetails,
+  getResponseStatus,
   loginWithEmail,
   signupWithEmail,
 } from "./api";

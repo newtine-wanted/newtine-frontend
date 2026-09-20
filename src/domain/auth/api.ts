@@ -66,3 +66,12 @@ export function getProblemDetails(error: unknown): ProblemDetails | null {
 
   return problem;
 }
+
+// 본문이 ProblemDetails가 아닌 400·500도 전송 계층 상태로는 판정할 수 있어야 한다.
+export function getResponseStatus(error: unknown): number | null {
+  if (!axios.isAxiosError(error)) {
+    return null;
+  }
+
+  return error.response?.status ?? null;
+}

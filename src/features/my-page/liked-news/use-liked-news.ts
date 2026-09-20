@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useStore } from "zustand";
-import { getProblemDetails } from "@/domain/auth";
+import { getProblemDetails, getResponseStatus } from "@/domain/auth";
 import { authSessionStore } from "@/domain/auth/store";
 import { getLikedIssues, getLikedNewsCategories } from "./api";
 import type { LikedIssue, LikedNewsCategory } from "./types";
@@ -25,6 +25,8 @@ export function useLikedNews() {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [loadMoreError, setLoadMoreError] = useState<string | null>(null);
+  // 되감기는 실패가 아니므로 재시도 버튼을 띄우는 에러와 슬롯을 나눈다.
+  const [loadMoreNotice, setLoadMoreNotice] = useState<string | null>(null);
   const [categoriesReloadCount, setCategoriesReloadCount] = useState(0);
   const [issuesReloadCount, setIssuesReloadCount] = useState(0);
   // 조회 대상이 바뀌면 이미 떠 있는 더보기 응답을 버리려고 세대를 센다.
@@ -98,6 +100,7 @@ export function useLikedNews() {
       setIsInitialLoading(true);
       setLoadError(null);
       setLoadMoreError(null);
+      setLoadMoreNotice(null);
     },
     [selectedCode],
   );
@@ -107,6 +110,8 @@ export function useLikedNews() {
     setIsInitialLoading(true);
     setLoadError(null);
     setCategoriesError(null);
+    setLoadMoreError(null);
+    setLoadMoreNotice(null);
     setCategoriesReloadCount((count) => count + 1);
     setIssuesReloadCount((count) => count + 1);
   }, []);
@@ -118,6 +123,7 @@ export function useLikedNews() {
 
     setIsLoadingMore(true);
     setLoadMoreError(null);
+    setLoadMoreNotice(null);
 
     try {
       const response = await getLikedIssues({
@@ -134,7 +140,8 @@ export function useLikedNews() {
       if (generation !== requestGenerationRef.current) return;
 
       // 커서가 무효해진 400은 필터를 유지한 채 1페이지부터 다시 받는다.
-      if (getProblemDetails(error)?.status === 400) {
+      if (getResponseStatus(error) === 400) {
+        setLoadMoreNotice("목록이 갱신되어 처음부터 다시 불러왔어요.");
         setNextCursor(null);
         setIsInitialLoading(true);
         setIssuesReloadCount((count) => count + 1);
@@ -165,6 +172,7 @@ export function useLikedNews() {
     loadError,
     loadMore,
     loadMoreError,
+    loadMoreNotice,
     nextCursor,
     retry,
     selectCategory,

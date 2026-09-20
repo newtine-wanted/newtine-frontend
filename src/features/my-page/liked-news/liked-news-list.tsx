@@ -21,6 +21,7 @@ export function LikedNewsList() {
     loadError,
     loadMore,
     loadMoreError,
+    loadMoreNotice,
     nextCursor,
     retry,
     selectCategory,
@@ -101,6 +102,13 @@ export function LikedNewsList() {
         </p>
       )}
       {content}
+      {/* 되감기 도중 content가 로딩 블록으로 바뀌므로 live region은 바깥에 상주시킨다. */}
+      <p
+        role="status"
+        className={loadMoreNotice ? "px-5 pt-4 text-label text-muted" : ""}
+      >
+        {loadMoreNotice}
+      </p>
     </div>
   );
 }
