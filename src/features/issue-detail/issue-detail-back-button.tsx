@@ -10,7 +10,7 @@ export function IssueDetailBackButton() {
       type="button"
       onClick={() => router.back()}
       aria-label="이전 화면으로 돌아가기"
-      className="flex size-11 shrink-0 items-center justify-center text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      className="-mx-2.5 flex size-11 shrink-0 items-center justify-center text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
       <svg
         aria-hidden="true"
