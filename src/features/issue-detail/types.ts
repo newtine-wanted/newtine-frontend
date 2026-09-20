@@ -51,3 +51,42 @@ export interface IssueDetailResponse {
   impacts: IssueDetailImpact[];
   myAction: IssueDetailAction | null;
 }
+
+export interface DetailViewStartRequest {
+  sessionId: string;
+}
+
+export interface DetailViewStartResponse {
+  viewId: string;
+  issueId: string;
+  startedAt: string;
+  expiresAt: string;
+}
+
+export interface DetailViewProgressRequest {
+  activeMilliseconds: number;
+}
+
+export type DetailViewDwellScore = 0 | 0.5 | 1;
+
+export interface DetailViewProgressResponse {
+  viewId: string;
+  issueId: string;
+  acceptedActiveMilliseconds: number;
+  totalCreditedMilliseconds: number;
+  dwellScore: DetailViewDwellScore;
+}
+
+export interface IssueDetailApi {
+  getIssueDetail(issueId: string): Promise<IssueDetailResponse>;
+  startDetailView(
+    issueId: string,
+    viewId: string,
+    request: DetailViewStartRequest,
+  ): Promise<DetailViewStartResponse>;
+  updateDetailViewProgress(
+    issueId: string,
+    viewId: string,
+    request: DetailViewProgressRequest,
+  ): Promise<DetailViewProgressResponse>;
+}

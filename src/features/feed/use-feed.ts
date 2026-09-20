@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useStore } from "zustand";
 import { getProblemDetails } from "@/domain/auth";
 import { authSessionStore } from "@/domain/auth/store";
+import { getIssueActivitySessionId } from "@/domain/issue-activity-session";
 import { feedApi } from "./api";
 import type {
   FeedApi,
@@ -46,7 +47,6 @@ export function useFeed(api: FeedApi = feedApi) {
     Record<string, IssueInteractionAction>
   >({});
 
-  const sessionIdRef = useRef<string | null>(null);
   const failedInteractionsRef = useRef(new Map<string, PendingInteraction>());
 
   const currentCard = items[currentIndex] ?? null;
@@ -184,13 +184,11 @@ export function useFeed(api: FeedApi = feedApi) {
       }
 
       if (authStatus === "authenticated") {
-        sessionIdRef.current ??= crypto.randomUUID();
-
         void submitInteraction({
           issueId: currentCard.issueId,
           request: {
             eventId: crypto.randomUUID(),
-            sessionId: sessionIdRef.current,
+            sessionId: getIssueActivitySessionId(),
             action,
           },
         });
