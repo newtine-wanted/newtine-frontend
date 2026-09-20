@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { PwaInstallRow } from "@/features/pwa-install";
 import { useAccountActions } from "./use-account-actions";
 import { WithdrawDialog } from "./withdraw-dialog";
 
@@ -63,7 +62,6 @@ export function AccountSection() {
             </span>
           </Link>
         </li>
-        <PwaInstallRow />
         <li>
           <button
             type="button"
