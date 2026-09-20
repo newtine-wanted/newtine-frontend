@@ -1,5 +1,6 @@
 import type { CSSProperties, KeyboardEventHandler, RefObject } from "react";
 import { FeedCard } from "./feed-card";
+import { FEED_CARD_VERTICAL_GAP_PX } from "./feed-card-layout";
 import type { FeedCardResponse } from "./types";
 import type { useFeedSwipe } from "./use-feed-swipe";
 
@@ -42,7 +43,7 @@ export function FeedCardDeck({
       : swipe.axis === "y" && swipe.offset.y < 0
         ? {
             opacity: 1,
-            transform: `translate3d(0, ${swipe.viewport.height + swipe.offset.y}px, 0)`,
+            transform: `translate3d(0, ${swipe.viewport.height + FEED_CARD_VERTICAL_GAP_PX + swipe.offset.y}px, 0)`,
             transition: swipe.isTransitioning ? CARD_TRANSITION : undefined,
           }
         : { opacity: 0 };
@@ -51,7 +52,7 @@ export function FeedCardDeck({
     swipe.axis === "y" && swipe.offset.y > 0
       ? {
           opacity: 1,
-          transform: `translate3d(0, ${-swipe.viewport.height + swipe.offset.y}px, 0)`,
+          transform: `translate3d(0, ${-swipe.viewport.height - FEED_CARD_VERTICAL_GAP_PX + swipe.offset.y}px, 0)`,
           transition: swipe.isTransitioning ? CARD_TRANSITION : undefined,
         }
       : { opacity: 0 };
@@ -84,9 +85,9 @@ export function FeedCardDeck({
       <div
         key={`current-${currentCard.issueId}`}
         ref={cardElementRef}
-        role="group"
+        role="link"
         tabIndex={0}
-        aria-label={`${currentCard.title}. 위로 밀면 다음, 아래로 당기면 이전, 왼쪽으로 밀면 넘기기, 오른쪽으로 밀면 관심 표시`}
+        aria-label={`${currentCard.title}. 탭하거나 Enter 키를 누르면 상세 보기. 위로 밀면 다음, 아래로 당기면 이전, 왼쪽으로 밀면 넘기기, 오른쪽으로 밀면 관심 표시`}
         onKeyDown={onKeyDown}
         className="relative z-10 h-full cursor-grab touch-pinch-zoom select-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent active:cursor-grabbing"
         style={currentCardStyle}

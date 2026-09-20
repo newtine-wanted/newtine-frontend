@@ -1,0 +1,1 @@
+export const FEED_CARD_VERTICAL_GAP_PX = 12;

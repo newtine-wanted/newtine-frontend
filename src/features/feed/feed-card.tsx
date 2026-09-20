@@ -46,7 +46,7 @@ export function FeedCard({
   }, [active, isInteracting, visibleSummaryCount]);
 
   return (
-    <article className="flex h-full min-h-[37.625rem] w-full flex-col gap-4 overflow-hidden rounded-[20px] border border-border bg-background p-6">
+    <article className="flex h-full min-h-[37.625rem] w-full flex-col gap-4 overflow-hidden border border-border bg-background p-6">
       <div className="flex min-w-0 items-center justify-between gap-3">
         <span
           className="flex min-h-7 min-w-0 items-center gap-1.5 px-2.5 py-1 text-label font-normal text-foreground"
@@ -63,7 +63,7 @@ export function FeedCard({
         </span>
       </div>
 
-      <h2 className="line-clamp-2 text-[26px] leading-[1.3] font-extrabold tracking-[-0.02em] break-keep text-foreground">
+      <h2 className="text-[26px] leading-[1.3] font-extrabold tracking-[-0.02em] break-keep text-foreground">
         {card.title}
       </h2>
 
