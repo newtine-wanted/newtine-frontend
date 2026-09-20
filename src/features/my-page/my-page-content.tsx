@@ -5,7 +5,7 @@ import { AccountHeader } from "./account-header";
 import { AccountSection } from "./account-section";
 import { InterestSection } from "./interest-section";
 import { ShortcutTiles } from "./shortcut-tiles";
-import { useMyPage } from "./use-my-page";
+import { ANALYSIS_ERROR_MESSAGE, useMyPage } from "./use-my-page";
 
 export function MyPageContent() {
   const { analysis, email, errorMessage, isLoading, reload } = useMyPage();
@@ -19,9 +19,7 @@ export function MyPageContent() {
       ) : !analysis ? (
         <AsyncContentError
           title="관심 분석을 불러오지 못했어요"
-          description={
-            errorMessage ?? "관심 분석을 불러오는 중 문제가 발생했습니다."
-          }
+          description={errorMessage ?? ANALYSIS_ERROR_MESSAGE}
           onRetry={reload}
         />
       ) : (

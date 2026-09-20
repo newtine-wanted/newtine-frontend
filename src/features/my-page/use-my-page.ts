@@ -6,6 +6,10 @@ import { authSessionStore } from "@/domain/auth/store";
 import { getInterestAnalysis } from "./api";
 import type { InterestAnalysisResponse } from "./types";
 
+// 훅과 화면이 같은 문구를 쓰도록 한 곳에서만 정의한다.
+export const ANALYSIS_ERROR_MESSAGE =
+  "관심 분석을 불러오는 중 문제가 발생했습니다.";
+
 export function useMyPage() {
   const authStatus = useStore(authSessionStore, (state) => state.status);
   const email = useStore(
@@ -33,7 +37,7 @@ export function useMyPage() {
       .catch(() => {
         if (ignore) return;
         setAnalysis(null);
-        setErrorMessage("관심 분석을 불러오는 중 문제가 발생했습니다.");
+        setErrorMessage(ANALYSIS_ERROR_MESSAGE);
       })
       .finally(() => {
         if (!ignore) setIsLoading(false);
