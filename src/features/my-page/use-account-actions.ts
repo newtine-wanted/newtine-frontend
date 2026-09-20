@@ -23,9 +23,11 @@ export function useAccountActions() {
   const [logoutError, setLogoutError] = useState<string | null>(null);
   const [isWithdrawing, setIsWithdrawing] = useState(false);
   const [withdrawError, setWithdrawError] = useState<string | null>(null);
+  // 로그아웃과 탈퇴는 동시에 진행할 수 없다.
+  const isBusy = isLoggingOut || isWithdrawing;
 
   async function handleLogout() {
-    if (isLoggingOut) {
+    if (isBusy) {
       return;
     }
 
@@ -47,7 +49,7 @@ export function useAccountActions() {
   }
 
   async function handleWithdraw() {
-    if (isWithdrawing) {
+    if (isBusy) {
       return;
     }
 
@@ -74,6 +76,7 @@ export function useAccountActions() {
     clearWithdrawError,
     handleLogout,
     handleWithdraw,
+    isBusy,
     isLoggingOut,
     isWithdrawing,
     logoutError,

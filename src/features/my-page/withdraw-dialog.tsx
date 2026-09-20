@@ -4,6 +4,8 @@ const focusClasses =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
 interface WithdrawDialogProps {
+  /** 다른 계정 작업이 진행 중이라 탈퇴를 시작할 수 없는 상태 */
+  disabled: boolean;
   errorMessage: string | null;
   isSubmitting: boolean;
   onConfirm: () => void;
@@ -11,6 +13,7 @@ interface WithdrawDialogProps {
 }
 
 export function WithdrawDialog({
+  disabled,
   errorMessage,
   isSubmitting,
   onConfirm,
@@ -35,8 +38,9 @@ export function WithdrawDialog({
     <>
       <button
         type="button"
+        disabled={disabled}
         onClick={openDialog}
-        className={`mt-3.5 flex min-h-11 min-w-11 items-center justify-center self-center px-4 text-label text-muted underline underline-offset-2 ${focusClasses}`}
+        className={`mt-3.5 flex min-h-11 min-w-11 items-center justify-center self-center px-4 text-label text-muted underline underline-offset-2 disabled:opacity-40 ${focusClasses}`}
       >
         회원탈퇴
       </button>

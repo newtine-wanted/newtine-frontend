@@ -11,6 +11,7 @@ export function AccountSection() {
     clearWithdrawError,
     handleLogout,
     handleWithdraw,
+    isBusy,
     isLoggingOut,
     isWithdrawing,
     logoutError,
@@ -50,7 +51,7 @@ export function AccountSection() {
         <li>
           <button
             type="button"
-            disabled={isLoggingOut}
+            disabled={isBusy}
             onClick={() => void handleLogout()}
             className={`flex h-11 w-full items-center text-left text-body text-foreground-body disabled:opacity-40 ${focusClasses}`}
           >
@@ -70,6 +71,7 @@ export function AccountSection() {
       )}
 
       <WithdrawDialog
+        disabled={isBusy}
         errorMessage={withdrawError}
         isSubmitting={isWithdrawing}
         onConfirm={() => void handleWithdraw()}
