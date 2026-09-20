@@ -18,6 +18,17 @@ export async function loginWithEmail(
   return response.data;
 }
 
+export async function signupWithEmail(
+  credentials: AuthCredentialsRequest,
+): Promise<AuthSessionResponse> {
+  const response = await apiClient.post<AuthSessionResponse>(
+    "/api/auth/signup",
+    credentials,
+  );
+
+  return response.data;
+}
+
 export async function requestAuthSessionRefresh(): Promise<AuthSessionResponse> {
   const response =
     await apiClient.post<AuthSessionResponse>("/api/auth/refresh");

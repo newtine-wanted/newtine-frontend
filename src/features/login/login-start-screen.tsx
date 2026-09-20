@@ -48,7 +48,7 @@ export function LoginStartScreen({
           로그인
         </Link>
         <Link
-          href="/feed"
+          href="/"
           replace
           className={`flex h-11 w-full items-center justify-center border border-border bg-background px-4 text-button text-foreground ${focusClasses}`}
         >
