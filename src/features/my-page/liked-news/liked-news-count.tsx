@@ -1,9 +1,14 @@
 "use client";
 
-import { useLikedNews } from "./liked-news-provider";
+import { useLikedNewsContext } from "./liked-news-provider";
 
 export function LikedNewsCount() {
-  const { items } = useLikedNews();
+  const { displayedCategoryName, totalCount } = useLikedNewsContext();
 
-  return <span>{items.length}건</span>;
+  return (
+    <span aria-live="polite">
+      {displayedCategoryName ? `${displayedCategoryName} ` : ""}
+      {totalCount}건
+    </span>
+  );
 }

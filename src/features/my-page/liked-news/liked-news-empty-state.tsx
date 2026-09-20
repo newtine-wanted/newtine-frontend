@@ -1,23 +1,9 @@
 import Link from "next/link";
-import type { Ref } from "react";
-import type { PolicyArea } from "@/domain/policy-area";
 
-export function LikedNewsEmptyState({
-  ref,
-  topic,
-}: {
-  /** 마지막 행을 해제해 목록이 비면 포커스를 넘겨받는다 */
-  ref?: Ref<HTMLHeadingElement>;
-  /** 주제 필터 때문에 비었을 때만 넘긴다. 없으면 관심 뉴스가 아예 없는 상태로 안내한다 */
-  topic?: PolicyArea;
-}) {
+export function LikedNewsEmptyState({ topic }: { topic?: string }) {
   return (
     <div className="mx-5 flex flex-col items-center gap-2 bg-surface px-4 py-5 text-center">
-      <h2
-        ref={ref}
-        tabIndex={-1}
-        className="text-body font-bold text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-      >
+      <h2 className="text-body font-bold text-foreground">
         {topic
           ? `‘${topic}’ 주제의 관심 뉴스가 없어요`
           : "관심 표시한 뉴스가 여기에 모여요"}

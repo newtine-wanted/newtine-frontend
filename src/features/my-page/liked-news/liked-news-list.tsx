@@ -1,73 +1,141 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
+import {
+  AsyncContentError,
+  AsyncContentLoading,
+  Button,
+} from "@/components/ui";
 import { LikedNewsEmptyState } from "./liked-news-empty-state";
 import { LikedNewsItem } from "./liked-news-item";
-import { useLikedNews } from "./liked-news-provider";
+import { useLikedNewsContext } from "./liked-news-provider";
 import { TopicFilter } from "./topic-filter";
 
 export function LikedNewsList() {
-  const { items, visibleItems, selected, selectTopic, unlike } = useLikedNews();
-  const listRef = useRef<HTMLUListElement>(null);
-  const emptyRef = useRef<HTMLHeadingElement>(null);
-  const pendingFocusIndexRef = useRef<number | null>(null);
+  const {
+    categories,
+    categoriesError,
+    displayedCategoryName,
+    isInitialLoading,
+    isLoadingMore,
+    items,
+    loadError,
+    loadMore,
+    loadMoreError,
+    loadMoreNotice,
+    nextCursor,
+    retry,
+    selectCategory,
+    selectedCode,
+  } = useLikedNewsContext();
 
-  function handleUnlike(id: string) {
-    const removedIndex = visibleItems.findIndex((item) => item.id === id);
-    // 제거되는 행에 포커스가 있을 때만 인계한다. `?.`는 removedIndex -1을 막는다.
-    const hadFocus =
-      listRef.current?.children[removedIndex]?.contains(
-        document.activeElement,
-      ) ?? false;
+  const contentRef = useRef<HTMLDivElement>(null);
+  // 방금 누른 컨트롤이 사라지는 전환에서만 포커스를 되찾는다.
+  const isRecoveringFocusRef = useRef(false);
 
-    if (hadFocus) pendingFocusIndexRef.current = removedIndex;
-    unlike(id);
-  }
-
-  // 제거된 자리의 버튼으로 포커스를 넘긴다. 마지막이면 이전 행, 비면 빈 상태로.
   useEffect(() => {
-    const index = pendingFocusIndexRef.current;
-    if (index === null) return;
-    pendingFocusIndexRef.current = null;
-
-    const buttons = listRef.current?.querySelectorAll<HTMLButtonElement>(
-      "button[data-unlike]",
-    );
-    if (buttons && buttons.length > 0) {
-      buttons[Math.min(index, buttons.length - 1)]?.focus();
+    if (!isRecoveringFocusRef.current || isInitialLoading || isLoadingMore) {
       return;
     }
-    emptyRef.current?.focus();
-  }, [visibleItems]);
+
+    if (document.activeElement === document.body) {
+      contentRef.current?.focus();
+    }
+
+    isRecoveringFocusRef.current = false;
+  }, [isInitialLoading, isLoadingMore]);
+
+  let loadMoreLabel = "더보기";
+
+  if (isLoadingMore) {
+    loadMoreLabel = "불러오는 중...";
+  } else if (loadMoreError) {
+    loadMoreLabel = "다시 시도";
+  }
+
+  let content: ReactNode;
+
+  if (isInitialLoading) {
+    content = <AsyncContentLoading title="관심 뉴스를 불러오는 중이에요" />;
+  } else if (loadError) {
+    content = (
+      <AsyncContentError
+        title="관심 뉴스를 불러오지 못했어요"
+        description={loadError}
+        onRetry={() => {
+          isRecoveringFocusRef.current = true;
+          retry();
+        }}
+      />
+    );
+  } else if (items.length === 0) {
+    content = (
+      <LikedNewsEmptyState
+        topic={selectedCode ? (displayedCategoryName ?? undefined) : undefined}
+      />
+    );
+  } else {
+    content = (
+      <>
+        <ul className="flex flex-col divide-y divide-divider border-y border-divider">
+          {items.map((item) => (
+            <LikedNewsItem key={item.issueId} item={item} />
+          ))}
+        </ul>
+        {nextCursor && (
+          <div className="flex flex-col items-center gap-2 px-5 pt-4">
+            {loadMoreError && (
+              <p role="alert" className="text-label text-danger">
+                {loadMoreError}
+              </p>
+            )}
+            <Button
+              variant="ghost"
+              aria-disabled={isLoadingMore}
+              aria-busy={isLoadingMore}
+              onClick={() => {
+                isRecoveringFocusRef.current = true;
+                void loadMore();
+              }}
+              className="h-11 w-full text-body-sm aria-disabled:opacity-40"
+            >
+              {loadMoreLabel}
+            </Button>
+          </div>
+        )}
+      </>
+    );
+  }
 
   return (
     <div className="flex flex-col pt-1 pb-6">
-      <TopicFilter selected={selected} onSelect={selectTopic} />
-
-      {visibleItems.length === 0 ? (
-        <LikedNewsEmptyState
-          ref={emptyRef}
-          topic={items.length > 0 && selected !== "전체" ? selected : undefined}
-        />
-      ) : (
-        <>
-          <ul
-            ref={listRef}
-            className="flex flex-col divide-y divide-divider border-y border-divider"
-          >
-            {visibleItems.map((item) => (
-              <LikedNewsItem
-                key={item.id}
-                item={item}
-                onUnlike={handleUnlike}
-              />
-            ))}
-          </ul>
-          <p className="px-5 py-3 text-hint text-muted">
-            항목을 왼쪽으로 밀면 관심 해제
-          </p>
-        </>
+      <TopicFilter
+        categories={categories}
+        selectedCode={selectedCode}
+        onSelect={selectCategory}
+      />
+      {categoriesError && (
+        <p role="alert" className="px-5 pb-2 text-label text-danger">
+          {categoriesError}
+        </p>
       )}
+      {/* 버튼을 언마운트하는 전환에서 포커스가 문서 밖으로 떨어지지 않게 받아 둔다. */}
+      <div
+        ref={contentRef}
+        tabIndex={-1}
+        role="region"
+        aria-label="관심 뉴스 목록"
+        className="flex flex-col focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      >
+        {content}
+      </div>
+      {/* 되감기 도중 content가 로딩 블록으로 바뀌므로 live region은 바깥에 상주시킨다. */}
+      <p
+        role="status"
+        className={loadMoreNotice ? "px-5 pt-4 text-label text-muted" : ""}
+      >
+        {loadMoreNotice}
+      </p>
     </div>
   );
 }
