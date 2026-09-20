@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { getProblemDetails } from "@/domain/auth";
 import { getLikedIssues, getLikedNewsCategories } from "./api";
 import type { LikedIssue, LikedNewsCategory } from "./types";
@@ -23,6 +23,8 @@ export function useLikedNews() {
   const [loadMoreError, setLoadMoreError] = useState<string | null>(null);
   const [categoriesReloadCount, setCategoriesReloadCount] = useState(0);
   const [issuesReloadCount, setIssuesReloadCount] = useState(0);
+  // 조회 대상이 바뀌면 이미 떠 있는 더보기 응답을 버리려고 세대를 센다.
+  const requestGenerationRef = useRef(0);
 
   useEffect(() => {
     let ignore = false;
@@ -80,6 +82,7 @@ export function useLikedNews() {
       if (code === selectedCode) return;
 
       // 필터가 바뀌면 커서를 버리고 1페이지부터 다시 받는다.
+      requestGenerationRef.current += 1;
       setSelectedCode(code);
       setNextCursor(null);
       setIsInitialLoading(true);
@@ -90,6 +93,7 @@ export function useLikedNews() {
   );
 
   const retry = useCallback(() => {
+    requestGenerationRef.current += 1;
     setIsInitialLoading(true);
     setLoadError(null);
     setCategoriesReloadCount((count) => count + 1);
@@ -99,6 +103,8 @@ export function useLikedNews() {
   const loadMore = useCallback(async () => {
     if (!nextCursor || isLoadingMore) return;
 
+    const generation = requestGenerationRef.current;
+
     setIsLoadingMore(true);
     setLoadMoreError(null);
 
@@ -107,10 +113,15 @@ export function useLikedNews() {
         categoryCode: selectedCode ?? undefined,
         cursor: nextCursor,
       });
+      // 기다리는 사이 필터가 바뀌었으면 다른 조회의 결과이므로 버린다.
+      if (generation !== requestGenerationRef.current) return;
+
       setItems((current) => [...current, ...response.items]);
       setTotalCount(response.totalCount);
       setNextCursor(response.nextCursor);
     } catch (error) {
+      if (generation !== requestGenerationRef.current) return;
+
       // 커서가 무효해진 400은 필터를 유지한 채 1페이지부터 다시 받는다.
       if (getProblemDetails(error)?.status === 400) {
         setNextCursor(null);
