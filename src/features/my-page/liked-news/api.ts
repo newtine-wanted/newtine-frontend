@@ -13,6 +13,11 @@ export async function getLikedNewsCategories(): Promise<LikedNewsCategory[]> {
     "/api/metadata/categories",
   );
 
+  // 배열이 아닌 본문을 전개하면 조용히 깨진 칩 목록이 되므로 여기서 끊는다.
+  if (!Array.isArray(response.data)) {
+    throw new Error("주제 목록 형식이 올바르지 않습니다.");
+  }
+
   return [...response.data].sort(
     (left, right) => left.displayOrder - right.displayOrder,
   );
