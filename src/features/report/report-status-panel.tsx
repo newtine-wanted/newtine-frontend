@@ -31,9 +31,11 @@ const statusCopy: Record<
 };
 
 export function ReportStatusPanel({
+  isActionPending = false,
   kind,
   onAction,
 }: {
+  isActionPending?: boolean;
   kind: ReportStatusPanelKind;
   onAction?: () => void;
 }) {
@@ -115,8 +117,18 @@ export function ReportStatusPanel({
       </p>
 
       {copy.actionLabel && onAction && (
-        <Button onClick={onAction} className="mt-5 min-w-56">
-          {copy.actionLabel}
+        <Button
+          disabled={isActionPending}
+          onClick={onAction}
+          className="mt-5 min-w-56"
+        >
+          {isActionPending
+            ? kind === "failed"
+              ? "다시 시도 중"
+              : kind === "daily-limit"
+                ? "확인 중"
+                : "생성 요청 중"
+            : copy.actionLabel}
         </Button>
       )}
     </section>

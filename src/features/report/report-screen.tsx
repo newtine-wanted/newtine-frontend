@@ -1,26 +1,36 @@
 "use client";
 
-import { AppBar } from "@/components/ui";
+import {
+  AppBar,
+  AsyncContentError,
+  AsyncContentLoading,
+} from "@/components/ui";
 import { ReportContent } from "./report-content";
+import { ReportDatePicker } from "./report-date-picker";
 import { ReportStatusPanel } from "./report-status-panel";
-import type { ReportPreviewState } from "./types";
 import { useReportScreen } from "./use-report-screen";
 
-function formatReportDate(reportDate: string) {
-  const [, month, day] = reportDate.split("-");
-  return month && day ? `${month}.${day}` : reportDate;
-}
-
-export function ReportScreen({
-  initialPreview,
-}: {
-  initialPreview: ReportPreviewState;
-}) {
-  const { preview, report, requestReport, retryReport, openTodayReport } =
-    useReportScreen(initialPreview);
-  const dateLabel = formatReportDate(report.reportDate);
-  const content = report.status === "SUCCEEDED" ? report.content : null;
-  const showDateSelector = content !== null;
+export function ReportScreen() {
+  const {
+    content,
+    dateLabel,
+    errorMessage,
+    isActionPending,
+    maxReportDate,
+    reloadReport,
+    report,
+    requestReport,
+    retryReport,
+    selectedReportDate,
+    selectReportDate,
+    statusLabel,
+    summary,
+    supportsDateSelection,
+    viewState,
+  } = useReportScreen();
+  const showDateSelector =
+    supportsDateSelection &&
+    (content !== null || selectedReportDate !== maxReportDate);
 
   return (
     <div className="min-h-[calc(100dvh-env(safe-area-inset-top)-env(safe-area-inset-bottom))] bg-background">
@@ -30,9 +40,11 @@ export function ReportScreen({
           title="진단보고서"
           action={
             showDateSelector ? (
-              <span className="text-body-sm text-foreground-secondary">
-                날짜 선택 ▾
-              </span>
+              <ReportDatePicker
+                max={maxReportDate}
+                value={selectedReportDate}
+                onChange={selectReportDate}
+              />
             ) : undefined
           }
         />
@@ -43,34 +55,52 @@ export function ReportScreen({
           Daily Report
         </p>
         <p className="mt-0.5 text-hint text-muted">
-          {dateLabel} · {getStatusLabel(preview, report.content?.issueCount)}
+          {dateLabel} · {statusLabel}
         </p>
       </header>
 
-      {preview === "request" && (
-        <ReportStatusPanel kind="request" onAction={requestReport} />
+      {viewState === "loading" && (
+        <AsyncContentLoading
+          title="진단보고서를 불러오는 중이에요"
+          description="오늘의 기록을 확인하고 있어요."
+          className="min-h-[calc(100dvh-env(safe-area-inset-top)-env(safe-area-inset-bottom)-128px)] px-5"
+        />
       )}
-      {(preview === "queued" || preview === "running") && (
+      {viewState === "error" && (
+        <AsyncContentError
+          title="진단보고서를 불러오지 못했어요"
+          description={errorMessage ?? "잠시 후 다시 시도해 주세요."}
+          onRetry={reloadReport}
+          className="min-h-[calc(100dvh-env(safe-area-inset-top)-env(safe-area-inset-bottom)-128px)] px-5"
+        />
+      )}
+      {viewState === "request" && (
+        <ReportStatusPanel
+          kind="request"
+          isActionPending={isActionPending}
+          onAction={() => void requestReport()}
+        />
+      )}
+      {(viewState === "queued" || viewState === "running") && (
         <ReportStatusPanel kind="running" />
       )}
-      {preview === "failed" && (
-        <ReportStatusPanel kind="failed" onAction={retryReport} />
+      {viewState === "failed" && (
+        <ReportStatusPanel
+          kind="failed"
+          isActionPending={isActionPending}
+          onAction={report?.retryable ? () => void retryReport() : undefined}
+        />
       )}
-      {preview === "daily-limit" && (
-        <ReportStatusPanel kind="daily-limit" onAction={openTodayReport} />
+      {viewState === "daily-limit" && (
+        <ReportStatusPanel
+          kind="daily-limit"
+          isActionPending={isActionPending}
+          onAction={reloadReport}
+        />
       )}
-      {content && <ReportContent content={content} />}
+      {content && summary && (
+        <ReportContent content={content} summary={summary} />
+      )}
     </div>
   );
-}
-
-function getStatusLabel(
-  preview: ReportPreviewState,
-  issueCount?: number,
-): string {
-  if (preview === "request") return "아직 생성 전";
-  if (preview === "queued" || preview === "running") return "생성 요청됨";
-  if (preview === "failed") return "생성 실패";
-  if (preview === "daily-limit") return "오늘 생성 요청 완료";
-  return `관심 이슈 ${issueCount ?? 0}건`;
 }

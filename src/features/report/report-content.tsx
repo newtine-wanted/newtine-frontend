@@ -2,12 +2,19 @@ import { ReportCategoryList } from "./report-category-list";
 import { ReportConnectionsSection } from "./report-connections-section";
 import { ReportIssuesSection } from "./report-issues-section";
 import { ReportSummaryCard } from "./report-summary-card";
+import type { ReportSummaryViewModel } from "./report-view-model";
 import type { ReportContent as ReportContentType } from "./types";
 
-export function ReportContent({ content }: { content: ReportContentType }) {
+export function ReportContent({
+  content,
+  summary,
+}: {
+  content: ReportContentType;
+  summary: ReportSummaryViewModel;
+}) {
   return (
     <article className="flex flex-col gap-6 px-5 pt-3 pb-10">
-      <ReportSummaryCard content={content} />
+      <ReportSummaryCard summary={summary} />
       <ReportCategoryList categories={content.categoryCounts} />
       <ReportConnectionsSection connections={content.connections} />
       <ReportIssuesSection

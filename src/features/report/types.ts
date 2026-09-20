@@ -65,12 +65,33 @@ export interface ReportResponse {
   contentAvailability: ReportContentAvailability;
 }
 
-export type ReportPreviewState =
-  | "request"
-  | "queued"
-  | "running"
-  | "ready"
-  | "insufficient-data"
-  | "no-connection"
-  | "failed"
-  | "daily-limit";
+export type ReportSummaryResponse = Omit<
+  ReportResponse,
+  "content" | "contentAvailability"
+>;
+
+export type ReportGenerationRequest =
+  | {
+      contract: "daily";
+      reportDate: string;
+    }
+  | {
+      contract: "weekly";
+      periodStart: string;
+    };
+
+export interface ReportLookupResult {
+  generationRequest: ReportGenerationRequest;
+  report: ReportResponse;
+  supportsDateSelection: boolean;
+}
+
+export interface ReportApi {
+  getByDate: (
+    reportDate: string,
+    signal?: AbortSignal,
+  ) => Promise<ReportLookupResult>;
+  request: (request: ReportGenerationRequest) => Promise<ReportSummaryResponse>;
+  get: (reportId: string, signal?: AbortSignal) => Promise<ReportResponse>;
+  retry: (reportId: string) => Promise<ReportSummaryResponse>;
+}
