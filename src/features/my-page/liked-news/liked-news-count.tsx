@@ -1,9 +1,13 @@
 "use client";
 
-import { useLikedNews } from "./liked-news-provider";
+import { useLikedNewsContext } from "./liked-news-provider";
 
 export function LikedNewsCount() {
-  const { items } = useLikedNews();
+  const { selectedCategoryName, totalCount } = useLikedNewsContext();
 
-  return <span>{items.length}건</span>;
+  return (
+    <span>
+      {selectedCategoryName} {totalCount}건
+    </span>
+  );
 }

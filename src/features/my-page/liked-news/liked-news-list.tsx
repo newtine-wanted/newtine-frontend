@@ -1,73 +1,100 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import type { ReactNode } from "react";
+import {
+  AsyncContentError,
+  AsyncContentLoading,
+  Button,
+} from "@/components/ui";
 import { LikedNewsEmptyState } from "./liked-news-empty-state";
 import { LikedNewsItem } from "./liked-news-item";
-import { useLikedNews } from "./liked-news-provider";
+import { useLikedNewsContext } from "./liked-news-provider";
 import { TopicFilter } from "./topic-filter";
 
 export function LikedNewsList() {
-  const { items, visibleItems, selected, selectTopic, unlike } = useLikedNews();
-  const listRef = useRef<HTMLUListElement>(null);
-  const emptyRef = useRef<HTMLHeadingElement>(null);
-  const pendingFocusIndexRef = useRef<number | null>(null);
+  const {
+    categories,
+    isInitialLoading,
+    isLoadingMore,
+    items,
+    loadError,
+    loadMore,
+    loadMoreError,
+    nextCursor,
+    retry,
+    selectCategory,
+    selectedCategoryName,
+    selectedCode,
+    totalCount,
+  } = useLikedNewsContext();
 
-  function handleUnlike(id: string) {
-    const removedIndex = visibleItems.findIndex((item) => item.id === id);
-    // 제거되는 행에 포커스가 있을 때만 인계한다. `?.`는 removedIndex -1을 막는다.
-    const hadFocus =
-      listRef.current?.children[removedIndex]?.contains(
-        document.activeElement,
-      ) ?? false;
+  let loadMoreLabel = "더보기";
 
-    if (hadFocus) pendingFocusIndexRef.current = removedIndex;
-    unlike(id);
+  if (isLoadingMore) {
+    loadMoreLabel = "불러오는 중...";
+  } else if (loadMoreError) {
+    loadMoreLabel = "다시 시도";
   }
 
-  // 제거된 자리의 버튼으로 포커스를 넘긴다. 마지막이면 이전 행, 비면 빈 상태로.
-  useEffect(() => {
-    const index = pendingFocusIndexRef.current;
-    if (index === null) return;
-    pendingFocusIndexRef.current = null;
+  let content: ReactNode;
 
-    const buttons = listRef.current?.querySelectorAll<HTMLButtonElement>(
-      "button[data-unlike]",
+  if (isInitialLoading) {
+    content = <AsyncContentLoading title="관심 뉴스를 불러오는 중이에요" />;
+  } else if (loadError) {
+    content = (
+      <AsyncContentError
+        title="관심 뉴스를 불러오지 못했어요"
+        description={loadError}
+        onRetry={retry}
+      />
     );
-    if (buttons && buttons.length > 0) {
-      buttons[Math.min(index, buttons.length - 1)]?.focus();
-      return;
-    }
-    emptyRef.current?.focus();
-  }, [visibleItems]);
+  } else if (totalCount === 0) {
+    content = (
+      <LikedNewsEmptyState
+        topic={selectedCode ? selectedCategoryName : undefined}
+      />
+    );
+  } else {
+    content = (
+      <>
+        <ul className="flex flex-col divide-y divide-divider border-y border-divider">
+          {items.map((item) => (
+            <LikedNewsItem key={item.issueId} item={item} />
+          ))}
+        </ul>
+        {nextCursor && (
+          <div className="flex flex-col items-center gap-2 px-5 pt-4">
+            {loadMoreError && (
+              <p
+                role="alert"
+                aria-live="assertive"
+                className="text-label text-danger"
+              >
+                {loadMoreError}
+              </p>
+            )}
+            <Button
+              variant="ghost"
+              disabled={isLoadingMore}
+              onClick={() => void loadMore()}
+              className="h-11 w-full text-body-sm"
+            >
+              {loadMoreLabel}
+            </Button>
+          </div>
+        )}
+      </>
+    );
+  }
 
   return (
     <div className="flex flex-col pt-1 pb-6">
-      <TopicFilter selected={selected} onSelect={selectTopic} />
-
-      {visibleItems.length === 0 ? (
-        <LikedNewsEmptyState
-          ref={emptyRef}
-          topic={items.length > 0 && selected !== "전체" ? selected : undefined}
-        />
-      ) : (
-        <>
-          <ul
-            ref={listRef}
-            className="flex flex-col divide-y divide-divider border-y border-divider"
-          >
-            {visibleItems.map((item) => (
-              <LikedNewsItem
-                key={item.id}
-                item={item}
-                onUnlike={handleUnlike}
-              />
-            ))}
-          </ul>
-          <p className="px-5 py-3 text-hint text-muted">
-            항목을 왼쪽으로 밀면 관심 해제
-          </p>
-        </>
-      )}
+      <TopicFilter
+        categories={categories}
+        selectedCode={selectedCode}
+        onSelect={selectCategory}
+      />
+      {content}
     </div>
   );
 }
