@@ -19,7 +19,7 @@ export function IssueDetailHeader({ issue }: { issue: IssueDetailResponse }) {
           {issue.title}
         </h2>
         <div className="flex flex-col gap-0.5">
-          <p className="text-label font-bold text-accent">한 줄로 말하면</p>
+          <p className="text-label font-bold text-accent">짧게 요약하면</p>
           <p className="text-heading leading-[1.35] font-extrabold break-keep text-foreground">
             {issue.integratedSummary}
           </p>
