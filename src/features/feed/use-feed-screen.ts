@@ -29,6 +29,11 @@ export function useFeedScreen() {
     setToastMessage(message);
   }, []);
 
+  const openCurrentIssue = useCallback(() => {
+    if (feed.status !== "ready" || !feed.currentCard) return;
+    router.push(`/issues/${encodeURIComponent(feed.currentCard.issueId)}`);
+  }, [feed.currentCard, feed.status, router]);
+
   const handleCommit = useCallback(
     (direction: FeedSwipeDirection) => {
       if (direction === "left") {
@@ -58,6 +63,7 @@ export function useFeedScreen() {
     canGoBack: feed.canGoBack,
     disabled: feed.status !== "ready" || !feed.currentCard,
     onCommit: handleCommit,
+    onTap: openCurrentIssue,
   });
 
   function triggerSwipe(direction: FeedSwipeDirection) {
@@ -70,6 +76,12 @@ export function useFeedScreen() {
 
   function handleCardKeyDown(event: KeyboardEvent<HTMLDivElement>) {
     if (event.repeat || swipe.isInteracting) return;
+
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openCurrentIssue();
+      return;
+    }
 
     const directionByKey: Partial<Record<string, FeedSwipeDirection>> = {
       ArrowLeft: "left",

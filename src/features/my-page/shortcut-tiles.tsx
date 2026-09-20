@@ -3,7 +3,11 @@ import Link from "next/link";
 const tileClasses =
   "flex min-h-25 flex-1 flex-col justify-between gap-2 bg-surface p-3.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
-export function ShortcutTiles({ likedNewsCount }: { likedNewsCount: number }) {
+export function ShortcutTiles({
+  likedIssueCount,
+}: {
+  likedIssueCount: number;
+}) {
   return (
     <div className="flex gap-1">
       <Link href="/report" className={tileClasses}>
@@ -37,7 +41,7 @@ export function ShortcutTiles({ likedNewsCount }: { likedNewsCount: number }) {
           <span className="text-body text-foreground">관심 뉴스</span>
         </span>
         <span className="flex items-center justify-between gap-2">
-          <span className="text-label text-muted">{likedNewsCount}건</span>
+          <span className="text-label text-muted">{likedIssueCount}건</span>
           <span aria-hidden="true" className="text-body text-foreground">
             →
           </span>

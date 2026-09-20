@@ -72,9 +72,9 @@ export function SignupForm() {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="h-[54px] w-full font-bold"
+          className="w-full font-bold"
         >
-          {isSubmitting ? "가입 중..." : "회원가입"}
+          {isSubmitting ? "가입 중" : "회원가입"}
         </Button>
         <p className="flex min-h-5 items-center justify-center gap-2 text-caption leading-5">
           <span className="text-muted">이미 계정이 있나요?</span>

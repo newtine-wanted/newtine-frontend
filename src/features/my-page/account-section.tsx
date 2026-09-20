@@ -1,19 +1,23 @@
 import Link from "next/link";
+import { useAccountActions } from "./use-account-actions";
 import { WithdrawDialog } from "./withdraw-dialog";
 
 const focusClasses =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 const navRowClasses = `flex h-11 w-full items-center justify-between text-body text-foreground-body ${focusClasses}`;
 
-export function AccountSection({
-  appVersion,
-  likedCount,
-  swipeCount,
-}: {
-  appVersion: string;
-  likedCount: number;
-  swipeCount: number;
-}) {
+export function AccountSection() {
+  const {
+    clearWithdrawError,
+    handleLogout,
+    handleWithdraw,
+    isBusy,
+    isLoggingOut,
+    isWithdrawing,
+    logoutError,
+    withdrawError,
+  } = useAccountActions();
+
   return (
     <section
       aria-labelledby="account-heading"
@@ -29,7 +33,14 @@ export function AccountSection({
 
       <ul className="flex flex-col divide-y divide-divider border-b border-divider">
         <li>
-          <Link href="/terms" className={navRowClasses}>
+          <Link
+            href="/terms"
+            target="_blank"
+            rel="noreferrer"
+            prefetch={false}
+            aria-label="이용약관 새 창에서 열기"
+            className={navRowClasses}
+          >
             이용약관
             <span aria-hidden="true" className="text-foreground">
               →
@@ -37,28 +48,49 @@ export function AccountSection({
           </Link>
         </li>
         <li>
-          <Link href="/privacy" className={navRowClasses}>
+          <Link
+            href="/privacy"
+            target="_blank"
+            rel="noreferrer"
+            prefetch={false}
+            aria-label="개인정보처리방침 새 창에서 열기"
+            className={navRowClasses}
+          >
             개인정보처리방침
             <span aria-hidden="true" className="text-foreground">
               →
             </span>
           </Link>
         </li>
-        <li className="flex h-11 items-center justify-between text-body text-foreground-body">
-          앱 버전
-          <span className="text-caption text-muted">{appVersion}</span>
-        </li>
         <li>
           <button
             type="button"
-            className={`flex h-11 w-full items-center text-left text-body text-foreground-body ${focusClasses}`}
+            disabled={isBusy}
+            onClick={() => void handleLogout()}
+            className={`flex h-11 w-full items-center text-left text-body text-foreground-body disabled:opacity-40 ${focusClasses}`}
           >
-            로그아웃
+            {isLoggingOut ? "로그아웃 중" : "로그아웃"}
           </button>
         </li>
       </ul>
 
-      <WithdrawDialog likedCount={likedCount} swipeCount={swipeCount} />
+      {logoutError && (
+        <p
+          role="alert"
+          aria-live="assertive"
+          className="pt-2 text-label text-danger"
+        >
+          {logoutError}
+        </p>
+      )}
+
+      <WithdrawDialog
+        disabled={isBusy}
+        errorMessage={withdrawError}
+        isSubmitting={isWithdrawing}
+        onConfirm={() => void handleWithdraw()}
+        onOpen={clearWithdrawError}
+      />
     </section>
   );
 }

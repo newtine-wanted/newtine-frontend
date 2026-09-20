@@ -38,7 +38,7 @@ export function FeedScreen() {
         <AppBar action={<MyPageLink />} />
       </div>
 
-      <div className="relative flex min-h-[38.625rem] flex-1 px-4 pt-1 pb-3">
+      <div className="relative flex min-h-[38.625rem] flex-1 px-4 py-3">
         <div className="relative isolate min-h-[37.625rem] w-full flex-1 overflow-hidden">
           {feed.status === "loading" && (
             <AsyncContentLoading

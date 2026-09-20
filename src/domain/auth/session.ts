@@ -1,4 +1,8 @@
-import { requestAuthSessionRefresh, requestLogout } from "./api";
+import {
+  requestAuthSessionRefresh,
+  requestLogout,
+  requestWithdraw,
+} from "./api";
 import { installAuthSessionInterceptors } from "./interceptors";
 import {
   authSessionStore,
@@ -58,6 +62,12 @@ export async function restoreAuthSession(): Promise<boolean> {
 
 export async function logout(): Promise<void> {
   await requestLogout();
+  clearAuthSession();
+}
+
+// 탈퇴한 계정으로는 로그아웃 요청이 401이 되므로 세션만 비운다.
+export async function withdraw(): Promise<void> {
+  await requestWithdraw();
   clearAuthSession();
 }
 

@@ -1,11 +1,5 @@
-import type { LoginProvider, MyPageAccount } from "./types";
-
-const LOGIN_PROVIDER_LABEL: Record<LoginProvider, string> = {
-  kakao: "카카오 로그인",
-};
-
-export function AccountHeader({ account }: { account: MyPageAccount }) {
-  const initial = account.email.trim().charAt(0).toUpperCase();
+export function AccountHeader({ email }: { email: string | null }) {
+  const initial = email?.trim().charAt(0).toUpperCase() ?? "";
 
   return (
     <div className="flex items-start justify-between gap-3">
@@ -16,9 +10,9 @@ export function AccountHeader({ account }: { account: MyPageAccount }) {
         >
           My Page
         </h1>
-        <p className="text-caption wrap-anywhere text-muted">
-          {account.email} · {LOGIN_PROVIDER_LABEL[account.loginProvider]}
-        </p>
+        {email && (
+          <p className="text-caption wrap-anywhere text-muted">{email}</p>
+        )}
       </div>
       {initial && (
         <div
