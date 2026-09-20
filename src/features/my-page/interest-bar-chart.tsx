@@ -5,9 +5,12 @@ export function InterestBarChart({
 }: {
   categoryCounts: InterestCategoryCount[];
 }) {
+  // 0건은 min-w-1.5 막대 조각 때문에 0이 아닌 값처럼 보여 제외한다.
   // 안정 정렬 → 동률은 서버가 내려준 순서를 유지한다.
-  const bars = [...categoryCounts].sort((a, b) => b.count - a.count);
-  const maxCount = Math.max(1, ...bars.map((bar) => bar.count));
+  const bars = categoryCounts
+    .filter((bar) => bar.count > 0)
+    .sort((a, b) => b.count - a.count);
+  const maxCount = bars.reduce((max, bar) => Math.max(max, bar.count), 1);
 
   return (
     <ul aria-label="분야별 관심 건수" className="flex flex-col gap-2">
