@@ -86,17 +86,14 @@ export function LikedNewsList() {
         {nextCursor && (
           <div className="flex flex-col items-center gap-2 px-5 pt-4">
             {loadMoreError && (
-              <p
-                role="alert"
-                aria-live="assertive"
-                className="text-label text-danger"
-              >
+              <p role="alert" className="text-label text-danger">
                 {loadMoreError}
               </p>
             )}
             <Button
               variant="ghost"
               aria-disabled={isLoadingMore}
+              aria-busy={isLoadingMore}
               onClick={() => {
                 isRecoveringFocusRef.current = true;
                 void loadMore();
