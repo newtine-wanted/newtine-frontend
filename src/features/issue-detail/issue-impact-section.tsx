@@ -1,4 +1,5 @@
 import { IssueDetailSectionHeading } from "./issue-detail-section-heading";
+import { formatIssueImpactTarget } from "./formatters";
 import type { IssueDetailImpact } from "./types";
 
 export function IssueImpactSection({
@@ -21,7 +22,7 @@ export function IssueImpactSection({
                 대상
               </dt>
               <dd className="min-w-0 text-body-sm leading-[1.5] text-foreground">
-                {impact.targetValue}
+                {formatIssueImpactTarget(impact.targetType, impact.targetValue)}
               </dd>
             </div>
             <div className="flex gap-2.5">
