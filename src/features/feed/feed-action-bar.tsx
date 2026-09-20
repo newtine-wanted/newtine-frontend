@@ -13,9 +13,9 @@ export function FeedActionBar({
 }) {
   return (
     <footer
-      className={`sticky bottom-0 z-20 flex h-24 shrink-0 flex-col gap-2 bg-background px-4 py-2 transition-opacity ${muted ? "opacity-35" : "opacity-100"}`}
+      className={`sticky bottom-0 z-20 flex h-[94px] shrink-0 flex-col gap-2 bg-background px-4 py-2 transition-opacity ${muted ? "opacity-35" : "opacity-100"}`}
     >
-      <div className="flex h-14 gap-3">
+      <div className="flex h-[54px] gap-3">
         <Button
           variant="ghost"
           className="min-w-0 flex-1"

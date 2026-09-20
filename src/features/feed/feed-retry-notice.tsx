@@ -15,7 +15,7 @@ export function FeedRetryNotice({
     <button
       type="button"
       onClick={hasInteractionError ? onRetryInteraction : onRetryLoad}
-      className="absolute bottom-4 left-1/2 z-30 min-h-11 max-w-[calc(100%_-_2rem)] -translate-x-1/2 bg-primary px-5 py-3 text-body-sm whitespace-nowrap text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      className="absolute bottom-4 left-1/2 z-30 flex h-[54px] max-w-[calc(100%_-_2rem)] -translate-x-1/2 items-center justify-center bg-primary px-5 text-body-sm whitespace-nowrap text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
       {hasInteractionError
         ? `반응 기록 실패 · 다시 시도 (${failedInteractionCount})`

@@ -43,14 +43,14 @@ export function LoginStartScreen({
         {showWithdrawNotice && <WithdrawNotice />}
         <Link
           href="/login/email"
-          className={`flex h-14 w-full items-center justify-center border border-transparent bg-primary px-4 text-button leading-6 font-normal text-primary-foreground ${focusClasses}`}
+          className={`flex h-[54px] w-full items-center justify-center border border-transparent bg-primary px-4 text-button leading-6 font-normal text-primary-foreground ${focusClasses}`}
         >
           로그인
         </Link>
         <Link
           href="/"
           replace
-          className={`flex h-11 w-full items-center justify-center border border-border bg-background px-4 text-button text-foreground ${focusClasses}`}
+          className={`flex h-[54px] w-full items-center justify-center border border-border bg-background px-4 text-button text-foreground ${focusClasses}`}
         >
           로그인 없이 둘러보기
         </Link>

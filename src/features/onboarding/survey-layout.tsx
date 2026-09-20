@@ -7,7 +7,7 @@ import { OnboardingNavBar } from "./onboarding-nav-bar";
 
 const TOTAL_STEPS = 4;
 
-// 하단 CTA 바(72px)와 포커스 링까지 가리지 않도록 포커스 이동 스크롤에 남기는 여백
+// 하단 CTA 바(70px)와 포커스 링까지 가리지 않도록 포커스 이동 스크롤에 남기는 여백
 export const CTA_SCROLL_CLEARANCE =
   "scroll-mb-[calc(env(safe-area-inset-bottom)_+_80px)]";
 

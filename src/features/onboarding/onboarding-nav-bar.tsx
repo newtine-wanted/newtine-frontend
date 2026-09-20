@@ -40,7 +40,7 @@ export function OnboardingNavBar({
         disabled={isSkipping}
         className={`flex min-h-11 min-w-11 items-center justify-center px-2.5 text-body-sm text-muted disabled:pointer-events-none disabled:opacity-40 ${FOCUS_CLASSES}`}
       >
-        {isSkipping ? "처리 중..." : "건너뛰기"}
+        {isSkipping ? "처리 중" : "건너뛰기"}
       </button>
     </header>
   );

@@ -69,7 +69,7 @@ export function AccountSection() {
             onClick={() => void handleLogout()}
             className={`flex h-11 w-full items-center text-left text-body text-foreground-body disabled:opacity-40 ${focusClasses}`}
           >
-            {isLoggingOut ? "로그아웃 중..." : "로그아웃"}
+            {isLoggingOut ? "로그아웃 중" : "로그아웃"}
           </button>
         </li>
       </ul>
