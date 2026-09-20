@@ -33,19 +33,19 @@ export function FeedScreen() {
     (feed.loadError !== null && feed.currentCard !== null);
 
   return (
-    <div className="flex min-h-[calc(100dvh-env(safe-area-inset-top)-env(safe-area-inset-bottom))] flex-col bg-background">
+    <div className="flex h-[calc(100dvh-env(safe-area-inset-top)-env(safe-area-inset-bottom))] min-h-max flex-col bg-background">
       <div className="sticky top-[env(safe-area-inset-top)] z-30 border-b-2 border-foreground bg-background">
         <AppBar
           action={<MyPageLink isAuthenticated={feed.isAuthenticated} />}
         />
       </div>
 
-      <div className="relative flex min-h-[38.625rem] flex-1 px-4 py-3">
-        <div className="relative isolate min-h-[37.625rem] w-full flex-1 overflow-hidden">
+      <div className="relative flex flex-1 px-4 py-3">
+        <div className="relative isolate w-full flex-1 overflow-hidden">
           {feed.status === "loading" && (
             <AsyncContentLoading
               title="새로운 이슈를 불러오는 중이에요"
-              className="h-full min-h-[37.625rem]"
+              className="h-full min-h-max"
             />
           )}
 
@@ -56,7 +56,7 @@ export function FeedScreen() {
                 feed.loadError ?? "피드를 불러오는 중 문제가 발생했습니다."
               }
               onRetry={() => void feed.retryLoad()}
-              className="h-full min-h-[37.625rem]"
+              className="h-full min-h-max"
             />
           )}
 
@@ -65,7 +65,7 @@ export function FeedScreen() {
               title="새로운 이슈가 없어요"
               description="새로운 이슈를 더 찾지 못했어요. 잠시 후 다시 확인해 주세요."
               onRetry={() => void feed.retryLoad()}
-              className="h-full min-h-[37.625rem]"
+              className="h-full min-h-max"
             />
           )}
 

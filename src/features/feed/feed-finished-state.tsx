@@ -13,7 +13,7 @@ export function FeedFinishedState({
   const showLikedNews = hasLikedNews !== false;
 
   return (
-    <section className="flex h-full min-h-[37.625rem] flex-col items-center justify-center gap-4 px-6 text-center">
+    <section className="flex h-full min-h-max flex-col items-center justify-center gap-4 px-6 text-center">
       <div
         aria-hidden="true"
         className="flex size-[120px] items-center justify-center rounded-full bg-surface-muted text-[44px] font-extrabold text-foreground"

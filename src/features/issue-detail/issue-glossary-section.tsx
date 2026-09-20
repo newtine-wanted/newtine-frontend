@@ -8,7 +8,7 @@ export function IssueGlossarySection({
 }) {
   return (
     <section className="flex flex-col gap-3">
-      <IssueDetailSectionHeading number="04" title="어려운 말 풀이" />
+      <IssueDetailSectionHeading title="어려운 말 풀이" />
       <dl className="divide-y divide-divider">
         {glossary.map((item, index) => (
           <div

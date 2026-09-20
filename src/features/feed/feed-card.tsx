@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { CategoryIcon } from "./category-icon";
 import type { FeedCardResponse } from "./types";
 
-const SUMMARY_INITIAL_DELAY_MS = 1500;
+const SUMMARY_INITIAL_DELAY_MS = 500;
 const SUMMARY_STAGGER_MS = 450;
 
 const categoryBackgrounds: Record<string, string> = {
@@ -46,7 +46,7 @@ export function FeedCard({
   }, [active, isInteracting, visibleSummaryCount]);
 
   return (
-    <article className="flex h-full min-h-[37.625rem] w-full flex-col gap-4 overflow-hidden border border-border bg-background p-6">
+    <article className="flex h-full min-h-max w-full flex-col gap-4 border border-border bg-background p-6">
       <div className="flex min-w-0 items-center justify-between gap-3">
         <span
           className="flex min-h-7 min-w-0 items-center gap-1.5 px-2.5 py-1 text-label font-normal text-foreground"
@@ -63,7 +63,7 @@ export function FeedCard({
         </span>
       </div>
 
-      <h2 className="text-[26px] leading-[1.3] font-extrabold tracking-[-0.02em] break-keep text-foreground">
+      <h2 className="min-w-0 text-[26px] leading-[1.3] font-extrabold tracking-[-0.02em] wrap-anywhere break-keep text-foreground">
         {card.title}
       </h2>
 
@@ -96,9 +96,7 @@ export function FeedCard({
         </ol>
       </div>
 
-      <div className="min-h-0 flex-1" />
-
-      <p className="text-center text-label font-bold text-muted">
+      <p className="mt-auto text-center text-label font-bold text-muted">
         탭하면 자세히 볼 수 있어요&nbsp;&nbsp;›
       </p>
     </article>

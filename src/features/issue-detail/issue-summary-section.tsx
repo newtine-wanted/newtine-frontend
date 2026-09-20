@@ -7,7 +7,7 @@ export function IssueSummarySection({
 }) {
   return (
     <section className="flex flex-col gap-3">
-      <IssueDetailSectionHeading number="01" title="3줄 요약" />
+      <IssueDetailSectionHeading title="3줄 요약" />
       <ol className="flex flex-col gap-2.5">
         {summaryLines.map((summary, index) => (
           <li key={index} className="flex gap-2.5">
