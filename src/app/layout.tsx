@@ -37,9 +37,19 @@ const neoHyundai = localFont({
 });
 
 export const metadata: Metadata = {
+  applicationName: "newtine",
   title: {
     default: "newtine",
     template: "newtine | %s",
+  },
+  description: "카드로 넘기는 정치 뉴스, 내 관심사대로 가볍게 시작해요.",
+  appleWebApp: {
+    capable: true,
+    title: "newtine",
+    statusBarStyle: "default",
+  },
+  formatDetection: {
+    telephone: false,
   },
 };
 
@@ -48,6 +58,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   colorScheme: "light",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
