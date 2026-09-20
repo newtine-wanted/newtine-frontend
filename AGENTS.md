@@ -20,9 +20,19 @@
 - 스타일링은 Tailwind CSS 4 유틸리티를 우선 사용한다. `src/app/globals.css`에는 공용 색상과 폰트 크기만 정의하고, 별도의 스타일 라이브러리를 임의로 추가하지 않는다.
 - 전역 클라이언트 상태는 Zustand, API 통신은 Axios를 사용한다. 실제 기능에 필요한 시점에 스토어와 공통 API 클라이언트를 추가한다.
 - 지역 상태는 컴포넌트 내부에서 관리한다. Zustand 스토어에 서버 요청 간 공유되는 사용자 상태를 저장하지 않는다.
+- 액세스 토큰은 UI 상태가 아니므로 Zustand·`localStorage`·`sessionStorage`·프런트엔드 쿠키에 저장하지 않고 `session.ts` 모듈의 비공개 메모리에서만 관리한다. Zustand에는 인증 상태와 화면에 필요한 사용자 정보만 둔다.
+- 리프레시 토큰은 프런트엔드 JavaScript에서 읽거나 저장하지 않는다. 백엔드가 설정한 `HttpOnly`·`Secure` 쿠키를 브라우저가 전송하는 방식을 사용하고, API 요청에는 공통 인증 인터셉터가 액세스 토큰을 주입하게 한다.
 - Server Component를 기본으로 유지하고, 상태·이벤트·브라우저 API가 필요한 최소 경계에만 `"use client"`를 지정한다.
 - Server Component에서 Client Component로 전달하는 props는 직렬화 가능한 값이어야 한다. `onClick` 같은 일반 함수나 인라인 이벤트 핸들러를 넘기지 않으며, 이벤트가 필요한 호출부 또는 최소 상호작용 영역을 Client Component로 분리한다. 단, 명시적인 Server Action은 예외다.
 - 소스는 `src/` 아래에 두고 `@/*` 별칭을 사용한다. `app`은 라우트와 조합, `features`는 사용자 흐름, `domain`은 여러 흐름이 공유하는 제품 개념, `components/ui`는 제품 의미를 모르는 공용 UI를 맡는다.
+- `src/app/**/page.tsx`는 Next.js 라우트 진입점이며 기본 컴포넌트 이름은 화면 의미를 나타내는 `*Page`로 작성한다(예: `FeedPage`, `EmailLoginPage`). 제품명 자체가 `Page`로 끝나면 `MyPagePage`처럼 중복하지 않고 `MyPage`로 작성한다.
+- 기능 계층에서 한 페이지의 화면 전체를 구성하는 컴포넌트는 `*Screen`으로 이름 짓고 파일명도 `*-screen.tsx`로 맞춘다. 재사용 컴포넌트에는 `Page` 접미사를 사용하지 않는다.
+- 화면 일부만 담당하는 컴포넌트는 역할에 따라 `*Content`, `*Form`, `*List`, `*Section`처럼 구체적으로 이름 짓는다. 전체 화면이 아닌 컴포넌트에는 `Screen`을 붙이지 않는다.
+- export한 컴포넌트 이름과 파일 이름은 같은 의미를 사용한다. 이름 변경 시 route, barrel export, import를 함께 갱신한다.
+- 컴포넌트는 UI 렌더링과 화면 표현에만 필요한 일시적인 상태를 담당한다. 비밀번호 표시, 모달 열림, 포인터 위치처럼 도메인과 무관한 UI 상태는 컴포넌트 내부에 둘 수 있다.
+- API 요청, 세션·토큰 관리, 응답 해석, 입력값의 도메인 검증, 요청 성공 이후의 분기와 라우팅은 컴포넌트에 직접 작성하지 않는다. 네트워크 요청은 `api.ts`, 세션은 `session.ts`, 순수 검증은 별도 모듈에 둔다.
+- 기능 상태와 사용자 흐름은 해당 feature의 `use-*` 훅으로 분리한다. `*Screen`과 `*Form`은 훅이 반환한 상태와 콜백을 UI에 연결하며 `api.ts`나 `session.ts`를 직접 import하지 않는다.
+- `components/ui`는 제품 도메인, API, 세션, 특정 제품 라우트를 알지 못해야 한다. 호출부가 전달한 `href`나 콜백을 접근성 있는 UI로 렌더링하는 것과 표현을 위한 로컬 상호작용은 허용한다.
 - 폴더와 `api`·`store`·`types` 파일은 실제 코드가 생길 때 추가한다. 빈 계층이나 사용하지 않는 추상화를 미리 만들지 않는다.
 - 패키지 관리자는 npm이다. 의존성을 변경할 때 `package-lock.json`을 함께 갱신한다. Node.js 버전은 `.nvmrc`를 따른다.
 

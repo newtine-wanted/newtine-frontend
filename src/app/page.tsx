@@ -1,14 +1,10 @@
-"use client";
+import type { Metadata } from "next";
+import { FeedScreen } from "@/features/feed";
 
-import { AppBar, Button } from "@/components/ui";
+export const metadata: Metadata = {
+  title: { absolute: "newtine | 메인 피드" },
+};
 
-export default function Home() {
-  return (
-    <div>
-      <AppBar showBack title="홈" action={<button>액션</button>} />
-      <Button variant="primary" onClick={() => alert("버튼")}>
-        버튼
-      </Button>
-    </div>
-  );
+export default function FeedPage() {
+  return <FeedScreen />;
 }

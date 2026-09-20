@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+  --text-stat: 56px; /* 56px: 관심 분석 총합처럼 화면에서 가장 크게 강조하는 숫자 */
+  --text-hero: 32px; /* 32px: 마이페이지 "My Page"처럼 화면 최상단의 가장 큰 라틴 제목 */
   --text-display: 28px; /* 28px: 화면에서 가장 크게 표시하는 대표 제목 */
   --text-title: 24px; /* 24px: Today's Feed 같은 페이지 제목과 큰 섹션 제목 */
   --text-heading: 20px; /* 20px: 상단 앱 바의 화면 제목과 카드·팝업 안의 주요 제목 */
