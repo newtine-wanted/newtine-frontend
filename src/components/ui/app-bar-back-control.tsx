@@ -14,7 +14,7 @@ export function AppBarBackControl({
 }) {
   const router = useRouter();
   const className =
-    "flex size-11 shrink-0 items-center justify-center text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+    "-ml-2.5 flex size-11 shrink-0 items-center justify-center text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
   const icon = (
     <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="size-6">
       <path
