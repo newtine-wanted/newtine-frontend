@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { AuthSessionProvider } from "@/features/auth-session";
+import { PwaInstallPrompt } from "@/features/pwa-install";
 import "./globals.css";
 
 const neoHyundai = localFont({
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           >
             <AuthSessionProvider>{children}</AuthSessionProvider>
           </main>
+          <PwaInstallPrompt />
         </div>
       </body>
     </html>
