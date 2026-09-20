@@ -9,7 +9,7 @@ export function IssueImpactSection({
 }) {
   return (
     <section className="flex flex-col gap-3">
-      <IssueDetailSectionHeading number="02" title="나한테 무슨 상관?" />
+      <IssueDetailSectionHeading title="나한테 무슨 상관?" />
 
       <div className="flex flex-col gap-3">
         {impacts.map((impact, index) => (

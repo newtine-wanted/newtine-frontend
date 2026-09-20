@@ -17,7 +17,7 @@ export function AuthScreenLayout({
   return (
     <div className="flex min-h-[max(640px,calc(100dvh_-_env(safe-area-inset-top)_-_env(safe-area-inset-bottom)))] flex-col justify-between gap-6 px-6 pt-8 pb-4">
       <div className="flex flex-col gap-6">
-        <div className="flex flex-col gap-1.5">
+        <div className="flex flex-col items-center gap-1.5 text-center">
           <Image
             src="/images/logo/newtine-logo-container.svg"
             width={110}

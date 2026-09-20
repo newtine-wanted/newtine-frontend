@@ -102,7 +102,7 @@ export function FeedCardDeck({
             swipe.completeTransition();
           }
         }}
-        className="relative z-10 h-full cursor-grab touch-pinch-zoom will-change-transform select-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent active:cursor-grabbing"
+        className="relative z-10 h-full min-h-max cursor-grab touch-pinch-zoom will-change-transform select-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent active:cursor-grabbing"
         style={currentCardStyle}
         {...swipe.pointerHandlers}
       >

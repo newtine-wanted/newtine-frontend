@@ -6,7 +6,6 @@ import {
   AsyncContentLoading,
 } from "@/components/ui";
 import { IssueArticlesSection } from "./issue-articles-section";
-import { IssueDetailBackButton } from "./issue-detail-back-button";
 import { IssueDetailHeader } from "./issue-detail-header";
 import { IssueGlossarySection } from "./issue-glossary-section";
 import { IssueImpactSection } from "./issue-impact-section";
@@ -27,7 +26,7 @@ export function IssueDetailScreen({ issueId }: { issueId: string }) {
     <div className="min-h-[calc(100dvh-env(safe-area-inset-top)-env(safe-area-inset-bottom))] bg-background">
       <div className="sticky top-[env(safe-area-inset-top)] z-20 border-b-2 border-foreground bg-background">
         <AppBar
-          backAction={<IssueDetailBackButton />}
+          backMode="history"
           title="이슈 상세"
           action={
             isReady ? <ShareIssueButton title={issue.title} /> : undefined

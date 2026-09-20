@@ -61,6 +61,7 @@ export function EmailLoginForm() {
         <Button type="submit" disabled={isSubmitting} className="w-full">
           {isSubmitting ? "로그인 중" : "로그인"}
         </Button>
+        <GuestBrowseLink />
         <p className="flex min-h-5 items-center justify-center gap-2 text-caption leading-5">
           <span className="text-muted">아직 계정이 없나요?</span>
           <Link
@@ -70,7 +71,6 @@ export function EmailLoginForm() {
             회원가입
           </Link>
         </p>
-        <GuestBrowseLink />
       </div>
     </form>
   );

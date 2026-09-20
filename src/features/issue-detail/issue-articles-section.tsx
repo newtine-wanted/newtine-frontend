@@ -9,7 +9,7 @@ export function IssueArticlesSection({
 }) {
   return (
     <section className="flex flex-col gap-3">
-      <IssueDetailSectionHeading number="05" title="기사 원문" />
+      <IssueDetailSectionHeading title="기사 원문" />
       <p className="text-label text-subtle">기본 접힘 · 탭하면 펼침</p>
 
       <details className="group border border-border bg-background">
