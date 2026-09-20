@@ -1,7 +1,21 @@
-import { createMockFeedApi, type MockFeedScenario } from "./mock-api";
-import type { FeedApi } from "./types";
+import { apiClient } from "@/lib/api-client";
+import type { FeedApi, FeedResponse, IssueInteractionResponse } from "./types";
 
-// 상태 확인: default / empty / error 중 하나로 바꿔 목업 응답을 확인한다.
-const scenario: MockFeedScenario = "default";
+export const feedApi: FeedApi = {
+  async getFeed(cursor) {
+    const response = await apiClient.get<FeedResponse>("/api/feed", {
+      params: { cursor: cursor || undefined },
+    });
 
-export const feedApi: FeedApi = createMockFeedApi({ scenario });
+    return response.data;
+  },
+
+  async recordInteraction(issueId, request) {
+    const response = await apiClient.post<IssueInteractionResponse>(
+      `/api/issues/${encodeURIComponent(issueId)}/interactions`,
+      request,
+    );
+
+    return response.data;
+  },
+};

@@ -38,7 +38,11 @@ export function useFeedScreen() {
       }
       if (direction === "right") {
         feed.likeCurrentCard();
-        showToast("관심 있다고 기억할게요");
+        showToast(
+          feed.isAuthenticated
+            ? "관심 있다고 기억할게요"
+            : "로그인 전 기록은 저장되지 않아요",
+        );
         return;
       }
       if (direction === "up") {
