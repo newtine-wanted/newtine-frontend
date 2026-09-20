@@ -40,6 +40,10 @@ export async function requestLogout(): Promise<void> {
   await apiClient.post("/api/auth/logout");
 }
 
+export async function requestWithdraw(): Promise<void> {
+  await apiClient.post("/api/auth/withdraw");
+}
+
 export async function getMyOnboarding(): Promise<OnboardingStateResult> {
   const response =
     await apiClient.get<OnboardingStateResult>("/api/me/onboarding");

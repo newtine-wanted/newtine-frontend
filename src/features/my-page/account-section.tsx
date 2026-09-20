@@ -1,19 +1,23 @@
 import Link from "next/link";
+import { useAccountActions } from "./use-account-actions";
 import { WithdrawDialog } from "./withdraw-dialog";
 
 const focusClasses =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 const navRowClasses = `flex h-11 w-full items-center justify-between text-body text-foreground-body ${focusClasses}`;
 
-export function AccountSection({
-  appVersion,
-  likedCount,
-  swipeCount,
-}: {
-  appVersion: string;
-  likedCount: number;
-  swipeCount: number;
-}) {
+export function AccountSection() {
+  const {
+    clearWithdrawError,
+    handleLogout,
+    handleWithdraw,
+    isBusy,
+    isLoggingOut,
+    isWithdrawing,
+    logoutError,
+    withdrawError,
+  } = useAccountActions();
+
   return (
     <section
       aria-labelledby="account-heading"
@@ -44,21 +48,35 @@ export function AccountSection({
             </span>
           </Link>
         </li>
-        <li className="flex h-11 items-center justify-between text-body text-foreground-body">
-          앱 버전
-          <span className="text-caption text-muted">{appVersion}</span>
-        </li>
         <li>
           <button
             type="button"
-            className={`flex h-11 w-full items-center text-left text-body text-foreground-body ${focusClasses}`}
+            disabled={isBusy}
+            onClick={() => void handleLogout()}
+            className={`flex h-11 w-full items-center text-left text-body text-foreground-body disabled:opacity-40 ${focusClasses}`}
           >
-            로그아웃
+            {isLoggingOut ? "로그아웃 중..." : "로그아웃"}
           </button>
         </li>
       </ul>
 
-      <WithdrawDialog likedCount={likedCount} swipeCount={swipeCount} />
+      {logoutError && (
+        <p
+          role="alert"
+          aria-live="assertive"
+          className="pt-2 text-label text-danger"
+        >
+          {logoutError}
+        </p>
+      )}
+
+      <WithdrawDialog
+        disabled={isBusy}
+        errorMessage={withdrawError}
+        isSubmitting={isWithdrawing}
+        onConfirm={() => void handleWithdraw()}
+        onOpen={clearWithdrawError}
+      />
     </section>
   );
 }
