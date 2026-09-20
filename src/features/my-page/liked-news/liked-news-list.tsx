@@ -15,6 +15,7 @@ export function LikedNewsList() {
   const {
     categories,
     categoriesError,
+    displayedCategoryName,
     isInitialLoading,
     isLoadingMore,
     items,
@@ -25,7 +26,6 @@ export function LikedNewsList() {
     nextCursor,
     retry,
     selectCategory,
-    selectedCategoryName,
     selectedCode,
     totalCount,
   } = useLikedNewsContext();
@@ -53,7 +53,7 @@ export function LikedNewsList() {
   } else if (totalCount === 0) {
     content = (
       <LikedNewsEmptyState
-        topic={selectedCode ? selectedCategoryName : undefined}
+        topic={selectedCode ? (displayedCategoryName ?? undefined) : undefined}
       />
     );
   } else {

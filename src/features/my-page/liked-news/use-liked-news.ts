@@ -18,6 +18,8 @@ export function useLikedNews() {
   const [categories, setCategories] = useState<LikedNewsCategory[]>([]);
   const [categoriesError, setCategoriesError] = useState<string | null>(null);
   const [selectedCode, setSelectedCode] = useState<string | null>(null);
+  // 이름과 건수가 따로 움직이면 헤더가 틀린 값을 말하므로 응답과 함께 전진시킨다.
+  const [displayedCode, setDisplayedCode] = useState<string | null>(null);
   const [items, setItems] = useState<LikedIssue[]>([]);
   const [totalCount, setTotalCount] = useState(0);
   const [nextCursor, setNextCursor] = useState<string | null>(null);
@@ -67,6 +69,7 @@ export function useLikedNews() {
       .then((response) => {
         if (ignore) return;
         setLoadError(null);
+        setDisplayedCode(selectedCode);
         setItems(response.items);
         setTotalCount(response.totalCount);
         setNextCursor(response.nextCursor);
@@ -159,13 +162,17 @@ export function useLikedNews() {
     }
   }, [isLoadingMore, nextCursor, selectedCode]);
 
-  const selectedCategoryName =
-    categories.find((category) => category.code === selectedCode)?.name ??
-    "전체";
+  // 이름을 모르는 코드를 "전체"로 부르면 필터가 걸린 화면에 거짓 안내가 나간다.
+  const displayedCategoryName =
+    displayedCode === null
+      ? "전체"
+      : (categories.find((category) => category.code === displayedCode)?.name ??
+        null);
 
   return {
     categories,
     categoriesError,
+    displayedCategoryName,
     isInitialLoading,
     isLoadingMore,
     items,
@@ -176,7 +183,6 @@ export function useLikedNews() {
     nextCursor,
     retry,
     selectCategory,
-    selectedCategoryName,
     selectedCode,
     totalCount,
   };

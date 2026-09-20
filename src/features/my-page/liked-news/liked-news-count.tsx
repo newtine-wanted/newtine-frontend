@@ -3,11 +3,12 @@
 import { useLikedNewsContext } from "./liked-news-provider";
 
 export function LikedNewsCount() {
-  const { selectedCategoryName, totalCount } = useLikedNewsContext();
+  const { displayedCategoryName, totalCount } = useLikedNewsContext();
 
   return (
-    <span>
-      {selectedCategoryName} {totalCount}건
+    <span aria-live="polite">
+      {displayedCategoryName ? `${displayedCategoryName} ` : ""}
+      {totalCount}건
     </span>
   );
 }
