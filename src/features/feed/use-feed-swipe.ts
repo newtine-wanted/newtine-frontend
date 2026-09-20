@@ -7,6 +7,7 @@ import {
   useState,
   type PointerEvent as ReactPointerEvent,
 } from "react";
+import { FEED_CARD_VERTICAL_GAP_PX } from "./feed-card-layout";
 
 const AXIS_LOCK_DISTANCE = 12;
 const TAP_MAX_DISTANCE = 8;
@@ -95,6 +96,7 @@ export function useFeedSwipe({
         direction === "left" || direction === "right" ? "x" : "y";
       const width = measuredViewport?.width ?? viewport.width;
       const height = measuredViewport?.height ?? viewport.height;
+      const verticalTravel = height + FEED_CARD_VERTICAL_GAP_PX;
       setViewport({ width, height });
       const nextOffset = {
         x:
@@ -105,9 +107,9 @@ export function useFeedSwipe({
               : 0,
         y:
           direction === "up"
-            ? -height * 1.1
+            ? -verticalTravel
             : direction === "down"
-              ? height * 1.1
+              ? verticalTravel
               : 0,
       };
 
