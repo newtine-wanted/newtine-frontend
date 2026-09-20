@@ -27,7 +27,6 @@ export function LikedNewsList() {
     retry,
     selectCategory,
     selectedCode,
-    totalCount,
   } = useLikedNewsContext();
 
   const contentRef = useRef<HTMLDivElement>(null);
@@ -69,7 +68,7 @@ export function LikedNewsList() {
         }}
       />
     );
-  } else if (totalCount === 0) {
+  } else if (items.length === 0) {
     content = (
       <LikedNewsEmptyState
         topic={selectedCode ? (displayedCategoryName ?? undefined) : undefined}
