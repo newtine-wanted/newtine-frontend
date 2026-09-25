@@ -1,3 +1,5 @@
+import { PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH } from "@/domain/auth";
+
 export interface SignupFieldErrors {
   email?: string;
   password?: string;
@@ -21,10 +23,10 @@ export function validateSignupCredentials(
 
   if (!password) {
     errors.password = "비밀번호를 입력해 주세요.";
-  } else if (password.length < 12) {
-    errors.password = "비밀번호는 12자 이상 입력해 주세요.";
-  } else if (password.length > 128) {
-    errors.password = "비밀번호는 128자 이하로 입력해 주세요.";
+  } else if (password.length < PASSWORD_MIN_LENGTH) {
+    errors.password = `비밀번호는 ${PASSWORD_MIN_LENGTH}자 이상 입력해 주세요.`;
+  } else if (password.length > PASSWORD_MAX_LENGTH) {
+    errors.password = `비밀번호는 ${PASSWORD_MAX_LENGTH}자 이하로 입력해 주세요.`;
   }
 
   if (!passwordConfirmation) {
