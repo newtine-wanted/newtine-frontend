@@ -1,3 +1,5 @@
+import { PASSWORD_MIN_LENGTH } from "@/domain/auth";
+
 export interface LoginFieldErrors {
   email?: string;
   password?: string;
@@ -17,8 +19,8 @@ export function validateLoginCredentials(
 
   if (!password) {
     errors.password = "비밀번호를 입력해 주세요.";
-  } else if (password.length < 12) {
-    errors.password = "비밀번호는 12자 이상 입력해 주세요.";
+  } else if (password.length < PASSWORD_MIN_LENGTH) {
+    errors.password = `비밀번호는 ${PASSWORD_MIN_LENGTH}자 이상 입력해 주세요.`;
   }
 
   return errors;
